@@ -5,6 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - http
 
 includes:
+  - environments
   - authentication
   - api/integrations
   - api/lists
