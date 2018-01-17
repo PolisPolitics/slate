@@ -31,16 +31,16 @@ customerId | true | Customer this resource belongs to.
 securityGroupId | true | Security group of this resource.
 contactsCount | false | (Read only field) Total number of contacts within this list.
 
-### Data
+### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
 name | true | List name.
 organizationId | true | Organization owner of this list.
 
-### Meta
+### meta
 
-[See documentation](#meta).
+[See documentation](#metadata-object).
 
 ## Create a list
 
@@ -242,7 +242,15 @@ limit | true | Limit results returned. Usefull for paggination.
 skip | true | Data offset index. Usefull for paggination.
 sort | true | Sort column. Ex.: `["data/name","ASC"]`
 
-### Common Filters
+### Allowed attributes
+
+List of attributes that are allowed to be used in a filter query.
+
+* `/customerId`
+* `/data/organizationId`
+* `/data/name`
+
+### Common filters queries
 
 Filter by organization:
 

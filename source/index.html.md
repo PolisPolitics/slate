@@ -8,8 +8,10 @@ includes:
   - authentication
   - api/integrations
   - api/lists
+  - api/contacts
   - errors
   - filters
+  - meta
 
 search: true
 ---
