@@ -9,7 +9,6 @@ POST /v1/integrations/credentials HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
-Cache-Control: no-cache
 
 {
 	"data": {
@@ -23,10 +22,10 @@ Cache-Control: no-cache
 > Response
 
 ```http
-201 Created
+HTTP 201 Created
 ```
 
-If you are integrating with Polis and you'd like Polis to push contact interaction back to your application, you need to set the `access_token` used to make requests to your API.
+If you are integrating with Polis and you'd like Polis to push contact interactions back to your application, you need to set the `access_token` used to make requests to your API.
 
 ### HTTP Request
 
