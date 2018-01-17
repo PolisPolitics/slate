@@ -17,7 +17,7 @@
       },
       "address": {
         "country": "United States of America",
-        "location": {
+        "position": {
           "type": "Point",
           "coordinates": [
             -71.067513,
@@ -50,7 +50,6 @@
       "age": 30
     },
     "notes": "test notes",
-    "status": "pending",
     "fields": {
       "available": "true",
       "bestpet": "Cat",
@@ -59,6 +58,10 @@
         "Snake"
       ],
       "mothername": "Jane Doe"
+    },
+    "integration": {
+      "integrationId": "e5f5b8b9-9275-426d-ae52-3e684b6c7c76",
+      "externalId": 1001,
     },
     "reservation": {
       "reserved": false
@@ -91,9 +94,9 @@ Attribute | Required? | Description
 listId | true | List identifier this contact belongs to.
 profile | true | Contact profile [details](#data-profile).
 notes | false | String with custom text (max length: 2048 characters).
-status | false | Contact status.
 fields | true | Custom fields [details](#data-fields).
-reservation | false | Route reservation []().
+integration | false | Integration information [details](#data-integration).
+reservation | false | Route reservation [details](#data-reservation).
 contacted | false | Flag indicating if the contact has ever been contacted.
 
 ### data/profile
@@ -124,7 +127,7 @@ suffix | false | Name suffix.
 Attribute | Required? | Description
 --------- | --------- | -----------
 country | false | Country.
-location | false | Coordinates in [GeoJSON](https://tools.ietf.org/html/rfc7946) format (only `Point` is supported).
+position | false | Coordinates in [GeoJSON](https://tools.ietf.org/html/rfc7946) format (only `Point` is supported).
 formatted | false | Full address.
 streetAddress | false | Street address decomposed.
 postalCode | false | Postal code.
@@ -147,10 +150,18 @@ unitType | false | Unit type (e.g.: suite, unit, apartment).
 
 This is a flat object that contains custom data for this contact.
 Allowed values:
+
 * `String`
 * `Number`
 * `Array` - not containing objects.
 * `Boolean`
+
+### data/integration
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+integrationId | false | Identifier of the integration this contact as pulled from.
+externalId | false | Identifier that identifies this contact on an external platform. This can be either an integer or a string.
 
 ### data/reservation
 
@@ -184,7 +195,7 @@ Authorization: Bearer {access_token}
       },
       "address": {
         "country": "United States of America",
-        "coordinates": {
+        "position": {
           "type": "Point",
           "coordinates": [
             -71.067513,
@@ -248,7 +259,7 @@ Authorization: Bearer {access_token}
       },
       "address": {
         "country": "United States of America",
-        "coordinates": {
+        "position": {
           "type": "Point",
           "coordinates": [
             -71.067513,
@@ -281,7 +292,6 @@ Authorization: Bearer {access_token}
       "age": 30
     },
     "notes": "test notes",
-    "status": "pending",
     "fields": {
       "dogliker": "true",
       "bestpet": "Cat",
@@ -315,4 +325,162 @@ Creates a new contact in an list.
 
 `POST https://api.polisapp.com/v1/contacts`
 
+## Create multiple contacts
+
+> Example Request
+
+```http
+POST /v1/contacts/bulk HTTP/1.1
+Host: api.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+
+{
+  "data": [
+    {
+      "data": {
+        "listId": "2210d9ea-1870-4b8d-8803-ce426e33a96b",
+        "profile": {
+          "name": {
+            "first": "John",
+            "last": "Snow",
+            "title": "Mr"
+          },
+          "address": {
+            "country": "United States of America",
+            "position": {
+              "type": "Point",
+              "coordinates": [
+                -71.067513,
+                42.3520436
+              ]
+            },
+            "formatted": "100 Boylseton Street, Boston, MA 02266, USA",
+            "streetAddress": {
+              "formatted": "100 Boylseton Street",
+              "number": "100",
+              "route": "Boylseton Street"
+            },
+            "postalCode": "02266",
+            "state": "Massachusettes",
+            "county": "Suffolk County",
+            "city": "Boston",
+            "neighborhood": "Downtown Boston"
+          },
+          "email": "john@testemail.com",
+          "phone": [
+            "9781234568",
+            "3171234568",
+            "2631234568"
+          ],
+          "gender": "m",
+          "languages": [
+            "en"
+          ],
+          "birthdate": "1987-09-03",
+          "age": 30
+        },
+        "notes": "test notes",
+        "fields": {
+          "dogliker": "true",
+          "bestpet": "Cat",
+          "buypet": [
+            "Horse",
+            "Snake"
+          ],
+          "catlikeness": 4,
+          "mothername": "Jane Doe"
+        }
+      }
+    }
+  ]
+}
+```
+
+> Example Response
+
+```json
+{
+  "data": [
+    {
+      "id": "0d011563-c7c6-4a09-8fde-f3b8c6f2b22d",
+      "customerId": "e3899af9-2b74-45dd-b2b1-d7be8ad47bae",
+      "securityGroupId": "d4a1d326-a2c7-415c-bfea-dd9fc84f8d00",
+      "data": {
+        "listId": "2210d9ea-1870-4b8d-8803-ce426e33a96b",
+        "profile": {
+          "name": {
+            "first": "John",
+            "last": "Snow",
+            "title": "Mr"
+          },
+          "address": {
+            "country": "United States of America",
+            "position": {
+              "type": "Point",
+              "coordinates": [
+                -71.067513,
+                42.3520436
+              ]
+            },
+            "formatted": "100 Boylseton Street, Boston, MA 02266, USA",
+            "streetAddress": {
+              "formatted": "100 Boylseton Street",
+              "number": "100",
+              "route": "Boylseton Street"
+            },
+            "postalCode": "02266",
+            "state": "Massachusettes",
+            "county": "Suffolk County",
+            "city": "Boston",
+            "neighborhood": "Downtown Boston"
+          },
+          "email": "john@testemail.com",
+          "phone": [
+            "9781234568",
+            "3171234568",
+            "2631234568"
+          ],
+          "gender": "m",
+          "languages": [
+            "en"
+          ],
+          "birthdate": "1987-09-03",
+          "age": 30
+        },
+        "notes": "test notes",
+        "fields": {
+          "dogliker": "true",
+          "bestpet": "Cat",
+          "buypet": [
+            "Horse",
+            "Snake"
+          ],
+          "catlikeness": 4,
+          "mothername": "Jane Doe"
+        },
+        "reservation": {
+          "reserved": false
+        },
+        "contacted": false
+      },
+      "meta": {
+        "created": "2017-12-15T19:46:01.594Z",
+        "modified": "2017-12-15T19:46:02.219Z",
+        "isDeleted": false,
+        "resource": "contacts",
+        "createdBy": "11b78eab-8b3e-45e7-804c-4a94045367d4",
+        "modifiedBy": "11b78eab-8b3e-45e7-804c-4a94045367d4",
+        "etag": "MTUxMzM2NzE2NTI3MzM3NDcyMA=="
+      }
+    }
+  ]
+}
+```
+
+Creates multiple contacts in an list.
+
+### HTTP Request
+
+`POST https://api.polisapp.com/v1/contacts/bulk`
 
