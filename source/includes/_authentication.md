@@ -44,7 +44,7 @@ Once you have the `authorization_code`, you can exchange it for the `access_toke
 
 `POST https://api.polisapp.com/auth/oauth2/token`
 
-### Query Parameters
+### Body Parameters
 
 Parameter | Description
 --------- | -----------

@@ -145,7 +145,7 @@ PATCH /v1/lists/8c57eca4-68c1-4e8b-a83d-e34284121e9d HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
-
+ETag: {etag_value}
 {
   "data": [
     {"op":"replace", "path":"/name", "value": "New List Name"}
