@@ -2,13 +2,24 @@
 
 ## 1. Authorization Code
 
-From your application, redirect your customer to the following URL, replacing the `clientId` with the one provided for your application.
+From your application, redirect your customer to the following URL
 
-`https://knock.polisapp.com/oauth/authorize?clientId={clientId}`
+`https://knock.polisapp.com/oauth/authorize?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}&state={state}`
 
-When the authorization is successful, the user will be redirected back to your website with the `authorization_code` and `organizationId`. The redirect URL is configured during your application registration.
+Where the parameters adhere to the standards in [RFC-6749 The OAuth 2.0 authorization framework](https://tools.ietf.org/html/rfc6749#section-4.1.1)
 
-`https://my.app.com/authorize?code={authorization_code}&organizationId={organizationId}`
+Parameter | Required? | Description
+--------- | -------- | -----------
+response_type | true |This value must always be set to 'code' 
+client_id | true |Client ID of the application provided during registration.
+redirect_uri | no | The redirect uri to which your customer must be directed to after authorization
+state | no | An opaque value used to maintain state between the request and callback
+
+
+When the authorization is successful, the user will be redirected back to your website with the `authorization_code` , `organizationId` and `state` (if provided). The redirect URL is based on either the one configured during your application registration or the `redirect_uri` in the authorization request url. Below is an example redirect URL
+
+
+`https://my.app.com/authorize?code={authorization_code}&organizationId={organizationId}&state={state}`
 
 The `organizationId` is the target organization selected by the customer.
 
