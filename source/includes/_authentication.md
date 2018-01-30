@@ -19,7 +19,7 @@ state | no | An opaque value used to maintain state between the request and call
 When the authorization is successful, the user will be redirected back to your website with the `authorization_code` , `organizationId` and `state` (if provided). The redirect URL is based on either the one configured during your application registration or the `redirect_uri` in the authorization request url. Below is an example redirect URL
 
 
-`https://my.app.com/authorize?code={authorization_code}&organizationId={organizationId}&state={state}`
+`https://my.app.com/authorize?code={authorization_code}&state={state}&organizationId={organizationId}`
 
 The `organizationId` is the target organization selected by the customer.
 
