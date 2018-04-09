@@ -189,6 +189,18 @@ You can only patch attributes inside <b>data</b> key.
 
 ## Delete a list
 
+### HTTP Request
+`DELETE https://api.polisapp.com/v1/lists/{listId}`
+
+> Example Request
+
+```http
+DELETE https://api.polisapp.com/v1/lists/8c57eca4-68c1-4e8b-a83d-e34284121e9d
+Host: api.polisapp.com
+Authorization: Bearer {access_token}
+```
+
+
 ## Get all lists
 
 > Example Request

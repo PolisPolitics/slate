@@ -484,3 +484,364 @@ Creates multiple contacts in an list.
 
 `POST https://api.polisapp.com/v1/contacts/bulk`
 
+## Retrieve a Contact
+
+### HTTP Request
+`GET https://api.polisapp.com/v1/contacts/{contactsId}`
+
+> Example Request
+
+```http
+GET /v1/contacts/bfced18e-1b90-433b-8f4e-d905d2406524 HTTP/1.1
+Host: api.polisapp.com
+Authorization: Bearer {access_token}
+```
+
+ 
+
+> Example Response
+
+```json
+{
+   "id":"bfced18e-1b90-433b-8f4e-d905d2406524",
+   "data":{
+      "fields":{
+
+      },
+      "listId":"504f3788-f2e0-4b0e-acbe-cb06d9f51923",
+      "status":"pending",
+      "profile":{
+         "age":26,
+         "name":{
+            "anglican":{
+               "given":"Jon",
+               "title":"Mr",
+               "surname":"Doe",
+               "middlename":"M"
+            }
+         },
+         "email":"jondoe@gmail.com",
+         "phone":[
+            "9538295457"
+         ],
+         "gender":"m",
+         "location":{
+            "coords":{
+               "lat":42.3530125,
+               "lng":-71.1285818
+            },
+            "country":{
+               "abbr":"us",
+               "name":"United States"
+            },
+            "locality":{
+               "abbr":"Boston",
+               "name":"Boston",
+               "type":"locality"
+            },
+            "formatted":"66 Chester St, Boston, MA 02134, USA",
+            "statoid01":{
+               "abbr":"MA",
+               "name":"Massachusetts",
+               "type":"state"
+            },
+            "statoid02":{
+               "abbr":"Suffolk County",
+               "name":"Suffolk County",
+               "type":"county"
+            },
+            "statoid03":{
+               "abbr":"Boston",
+               "name":"Boston",
+               "type":"city"
+            },
+            "statoid04":{
+               "abbr":"Allston",
+               "name":"Allston",
+               "type":"neighborhood"
+            },
+            "postalCode":"02134",
+            "streetAddress":{
+               "unit":"1",
+               "route":"Chester Street",
+               "number":"66",
+               "formatted":"66 Chester Street 1"
+            }
+         },
+         "birthdate":"1992-01-25T00:00:00.000Z",
+         "languages":[
+            "en"
+         ]
+      },
+      "contacted":false,
+      "reservation":{
+         "reserved":false
+      }
+   },
+   "meta":{
+      "created":"2018-03-01T22:06:25.079Z",
+      "modified":"2018-03-08T18:59:10.185Z",
+      "resource":"contacts",
+      "createdBy":"ac18d844-309b-40ea-ba23-1828870f2a85",
+      "isDeleted":false,
+      "modifiedBy":"ac18d844-309b-40ea-ba23-1828870f2a85",
+      "etag":"55a-cx8KC3r7sKhkY48vp3wJiJSH8bc"
+   },
+   "customerId":"eb95a33f-80f3-4776-8c4c-f3bd6a7b4349",
+   "securityGroupId":"924cbcbc-fe4c-4e74-b7e5-62d87bb7fc04"
+}
+```
+
+## Update a Contact
+
+### HTTP Request
+`PATCH https://api.polisapp.com/v1/contacts/{contactId}`
+
+> Example Request
+
+```http
+PATCH /v1/contacts/bfced18e-1b90-433b-8f4e-d905d2406524 HTTP/1.1
+Host: api.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+ETag: {etag_value}
+{  
+   "data":[  
+      {  
+         "op":"replace",
+         "path":"/profile/email",
+         "value":"abc@gmail.com"
+      }
+   ]
+}
+```
+
+> Example Response
+
+```json
+{
+   "id":"bfced18e-1b90-433b-8f4e-d905d2406524",
+   "data":{
+      "fields":{
+
+      },
+      "listId":"504f3788-f2e0-4b0e-acbe-cb06d9f51923",
+      "status":"pending",
+      "profile":{
+         "age":26,
+         "name":{
+            "anglican":{
+               "given":"Jon",
+               "title":"Mr",
+               "surname":"Doe",
+               "middlename":"M"
+            }
+         },
+         "email":"abc@gmail.com",
+         "phone":[
+           "9538295457"
+         ],
+         "gender":"m",
+         "location":{
+            "coords":{
+               "lat":42.3530125,
+               "lng":-71.1285818
+            },
+            "country":{
+               "abbr":"us",
+               "name":"United States"
+            },
+            "locality":{
+               "abbr":"Boston",
+               "name":"Boston",
+               "type":"locality"
+            },
+            "formatted":"66 Chester St, Boston, MA 02134, USA",
+            "statoid01":{
+               "abbr":"MA",
+               "name":"Massachusetts",
+               "type":"state"
+            },
+            "statoid02":{
+               "abbr":"Suffolk County",
+               "name":"Suffolk County",
+               "type":"county"
+            },
+            "statoid03":{
+               "abbr":"Boston",
+               "name":"Boston",
+               "type":"city"
+            },
+            "statoid04":{
+               "abbr":"Allston",
+               "name":"Allston",
+               "type":"neighborhood"
+            },
+            "postalCode":"02134",
+            "streetAddress":{
+               "unit":"1",
+               "route":"Chester Street",
+               "number":"66",
+               "formatted":"66 Chester Street 1"
+            }
+         },
+         "birthdate":"1992-01-25T00:00:00.000Z",
+         "languages":[
+            "en"
+         ]
+      },
+      "contacted":false,
+      "reservation":{
+         "reserved":false
+      }
+   },
+   "meta":{
+      "created":"2018-03-01T22:06:25.079Z",
+      "modified":"2018-04-09T22:26:55.349Z",
+      "resource":"contacts",
+      "createdBy":"ac18d844-309b-40ea-ba23-1828870f2a85",
+      "isDeleted":false,
+      "modifiedBy":"3d90f333-82d6-48c1-9287-da3da756b263",
+      "etag":"540-pTcXJbpXMAU0PcsoVd/tPHdehRs"
+   },
+   "customerId":"eb95a33f-80f3-4776-8c4c-f3bd6a7b4349",
+   "securityGroupId":"924cbcbc-fe4c-4e74-b7e5-62d87bb7fc04"
+}
+```
+
+## Delete a Contact
+
+### HTTP Request
+`DELETE https://api.polisapp.com/v1/contacts/{contactId}`
+
+> Example Request
+
+```http
+DELETE https://api.polisapp.com/v1/contacts/4155c6a9-f3fc-475f-a76e-df203d28f55a
+Host: api.polisapp.com
+Authorization: Bearer {access_token}
+
+```
+
+## Get all Contacts
+Retrieves a list of contacts filtered by a criteria
+
+### HTTP Request
+`GET https://api.polisapp.com/v1/contacts?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+filter | true | Query to filter data. Example filter : /data/listId = {listId}
+limit | true | Limit results returned. Usefull for paggination.
+skip | true | Data offset index. Usefull for paggination.
+sort | true | Sort column. Ex.: `["data/name","ASC"]`
+
+> Example Request
+
+```http
+GET /v1/contacts?filter=/data/listId+eq+"504f3788-f2e0-4b0e-acbe-cb06d9f51923"&limit=100&skip=0&sort=["data/name","ASC"] HTTP/1.1
+Host: api.polisapp.com
+Authorization: Bearer {access_token}
+```
+
+> Example Response
+
+```json
+{
+   "data":[
+      {
+         "id":"bfced18e-1b90-433b-8f4e-d905d2406524",
+         "data":{
+            "fields":{
+
+            },
+            "listId":"504f3788-f2e0-4b0e-acbe-cb06d9f51923",
+            "status":"pending",
+            "profile":{
+               "age":26,
+               "name":{
+                  "anglican":{
+                     "given":"Jon",
+                     "title":"Mr",
+                     "surname":"Doe",
+                     "middlename":"M"
+                  }
+               },
+               "email":"abc@gmail.com",
+               "phone":[
+
+               ],
+               "gender":"m",
+               "location":{
+                  "coords":{
+                     "lat":42.3530125,
+                     "lng":-71.1285818
+                  },
+                  "country":{
+                     "abbr":"us",
+                     "name":"United States"
+                  },
+                  "locality":{
+                     "abbr":"Boston",
+                     "name":"Boston",
+                     "type":"locality"
+                  },
+                  "formatted":"66 Chester St, Boston, MA 02134, USA",
+                  "statoid01":{
+                     "abbr":"MA",
+                     "name":"Massachusetts",
+                     "type":"state"
+                  },
+                  "statoid02":{
+                     "abbr":"Suffolk County",
+                     "name":"Suffolk County",
+                     "type":"county"
+                  },
+                  "statoid03":{
+                     "abbr":"Boston",
+                     "name":"Boston",
+                     "type":"city"
+                  },
+                  "statoid04":{
+                     "abbr":"Allston",
+                     "name":"Allston",
+                     "type":"neighborhood"
+                  },
+                  "postalCode":"02134",
+                  "streetAddress":{
+                     "unit":"1",
+                     "route":"Chester Street",
+                     "number":"66",
+                     "formatted":"66 Chester Street 1"
+                  }
+               },
+               "birthdate":"1992-01-25T00:00:00.000Z",
+               "languages":[
+                  "en"
+               ]
+            },
+            "contacted":false,
+            "reservation":{
+               "reserved":false
+            }
+         },
+         "meta":{
+            "created":"2018-03-01T22:06:25.079Z",
+            "modified":"2018-04-09T22:26:55.349Z",
+            "resource":"contacts",
+            "createdBy":"ac18d844-309b-40ea-ba23-1828870f2a85",
+            "isDeleted":false,
+            "modifiedBy":"3d90f333-82d6-48c1-9287-da3da756b263",
+            "etag":"540-pTcXJbpXMAU0PcsoVd/tPHdehRs"
+         },
+         "customerId":"eb95a33f-80f3-4776-8c4c-f3bd6a7b4349",
+         "securityGroupId":"924cbcbc-fe4c-4e74-b7e5-62d87bb7fc04"
+      }
+   ],
+   "meta":{
+
+   }
+}
+```
