@@ -503,92 +503,61 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-   "id":"bfced18e-1b90-433b-8f4e-d905d2406524",
-   "data":{
-      "fields":{
-
-      },
-      "listId":"504f3788-f2e0-4b0e-acbe-cb06d9f51923",
-      "status":"pending",
-      "profile":{
-         "age":26,
-         "name":{
-            "anglican":{
-               "given":"Jon",
-               "title":"Mr",
-               "surname":"Doe",
-               "middlename":"M"
-            }
-         },
-         "email":"jondoe@gmail.com",
-         "phone":[
-            "9538295457"
-         ],
-         "gender":"m",
-         "location":{
-            "coords":{
-               "lat":42.3530125,
-               "lng":-71.1285818
+    "id": "bfced18e-1b90-433b-8f4e-d905d2406524",
+    "data": {
+        "fields": {
+            "likeness": false,
+            "available": false
+        },
+        "listId": "81414d4e-e237-467e-81f1-80cbe6652231",
+        "profile": {
+            "name": {
+                "first": "Wilber",
+                "last": "Mertz"
             },
-            "country":{
-               "abbr":"us",
-               "name":"United States"
+            "address": {
+                "country": "US",
+                "position": {
+                    "type": "Point",
+                    "coordinates": [
+                        -74.07787,
+                        40.70426
+                    ]
+                },
+                "formatted": "53 Arlington Ave Apt 1  Jersey City NJ 7305",
+                "streetAddress": {
+                    "unit": "1",
+                    "route": "Arlington Ave",
+                    "number": "53",
+                    "formatted": "53 Arlington Ave Apt 1"
+                },
+                "postalCode": "7305",
+                "state": "NJ",
+                "county": "Jersey City"
             },
-            "locality":{
-               "abbr":"Boston",
-               "name":"Boston",
-               "type":"locality"
-            },
-            "formatted":"66 Chester St, Boston, MA 02134, USA",
-            "statoid01":{
-               "abbr":"MA",
-               "name":"Massachusetts",
-               "type":"state"
-            },
-            "statoid02":{
-               "abbr":"Suffolk County",
-               "name":"Suffolk County",
-               "type":"county"
-            },
-            "statoid03":{
-               "abbr":"Boston",
-               "name":"Boston",
-               "type":"city"
-            },
-            "statoid04":{
-               "abbr":"Allston",
-               "name":"Allston",
-               "type":"neighborhood"
-            },
-            "postalCode":"02134",
-            "streetAddress":{
-               "unit":"1",
-               "route":"Chester Street",
-               "number":"66",
-               "formatted":"66 Chester Street 1"
-            }
-         },
-         "birthdate":"1992-01-25T00:00:00.000Z",
-         "languages":[
-            "en"
-         ]
-      },
-      "contacted":false,
-      "reservation":{
-         "reserved":false
-      }
-   },
-   "meta":{
-      "created":"2018-03-01T22:06:25.079Z",
-      "modified":"2018-03-08T18:59:10.185Z",
-      "resource":"contacts",
-      "createdBy":"ac18d844-309b-40ea-ba23-1828870f2a85",
-      "isDeleted":false,
-      "modifiedBy":"ac18d844-309b-40ea-ba23-1828870f2a85",
-      "etag":"55a-cx8KC3r7sKhkY48vp3wJiJSH8bc"
-   },
-   "customerId":"eb95a33f-80f3-4776-8c4c-f3bd6a7b4349",
-   "securityGroupId":"924cbcbc-fe4c-4e74-b7e5-62d87bb7fc04"
+            "age": 24,
+            "email": "Marc.Monahan@yahoo.com",
+            "phone": [
+                "1-495-660-3830 x42618"
+            ],
+            "gender": "n"
+        },
+        "contacted": false,
+        "reservation": {
+            "reserved": false
+        }
+    },
+    "meta": {
+        "etag": "4dc-5aWkR+Lvoft7CAdRm6/R8X1IBvM",
+        "created": "2018-03-28T16:09:43.028Z",
+        "modified": "2018-03-28T16:09:43.028Z",
+        "resource": "contacts",
+        "createdBy": "a46d8825-3f9e-45f4-9db9-be5a77883e18",
+        "isDeleted": false,
+        "modifiedBy": "a46d8825-3f9e-45f4-9db9-be5a77883e18"
+    },
+    "customerId": "f0e2736d-31c5-461a-89d1-e64f697d9e98",
+    "securityGroupId": "1bdf50d1-d3d5-4ecf-922c-f2541cd9ba37"
 }
 ```
 
@@ -620,92 +589,61 @@ ETag: {etag_value}
 
 ```json
 {
-   "id":"bfced18e-1b90-433b-8f4e-d905d2406524",
-   "data":{
-      "fields":{
-
-      },
-      "listId":"504f3788-f2e0-4b0e-acbe-cb06d9f51923",
-      "status":"pending",
-      "profile":{
-         "age":26,
-         "name":{
-            "anglican":{
-               "given":"Jon",
-               "title":"Mr",
-               "surname":"Doe",
-               "middlename":"M"
-            }
-         },
-         "email":"abc@gmail.com",
-         "phone":[
-           "9538295457"
-         ],
-         "gender":"m",
-         "location":{
-            "coords":{
-               "lat":42.3530125,
-               "lng":-71.1285818
+    "id": "bfced18e-1b90-433b-8f4e-d905d2406524",
+    "data": {
+        "fields": {
+            "likeness": false,
+            "available": false
+        },
+        "listId": "81414d4e-e237-467e-81f1-80cbe6652231",
+        "profile": {
+            "name": {
+                "first": "Wilber",
+                "last": "Mertz"
             },
-            "country":{
-               "abbr":"us",
-               "name":"United States"
+            "address": {
+                "country": "US",
+                "position": {
+                    "type": "Point",
+                    "coordinates": [
+                        -74.07787,
+                        40.70426
+                    ]
+                },
+                "formatted": "53 Arlington Ave Apt 1  Jersey City NJ 7305",
+                "streetAddress": {
+                    "unit": "1",
+                    "route": "Arlington Ave",
+                    "number": "53",
+                    "formatted": "53 Arlington Ave Apt 1"
+                },
+                "postalCode": "7305",
+                "state": "NJ",
+                "county": "Jersey City"
             },
-            "locality":{
-               "abbr":"Boston",
-               "name":"Boston",
-               "type":"locality"
-            },
-            "formatted":"66 Chester St, Boston, MA 02134, USA",
-            "statoid01":{
-               "abbr":"MA",
-               "name":"Massachusetts",
-               "type":"state"
-            },
-            "statoid02":{
-               "abbr":"Suffolk County",
-               "name":"Suffolk County",
-               "type":"county"
-            },
-            "statoid03":{
-               "abbr":"Boston",
-               "name":"Boston",
-               "type":"city"
-            },
-            "statoid04":{
-               "abbr":"Allston",
-               "name":"Allston",
-               "type":"neighborhood"
-            },
-            "postalCode":"02134",
-            "streetAddress":{
-               "unit":"1",
-               "route":"Chester Street",
-               "number":"66",
-               "formatted":"66 Chester Street 1"
-            }
-         },
-         "birthdate":"1992-01-25T00:00:00.000Z",
-         "languages":[
-            "en"
-         ]
-      },
-      "contacted":false,
-      "reservation":{
-         "reserved":false
-      }
-   },
-   "meta":{
-      "created":"2018-03-01T22:06:25.079Z",
-      "modified":"2018-04-09T22:26:55.349Z",
-      "resource":"contacts",
-      "createdBy":"ac18d844-309b-40ea-ba23-1828870f2a85",
-      "isDeleted":false,
-      "modifiedBy":"3d90f333-82d6-48c1-9287-da3da756b263",
-      "etag":"540-pTcXJbpXMAU0PcsoVd/tPHdehRs"
-   },
-   "customerId":"eb95a33f-80f3-4776-8c4c-f3bd6a7b4349",
-   "securityGroupId":"924cbcbc-fe4c-4e74-b7e5-62d87bb7fc04"
+            "age": 24,
+            "email": "abc@gmail.com",
+            "phone": [
+                "1-495-660-3830 x42618"
+            ],
+            "gender": "n"
+        },
+        "contacted": false,
+        "reservation": {
+            "reserved": false
+        }
+    },
+    "meta": {
+        "etag": "4dc-5aWkR+Lvoft7CAdRm6/R8X1IBvM",
+        "created": "2018-03-28T16:09:43.028Z",
+        "modified": "2018-03-28T16:09:43.028Z",
+        "resource": "contacts",
+        "createdBy": "a46d8825-3f9e-45f4-9db9-be5a77883e18",
+        "isDeleted": false,
+        "modifiedBy": "a46d8825-3f9e-45f4-9db9-be5a77883e18"
+    },
+    "customerId": "f0e2736d-31c5-461a-89d1-e64f697d9e98",
+    "securityGroupId": "1bdf50d1-d3d5-4ecf-922c-f2541cd9ba37"
 }
 ```
 
@@ -741,7 +679,7 @@ sort | true | Sort column. Ex.: `["data/name","ASC"]`
 > Example Request
 
 ```http
-GET /v1/contacts?filter=/data/listId+eq+"504f3788-f2e0-4b0e-acbe-cb06d9f51923"&limit=100&skip=0&sort=["data/name","ASC"] HTTP/1.1
+GET /v1/contacts?filter=/data/listId+eq+"81414d4e-e237-467e-81f1-80cbe6652231"&limit=100&skip=0&sort=["data/name","ASC"] HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -752,75 +690,44 @@ Authorization: Bearer {access_token}
 {
    "data":[
       {
-         "id":"bfced18e-1b90-433b-8f4e-d905d2406524",
+         "id":"02b88c4e-3901-4fd7-a580-79eaec83058a",
          "data":{
             "fields":{
-
+               "likeness":false,
+               "available":false
             },
-            "listId":"504f3788-f2e0-4b0e-acbe-cb06d9f51923",
-            "status":"pending",
+            "listId":"81414d4e-e237-467e-81f1-80cbe6652231",
             "profile":{
-               "age":26,
                "name":{
-                  "anglican":{
-                     "given":"Jon",
-                     "title":"Mr",
-                     "surname":"Doe",
-                     "middlename":"M"
-                  }
+                  "first":"Wilber",
+                  "last":"Mertz"
                },
-               "email":"abc@gmail.com",
-               "phone":[
-
-               ],
-               "gender":"m",
-               "location":{
-                  "coords":{
-                     "lat":42.3530125,
-                     "lng":-71.1285818
+               "address":{
+                  "country":"US",
+                  "position":{
+                     "type":"Point",
+                     "coordinates":[
+                        -74.07787,
+                        40.70426
+                     ]
                   },
-                  "country":{
-                     "abbr":"us",
-                     "name":"United States"
-                  },
-                  "locality":{
-                     "abbr":"Boston",
-                     "name":"Boston",
-                     "type":"locality"
-                  },
-                  "formatted":"66 Chester St, Boston, MA 02134, USA",
-                  "statoid01":{
-                     "abbr":"MA",
-                     "name":"Massachusetts",
-                     "type":"state"
-                  },
-                  "statoid02":{
-                     "abbr":"Suffolk County",
-                     "name":"Suffolk County",
-                     "type":"county"
-                  },
-                  "statoid03":{
-                     "abbr":"Boston",
-                     "name":"Boston",
-                     "type":"city"
-                  },
-                  "statoid04":{
-                     "abbr":"Allston",
-                     "name":"Allston",
-                     "type":"neighborhood"
-                  },
-                  "postalCode":"02134",
+                  "formatted":"53 Arlington Ave Apt 1  Jersey City NJ 7305",
                   "streetAddress":{
                      "unit":"1",
-                     "route":"Chester Street",
-                     "number":"66",
-                     "formatted":"66 Chester Street 1"
-                  }
+                     "route":"Arlington Ave",
+                     "number":"53",
+                     "formatted":"53 Arlington Ave Apt 1"
+                  },
+                  "postalCode":"7305",
+                  "state":"NJ",
+                  "county":"Jersey City"
                },
-               "birthdate":"1992-01-25T00:00:00.000Z",
-               "languages":[
-                  "en"
-               ]
+               "age":24,
+               "email":"Marc.Monahan@yahoo.com",
+               "phone":[
+                  "1-495-660-3830 x42618"
+               ],
+               "gender":"n"
             },
             "contacted":false,
             "reservation":{
@@ -828,16 +735,16 @@ Authorization: Bearer {access_token}
             }
          },
          "meta":{
-            "created":"2018-03-01T22:06:25.079Z",
-            "modified":"2018-04-09T22:26:55.349Z",
+            "etag":"4dc-5aWkR+Lvoft7CAdRm6/R8X1IBvM",
+            "created":"2018-03-28T16:09:43.028Z",
+            "modified":"2018-03-28T16:09:43.028Z",
             "resource":"contacts",
-            "createdBy":"ac18d844-309b-40ea-ba23-1828870f2a85",
+            "createdBy":"a46d8825-3f9e-45f4-9db9-be5a77883e18",
             "isDeleted":false,
-            "modifiedBy":"3d90f333-82d6-48c1-9287-da3da756b263",
-            "etag":"540-pTcXJbpXMAU0PcsoVd/tPHdehRs"
+            "modifiedBy":"a46d8825-3f9e-45f4-9db9-be5a77883e18"
          },
-         "customerId":"eb95a33f-80f3-4776-8c4c-f3bd6a7b4349",
-         "securityGroupId":"924cbcbc-fe4c-4e74-b7e5-62d87bb7fc04"
+         "customerId":"f0e2736d-31c5-461a-89d1-e64f697d9e98",
+         "securityGroupId":"1bdf50d1-d3d5-4ecf-922c-f2541cd9ba37"
       }
    ],
    "meta":{
