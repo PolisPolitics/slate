@@ -528,5 +528,5 @@ Obtains the latest interactions for an organization's canvassers.
 Parameter | Required | Description
 --------- | -------- | -----------
 organizationId | true | Unique identifier of the organization.
-startDate | true | Date after which interactions have occurred. 
-endDate | true | Date before which interactions have occurred. 
+startDate | true | Date after which interactions should have occurred. 
+endDate | true | Date before which interactions should have occurred. 
