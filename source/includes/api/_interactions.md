@@ -17,38 +17,17 @@
     },
     "successful": false,
     "survey": {
+      "surveyId": "116473d5-0ebb-4554-a13c-a4ed965c9857",
       "responses": {
-        "6430c7c8-364c-4fa5-b145-9dbaa2795f7d": {
-          "fields": {"dogliker": "true"},
-          "questionId": "6430c7c8-364c-4fa5-b145-9dbaa2795f7d"
+        "16a51c61-57b5-4a38-9a7d-2b5f56bfb835": {
+          "fields": {},
+          "questionId": "16a51c61-57b5-4a38-9a7d-2b5f56bfb835"
         },
-        "789bb27d-101d-4021-ba8d-06b02eaf736f": {
-          "fields": {"mothername": "Jane Doe"},
-          "questionId": "789bb27d-101d-4021-ba8d-06b02eaf736f"
-        },
-        "ac3f2a70-c7b1-4d25-a5ea-135233c5437c": {
+        "6209002e-5921-4b62-83bb-35b4dbe62580": {
           "fields": {"available": "true"},
-          "questionId": "ac3f2a70-c7b1-4d25-a5ea-135233c5437c"
-        },
-        "b21d978b-0a48-42c3-9c3a-c24fff0236f2": {
-          "fields": {"bestpet": "Cat"},
-          "questionId": "b21d978b-0a48-42c3-9c3a-c24fff0236f2"
-        },
-        "cd6d2a75-df61-407c-8763-8d2c407c8196": {
-          "fields": {
-            "buypet": [
-              "Horse",
-              "Snake"
-            ]
-          },
-          "questionId": "cd6d2a75-df61-407c-8763-8d2c407c8196"
-        },
-        "f25a1d08-67c5-4970-87ac-21b17f1ed808": {
-          "fields": {"catlikeness": 4},
-          "questionId": "f25a1d08-67c5-4970-87ac-21b17f1ed808"
+          "questionId": "6209002e-5921-4b62-83bb-35b4dbe62580"
         }
-      },
-      "surveyId": "3e365fdb-4e7e-4107-9ea4-2d1904ef5404"
+      }
     },
     "timestamp": "2017-08-29T15:55:12.000Z",
     "unavailable": false
@@ -72,8 +51,6 @@ Attribute | Required? | Description
 id | true | Unique identifier for the object.
 customerId | true | Customer this resource belongs to.
 securityGroupId | true | Security group of this resource.
-listId | true | (Read-only field) List identifier this interaction belongs to.
-
 
 ### data
 
@@ -89,6 +66,7 @@ timestamp | true | Date and time when this interaction occurred.
 unavailable | true | Flag indicating whether the listed contact person was unavailable.
 unavailableReason | false | The reason specifying why the listed contact person was unavailable.
 walklistId | false | Route identifier this contact is reserved to.
+listId | true | (Read-only field) List identifier this interaction belongs to.
 
 ### data/location
 
@@ -114,7 +92,7 @@ responses | false | Object containing all the responses for this survey.
 > Example Request
 
 ```http
-POST /v1/interactions HTTP/1.1
+POST /interactions HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -197,14 +175,14 @@ Creates a new interaction.
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/v1/interactions`
+`POST https://api.polisapp.com/interactions`
 
 ## Retrieve an interaction
 
 > Example Request
 
 ```http
-GET /v1/interactions/019becde-9138-4e21-b1ba-6e817dd27c80 HTTP/1.1
+GET /interactions/019becde-9138-4e21-b1ba-6e817dd27c80 HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -258,20 +236,20 @@ Obtains a single interaction object by ID.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/interactions/{interactionId}`
+`GET https://api.polisapp.com/interactions/{id}`
 
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-interactionId | true | Unique identifier of the interaction.
+id | true | Unique identifier of the interaction.
 
 ## Update an interaction
 
 > Example Request
 
 ```http
-PATCH /v1/interactions/019becde-9138-4e21-b1ba-6e817dd27c80 HTTP/1.1
+PATCH /interactions/019becde-9138-4e21-b1ba-6e817dd27c80 HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -339,29 +317,51 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v1/interactions/{interactionId}`
+`PATCH https://api.polisapp.com/interactions/{id}`
 
+### Query Parameters
 
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | Unique identifier of the interaction.
 
 ## Delete an interaction
 
 ### HTTP Request
-`DELETE https://api.polisapp.com/v1/interactions/{interactionId}`
+`DELETE https://api.polisapp.com/interactions/{id}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | Unique identifier of the interaction.
 
 > Example Request
 
 ```http
-DELETE https://api.polisapp.com/v1/interactions/019becde-9138-4e21-b1ba-6e817dd27c80
+DELETE https://api.polisapp.com/interactions/019becde-9138-4e21-b1ba-6e817dd27c80
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
 
 ## Get all interactions
 
+### HTTP Request
+`GET https://api.polisapp.com/interactions?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+limit | true | Limit results returned. Useful for pagination.
+skip | true | Data offset index. Useful for pagination.
+sort | true | Sort column. Ex.: `["data/name","ASC"]`
+fiter | false | Query to filter data. [See documentation](#filters).
+
 > Example Request
 
 ```http
-GET /v1/interactions?limit=1&skip=9&sort=%5B%22id%22%2C%22ASC%22%5D HTTP/1.1
+GET /interactions?limit=1&skip=9&sort=%5B%22id%22%2C%22ASC%22%5D HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -416,7 +416,7 @@ Authorization: Bearer {access_token}
 > Example Request
 
 ```http
-GET /v1/interactions/latest/by-canvasser HTTP/1.1
+GET /interactions/latest/by-canvasser HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -471,26 +471,18 @@ Authorization: Bearer {access_token}
     "data": {
       "listId": "d276761e-54cb-492b-be7a-3a257dad5903",
       "survey": {
-        "surveyId": "85a638fe-63bf-4410-a90f-77a746487298",
-        "responses": {
-          "461a29dd-5d9c-4c6f-b13a-954b00db4c59": {
-            "fields": {"available": "true"},
-            "questionId": "461a29dd-5d9c-4c6f-b13a-954b00db4c59"
-          },
-          "53ac8a4e-9f4a-4349-a467-b639ca4fa1d3": {
-            "fields": {"likeness": "true"},
-            "questionId": "53ac8a4e-9f4a-4349-a467-b639ca4fa1d3"
-          },
-          "9ab4a264-47a7-45c8-be5f-6c454f665f45": {
-            "fields": {"newphonenumberblabla": ""},
-            "questionId": "9ab4a264-47a7-45c8-be5f-6c454f665f45"
-          },
-          "a49bb7e7-cc97-4c29-bd11-48e62d9751d8": {
-            "fields": {"doglikeness": "true"},
-            "questionId": "a49bb7e7-cc97-4c29-bd11-48e62d9751d8"
-          }
+        "surveyId": "116473d5-0ebb-4554-a13c-a4ed965c9857",
+      "responses": {
+        "16a51c61-57b5-4a38-9a7d-2b5f56bfb835": {
+          "fields": {},
+          "questionId": "16a51c61-57b5-4a38-9a7d-2b5f56bfb835"
+        },
+        "6209002e-5921-4b62-83bb-35b4dbe62580": {
+          "fields": {"available": "true"},
+          "questionId": "6209002e-5921-4b62-83bb-35b4dbe62580"
         }
-      },
+      }
+    },
       "distance": 4809.8449,
       "location": {
         "lat": -21.2198655,
@@ -522,6 +514,10 @@ Authorization: Bearer {access_token}
 ```
 
 Obtains the latest interactions for an organization's canvassers.
+
+
+### HTTP Request
+`GET https://api.polisapp.com/interactions?organizationId={id}&startDate={startDate}&endDate={endDate}`
 
 ### Query Parameters
 
