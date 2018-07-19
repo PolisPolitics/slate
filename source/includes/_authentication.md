@@ -11,8 +11,8 @@ Where the parameters adhere to the standards in [RFC-6749 The OAuth 2.0 authoriz
 Parameter | Required? | Description
 --------- | -------- | -----------
 response_type | true |The type of response. Value must always be set to `'code'`.
-client_id | true | Client identifier of the application provided during registration.
-redirect_uri | false | The URI the customer is directed to after authorization.
+client_id | true | Client ID of the application provided during registration.
+redirect_uri | false | The redirect uri to which your customer must be directed to after authorization.
 state | false | An opaque value used to maintain state between the request and callback.
 
 
@@ -59,10 +59,10 @@ Once you have the `authorization_code`, you can exchange it for the `access_toke
 
 Parameter | Description
 --------- | -----------
-client_id | Client identifier of the application provided during registration.
+client_id | Client ID of the application provided during registration.
 client_secret | Client Secret of the application provided during registration.
 code | Authorization code provided in the redirected URI.
-grant_type | Authorization type. Use `'authorization_code'`.
+grant_type | Authorization type. Use `authorization_code`.
 
 ## 3. Using the API
 
