@@ -96,34 +96,40 @@ POST /interactions HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
-```
 
-```json
 {
-  "campaignId":"d545b1e1-8f97-4ae4-a164-1b4a4a87bc07",
-  "contactId":"3e591604-059a-4726-a0b9-0af6316adfa6",
-  "timestamp":"2017-09-18T12:51:55.000Z",
-  "survey":{
-    "surveyId":"116473d5-0ebb-4554-a13c-a4ed965c9857",
-    "responses":{
-      "16a51c61-57b5-4a38-9a7d-2b5f56bfb835":{
-        "fields":{},
-        "questionId":"16a51c61-57b5-4a38-9a7d-2b5f56bfb835"
+  data:
+  {
+    "campaignId":"d545b1e1-8f97-4ae4-a164-1b4a4a87bc07",
+    "contactId":"3e591604-059a-4726-a0b9-0af6316adfa6",
+    "timestamp":"2017-09-18T12:51:55.000Z",
+    "survey":
+    {
+      "surveyId":"116473d5-0ebb-4554-a13c-a4ed965c9857",
+      "responses":
+      {
+        "16a51c61-57b5-4a38-9a7d-2b5f56bfb835":
+        {
+          "fields":{},
+          "questionId":"16a51c61-57b5-4a38-9a7d-2b5f56bfb835"
         },
-      "6209002e-5921-4b62-83bb-35b4dbe62580":{
-        "fields":{"available":"true"},
-        "questionId":"6209002e-5921-4b62-83bb-35b4dbe62580"
+        "6209002e-5921-4b62-83bb-35b4dbe62580":
+        {
+          "fields":{"available":"true"},
+          "questionId":"6209002e-5921-4b62-83bb-35b4dbe62580"
         }
       }
     },
-  "distance":2449.35,
-  "location":{
-    "lat":34.0687112,
-    "lng":-118.3530776,
-    "confidence":0
-  },
-  "unavailable":false
+    "distance":2449.35,
+    "location":
+    {
+      "lat":34.0687112,
+      "lng":-118.3530776,
+      "confidence":0
+    },
+    "unavailable":false
   }
+}
   ```
 
   > Example Response
@@ -410,119 +416,3 @@ Authorization: Bearer {access_token}
   "securityGroupId": "f32cdf73-e257-44c9-8e70-3235952962a0"
 }
 ```
-
-## Find the latest interactions
-
-> Example Request
-
-```http
-GET /interactions/latest/by-canvasser HTTP/1.1
-Host: api.polisapp.com
-Authorization: Bearer {access_token}
-```
-
-> Example Response
-
-```json
-{
-  "data": [
-    {
-      "id": "019becde-9138-4e21-b1ba-6e817dd27c80",
-      "data": {
-        "listId": "dc8b5229-ef66-41cc-b774-4a8e6a39c60b",
-        "survey": {
-          "surveyId": "116473d5-0ebb-4554-a13c-a4ed965c9857",
-          "responses": {
-            "16a51c61-57b5-4a38-9a7d-2b5f56bfb835": {
-              "fields": {},
-              "questionId": "16a51c61-57b5-4a38-9a7d-2b5f56bfb835"
-            },
-            "6209002e-5921-4b62-83bb-35b4dbe62580": {
-              "fields": {"available": "true"},
-              "questionId": "6209002e-5921-4b62-83bb-35b4dbe62580"
-            }
-          }
-        },
-        "distance": 2449.35,
-        "location": {
-          "lat": 34.0687112,
-          "lng": -118.3530776,
-          "confidence": 0
-        },
-        "contactId": "3e591604-059a-4726-a0b9-0af6316adfa6",
-        "timestamp": "2017-09-18T12:51:55.000Z",
-        "campaignId": "d545b1e1-8f97-4ae4-a164-1b4a4a87bc07",
-        "unavailable": false
-    },
-    "meta": {
-      "etag": "3e8-SIMIS22pStVskqOe/o51Wzx9bbk",
-      "created": "2017-09-18T15:20:58.865Z",
-      "modified": "2017-09-18T15:20:58.865Z",
-      "resource": "interactions",
-      "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
-      "isDeleted": false,
-      "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
-    },
-    "customerId": "15ecebe1-e92c-4d8e-893b-e961be3f482a",
-    "securityGroupId": "f32cdf73-e257-44c9-8e70-3235952962a0"
-  },
-  {
-    "id": "01c9e50f-43b0-4033-9ef6-db49c1c51e3a",
-    "data": {
-      "listId": "d276761e-54cb-492b-be7a-3a257dad5903",
-      "survey": {
-        "surveyId": "116473d5-0ebb-4554-a13c-a4ed965c9857",
-      "responses": {
-        "16a51c61-57b5-4a38-9a7d-2b5f56bfb835": {
-          "fields": {},
-          "questionId": "16a51c61-57b5-4a38-9a7d-2b5f56bfb835"
-        },
-        "6209002e-5921-4b62-83bb-35b4dbe62580": {
-          "fields": {"available": "true"},
-          "questionId": "6209002e-5921-4b62-83bb-35b4dbe62580"
-        }
-      }
-    },
-      "distance": 4809.8449,
-      "location": {
-        "lat": -21.2198655,
-        "lng": -47.8306027,
-        "confidence": 0
-      },
-      "contactId": "6a43779f-94a8-450c-8ec9-d8c7dfc9ea6d",
-      "timestamp": "2018-04-26T12:31:49.000Z",
-      "campaignId": "bf374a20-37c0-4ca0-9e0b-b97cc42b0dfb",
-      "successful": true,
-      "walklistId": "237d47ad-d882-4abb-862c-19878f8423c7",
-      "unavailable": false
-      },
-      "meta": {
-        "etag": "540-xz3Ey5PC9Cz8tPAUCDecQFJjs8c",
-        "created": "2018-04-26T15:31:48.763Z",
-        "modified": "2018-04-26T15:31:48.763Z",
-        "resource": "interactions",
-        "createdBy": "20ebe78a-541b-42be-8800-cd7bd37054b4",
-        "isDeleted": false,
-        "modifiedBy": "20ebe78a-541b-42be-8800-cd7bd37054b4"
-      },
-      "customerId": "f51b86dd-aaba-485e-b14d-65cbea28b8e4",
-      "securityGroupId": "7e4bc876-2c98-4674-9c37-bdbd52c90eb7"
-    }
-  ],
-"meta": {}
-}
-```
-
-Obtains the latest interactions for an organization's canvassers.
-
-
-### HTTP Request
-`GET https://api.polisapp.com/interactions?organizationId={id}&startDate={startDate}&endDate={endDate}`
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-organizationId | true | Unique identifier of the organization.
-startDate | true | Date after which interactions should have occurred. 
-endDate | true | Date before which interactions should have occurred. 
