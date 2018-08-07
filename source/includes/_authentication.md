@@ -10,10 +10,10 @@ Where the parameters adhere to the standards in [RFC-6749 The OAuth 2.0 authoriz
 
 Parameter | Required? | Description
 --------- | -------- | -----------
-response_type | true |This value must always be set to 'code' 
-client_id | true |Client ID of the application provided during registration.
-redirect_uri | no | The redirect uri to which your customer must be directed to after authorization
-state | no | An opaque value used to maintain state between the request and callback
+response_type | true |The type of response. Value must always be set to `'code'`.
+client_id | true | Client ID of the application provided during registration.
+redirect_uri | false | The redirect uri to which your customer must be directed to after authorization.
+state | false | An opaque value used to maintain state between the request and callback.
 
 
 When the authorization is successful, the user will be redirected back to your website with the `authorization_code` , `organizationId` and `state` (if provided). The redirect URL is based on either the one configured during your application registration or the `redirect_uri` in the authorization request url. Below is an example redirect URL
@@ -21,7 +21,7 @@ When the authorization is successful, the user will be redirected back to your w
 
 `https://my.app.com/authorize?code={authorization_code}&state={state}&organizationId={organizationId}`
 
-The `organizationId` is the target organization selected by the customer.
+The `organizationId` is the target organization identifier selected by the customer.
 
 ## 2. Access Token
 
@@ -33,7 +33,7 @@ Host: api.polisapp.com
 Content-Type: application/json
 
 {
-  "client_id": "{client_id}",
+  "client_id": "{client_identifier}",
   "client_secret": "{client_secret}",
   "code": "{authorization_code}",
   "grant_type": "authorization_code"
