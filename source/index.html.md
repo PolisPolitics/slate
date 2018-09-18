@@ -10,6 +10,8 @@ includes:
   - api/integrations
   - api/lists
   - api/contacts
+  - api/interactions
+  - api/campaigns
   - errors
   - filters
   - meta
