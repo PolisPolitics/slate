@@ -458,7 +458,7 @@ id | true | Unique identifier of the campaign.
 > Example Request
 
 ```http
-GET /campaignsfilter=%2Fdata%2ForganizationId%20eq%20%22eb4dfe83-f1fd-46dd-a69d-b7cf7b566319%22%20and%20%2Fdata%2Fstatus%20eq%20%22complete%22&limit=10&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
+GET /campaigns?filter=%2Fdata%2ForganizationId%20eq%20%22eb4dfe83-f1fd-46dd-a69d-b7cf7b566319%22%20and%20%2Fdata%2Fstatus%20eq%20%22complete%22&limit=10&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
