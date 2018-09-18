@@ -440,6 +440,7 @@ id | true | Unique identifier of the campaign.
 DELETE https://api.polisapp.com/campaigns/f2636525-36d7-439c-924d-a2aaf3848716
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
+ETag: {etag_value}
 ```
 
 ### HTTP Request
