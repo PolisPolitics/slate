@@ -17,14 +17,12 @@
         "listId": "d276761e-54cb-492b-be7a-3a257dad5903"
       },
       {
+        "type": "do-not-knock",
         "listId": "770f0e3e-4351-4f4c-85f5-484201d1de94"
       },
       {
         "listId": "887ad4c6-93d8-4d9e-bcf6-72a188751d23"
       },
-      {
-        "listId": "fd1cc88a-d040-4d0e-81ac-e81028fccfcd"
-      }
     ],
     "fields": [
       [
