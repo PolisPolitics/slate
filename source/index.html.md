@@ -12,6 +12,7 @@ includes:
   - api/contacts
   - api/interactions
   - api/campaigns
+  - api/surveys
   - errors
   - filters
   - meta

@@ -49,6 +49,10 @@
           "type": "field"
         },
         {
+          "type": "separator",
+          "value": ","
+        },
+        {
           "path": "/data/profile/location/statoid01/abbr",
           "type": "field"
         }
@@ -78,6 +82,7 @@ Attribute | Required? | Description
 id | true | Unique identifier for the object.
 customerId | true | Customer this resource belongs to.
 securityGroupId | true | Security group of this resource.
+data | true | Campaign data.
 
 ### data
 
@@ -208,6 +213,11 @@ Authorization: Bearer {access_token}
 ```
 
 Creates a new campaign.
+
+<aside class="warning">
+You must create a Default Survey and a Default Target for new campaigns.
+Check Surveys and Segments documentations.
+</aside>
 
 ### HTTP Request
 
