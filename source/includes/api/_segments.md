@@ -51,7 +51,7 @@ description | false | Description of the segment.
 campaignId | true | Camapaign indentifier that this segment belongs to.
 surveyId | true | Survey indentifier that this segment will use.
 criteria | true | Object that defines the criteria used to analyze the contacts.
-precedence | true | Level of precendence between segments.
+precedence | true | Level of precedence between segments.
 
 ### data/criteria
 
@@ -78,7 +78,7 @@ value | true | Value used for comparison.
 
 ```
 http
-POST /campaigns HTTP/1.1
+POST /segments HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -303,7 +303,7 @@ id | true | Unique identifier of the segement.
 > Example Request
 
 ```http
-GET /surveys?filter=%2Fdata%2FcampaignId%20eq%20%22d012c895-4318-4725-9012-b1099e96643d%22&limit=100&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
+GET /segments?filter=%2Fdata%2FcampaignId%20eq%20%22d012c895-4318-4725-9012-b1099e96643d%22&limit=100&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -313,66 +313,66 @@ Authorization: Bearer {access_token}
 ```json
 {
   "data": [
-      {
-        "id": "39b2c678-17ea-404f-8c72-1f7f6367b820",
-        "data": {
-          "name": "Default Target 2",
-          "criteria": {
-            "filter": "any",
-            "clauses": [
-              {
-                "value": "1",
-                "source": "1",
-                "operator": "eq"
-              }
-            ]
-          },
-          "surveyId": "27d64393-cfe8-45fa-8e54-6b914ce376a4",
-          "campaignId": "e2f3837e-46ff-41c8-b0b5-91e01a846c72",
-          "precedence": 2
+    {
+      "id": "39b2c678-17ea-404f-8c72-1f7f6367b820",
+      "data": {
+        "name": "Default Target 2",
+        "criteria": {
+          "filter": "any",
+          "clauses": [
+            {
+              "value": "1",
+              "source": "1",
+              "operator": "eq"
+            }
+          ]
         },
-        "meta": {
-          "etag": "272-quEjhMx9oyLll0DOhdYu5/sXOx4",
-          "created": "2018-09-20T19:00:22.476Z",
-          "modified": "2018-09-20T19:00:22.476Z",
-          "resource": "segments",
-          "createdBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851",
-          "isDeleted": false,
-          "modifiedBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851"
-        },
-        "customerId": "f51b86dd-aaba-485e-b14d-65cbea28b8e4",
-        "securityGroupId": "8e9363ba-215c-40cb-822f-639e6b957472"
+        "surveyId": "27d64393-cfe8-45fa-8e54-6b914ce376a4",
+        "campaignId": "e2f3837e-46ff-41c8-b0b5-91e01a846c72",
+        "precedence": 2
       },
-      {
-        "id": "8d2bc490-bbb0-4506-96be-8d59b1ed31d1",
-        "data": {
-          "name": "Default Target",
-          "criteria": {
-            "filter": "any",
-            "clauses": [
-              {
-                "value": "1",
-                "source": "1",
-                "operator": "eq"
-              }
-            ]
-          },
-          "surveyId": "27d64393-cfe8-45fa-8e54-6b914ce376a4",
-          "campaignId": "e2f3837e-46ff-41c8-b0b5-91e01a846c72",
-          "precedence": 1
+      "meta": {
+        "etag": "272-quEjhMx9oyLll0DOhdYu5/sXOx4",
+        "created": "2018-09-20T19:00:22.476Z",
+        "modified": "2018-09-20T19:00:22.476Z",
+        "resource": "segments",
+        "createdBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851",
+        "isDeleted": false,
+        "modifiedBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851"
+      },
+      "customerId": "f51b86dd-aaba-485e-b14d-65cbea28b8e4",
+      "securityGroupId": "8e9363ba-215c-40cb-822f-639e6b957472"
+    },
+    {
+      "id": "8d2bc490-bbb0-4506-96be-8d59b1ed31d1",
+      "data": {
+        "name": "Default Target",
+        "criteria": {
+          "filter": "any",
+          "clauses": [
+            {
+              "value": "1",
+              "source": "1",
+              "operator": "eq"
+            }
+          ]
         },
-        "meta": {
-          "etag": "270-dEtct4eaEmoZfXvopHFiMi7wybg",
-          "created": "2018-09-20T19:00:15.065Z",
-          "modified": "2018-09-20T19:00:15.065Z",
-          "resource": "segments",
-          "createdBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851",
-          "isDeleted": false,
-          "modifiedBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851"
-        },
-        "customerId": "f51b86dd-aaba-485e-b14d-65cbea28b8e4",
-        "securityGroupId": "8e9363ba-215c-40cb-822f-639e6b957472"
-      }
+        "surveyId": "27d64393-cfe8-45fa-8e54-6b914ce376a4",
+        "campaignId": "e2f3837e-46ff-41c8-b0b5-91e01a846c72",
+        "precedence": 1
+      },
+      "meta": {
+        "etag": "270-dEtct4eaEmoZfXvopHFiMi7wybg",
+        "created": "2018-09-20T19:00:15.065Z",
+        "modified": "2018-09-20T19:00:15.065Z",
+        "resource": "segments",
+        "createdBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851",
+        "isDeleted": false,
+        "modifiedBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851"
+      },
+      "customerId": "f51b86dd-aaba-485e-b14d-65cbea28b8e4",
+      "securityGroupId": "8e9363ba-215c-40cb-822f-639e6b957472"
+    }
   ],
   "meta": {}
 }
@@ -392,7 +392,7 @@ sort | true | Sort column. Ex.: `["data/name","ASC"]`
 
 Filter Example: `/data/organizationId eq "eb4dfe83-f1fd-46dd-a69d-b7cf7b566319" and /data/status eq "complete"`
 
-## Swap precedencies
+## Swap precedences
 
 Swap precedences of two segments.
 
