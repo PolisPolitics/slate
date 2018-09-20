@@ -13,6 +13,7 @@ includes:
   - api/interactions
   - api/campaigns
   - api/surveys
+  - api/segments
   - errors
   - filters
   - meta
