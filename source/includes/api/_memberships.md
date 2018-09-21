@@ -139,8 +139,8 @@ Authorization: Bearer {access_token}
 Creates a new membership.
 
 <aside class="warning">
-You must create a User and get the id for a Role and an Organizations before creating a new membership.
-Check Users, Roles and Organizations documentations.
+You must create a User, get a Role id and an Organization id before creating a new membership.
+Check Users, Roles and Organizations documentation.
 </aside>
 
 ### HTTP Request
