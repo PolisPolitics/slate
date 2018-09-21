@@ -17,6 +17,7 @@ includes:
   - api/roles
   - api/users
   - api/memberships
+  - api/organizations
   - errors
   - filters
   - meta
