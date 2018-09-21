@@ -15,9 +15,12 @@ includes:
   - api/surveys
   - api/segments
   - api/roles
+  - api/users
+  - api/memberships
   - errors
   - filters
   - meta
+  - languages
 
 search: true
 ---

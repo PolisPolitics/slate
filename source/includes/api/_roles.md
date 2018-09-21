@@ -85,8 +85,86 @@ permissions | false | Array of permissions allowed to that role.
 
 [See documentation](#metadata-object).
 
-## Get many roles
+## Retrieve a role
 
+> Example Request
+
+```http
+GET /roles/d188e998-dee9-45a9-8f97-92a71f3cee9b HTTP/1.1
+Host: api.polisapp.com
+Authorization: Bearer {access_token}
+```
+
+> Example Response
+
+```json
+{
+  "id": "d188e998-dee9-45a9-8f97-92a71f3cee9b",
+  "data": {
+    "name": "Canvasser",
+    "description": "Canvasser",
+    "permissions": [
+      "read@authentications",
+      "read@roles",
+      "read@user-roles",
+      "read@users",
+      "read@customers",
+      "modify@invitations",
+      "read@invitations",
+      "insert@memberships",
+      "read@memberships",
+      "insert@notifications-history",
+      "read@organizations",
+      "insert@organization-descendants",
+      "read@organization-descendants",
+      "insert@field-sets",
+      "modify@field-sets",
+      "read@field-sets",
+      "insert@payments",
+      "modify@payments",
+      "read@campaigns",
+      "modify@campaigns",
+      "read@contacts",
+      "insert@contacts",
+      "modify@contacts",
+      "insert@interactions",
+      "modify@interactions",
+      "read@interactions",
+      "read@integrations",
+      "read@lists",
+      "insert@lists",
+      "modify@lists",
+      "read@segments",
+      "read@surveys",
+      "read@turfs",
+      "read@turf-assignments",
+      "read@walklists",
+      "insert@walklists",
+      "modify@walklists",
+      "insert@walklist-share-requests",
+      "modify@walklist-share-requests",
+      "read@walklist-share-requests",
+      "read@analytics::doors-knocked"
+    ]
+  },
+  "meta": {
+    "etag": "531-xSHEwJwswdDT3Qx0ikixl+ZBfzE",
+    "created": "2017-08-18T18:52:19.556Z",
+    "modified": "2017-08-18T18:52:19.556Z",
+    "resource": "roles",
+    "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+    "isDeleted": false,
+    "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+  },
+  "customerId": "f51b86dd-aaba-485e-b14d-65cbea28b8e4",
+  "securityGroupId": "65ab5050-0942-4343-9ca2-866987a07f09"
+}
+```
+
+### HTTP Request
+`GET https://api.polisapp.com/roles/{id}`
+
+## Get many roles
 
 > Example Request
 
