@@ -14,6 +14,7 @@ includes:
   - api/campaigns
   - api/surveys
   - api/segments
+  - api/roles
   - errors
   - filters
   - meta
