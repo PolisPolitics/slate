@@ -144,3 +144,74 @@ Creates a new user.
 ### HTTP Request
 
 `POST https://api.polisapp.com/users`
+
+## Update a user
+
+> Example Request
+
+```http
+PATCH /v1/users/c153c65c-f51b-4caa-b6ca-f66d03583419 HTTP/1.1
+Host: api.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+ETag: {etag_value}
+{
+  "data": [
+    {
+      "op": "replace",
+      "path": "/profile/name/anglican/given",
+      "value": "New First Name"
+    },
+    {
+      "op": "replace",
+      "path": "/profile/name/anglican/surname",
+      "value": "New Last Name"
+    }
+  ]
+}
+```
+
+> Example Response
+
+```json
+{
+  "id": "c153c65c-f51b-4caa-b6ca-f66d03583419",
+  "data": {
+    "email": "testapi@polisapp.com",
+    "status": "active",
+    "privacy": {
+      "publicInfo": [
+        "email"
+      ]
+    },
+    "profile": {
+      "name": {
+        "anglican": {
+          "given": "New First Name",
+          "surname": "New Last Name"
+        }
+      },
+      "gender": "d"
+    }
+  },
+  "meta": {
+    "created": "2018-01-23T16:14:30.278Z",
+    "modified": "2018-12-18T01:48:40.186Z",
+    "resource": "users",
+    "createdBy": "b80c41ad-37ad-4388-a587-14ab6e3b2c0c",
+    "isDeleted": false,
+    "modifiedBy": "b80c41ad-37ad-4388-a587-14ab6e3b2c0c",
+    "etag": "1f4-uK48XPpi6Vp9sDge6U5xfoFnFZM"
+  }
+}
+```
+<aside class="notice">
+You can only patch attributes inside <b>data</b> key.
+</aside>
+
+[RFC 6902 - JavaScript Object Notation (JSON) Patch](https://tools.ietf.org/html/rfc6902)
+
+### HTTP Request
+
+`PATCH https://api.polisapp.com/v1/users/{userId}`
+

@@ -93,7 +93,7 @@ dailySummary | false | If `true` the membership will receive a daily summary abo
 
 ```
 http
-POST /memberships HTTP/1.1
+POST /v1/memberships HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -145,14 +145,14 @@ Check Users, Roles and Organizations documentation.
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/memberships`
+`POST https://api.polisapp.com/v1/memberships`
 
 ## Retrieve a membership
 
 > Example Request
 
 ```http
-GET /memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b HTTP/1.1
+GET /v1/memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -221,7 +221,7 @@ Obtains a single membership object by ID.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/memberships/{id}`
+`GET https://api.polisapp.com/v1/memberships/{id}`
 
 ### Query Parameters
 
@@ -231,12 +231,17 @@ id | true | Unique identifier of the membership.
 
 ## Update a membership
 
-Updating membership status example.
+Updating membership status example. This request disables a membership by setting the
+**status** of the membership to **disabled**.
+
+You can also patch other fields of the membership by changing the **path** parameter.
+
+Refer to [Membership Object](#the-membership-object) for all fields that are available to be updated.
 
 > Example Request
 
 ```http
-PATCH /membership/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b HTTP/1.1
+PATCH /v1/memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -287,7 +292,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/memberships/{id}`
+`PATCH https://api.polisapp.com/v1/memberships/{id}`
 
 ### Query Parameters
 
@@ -295,12 +300,13 @@ Parameter | Required | Description
 --------- | -------- | -----------
 id | true | Unique identifier of the membership.
 
+
 ## Update a membership role
 
 > Example Request
 
 ```http
-PATCH /membership/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b HTTP/1.1
+PATCH /v1/memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -349,7 +355,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/memberships/{id}`
+`PATCH https://api.polisapp.com/v1/memberships/{id}`
 
 ### Query Parameters
 
@@ -362,14 +368,14 @@ id | true | Unique identifier of the membership.
 > Example Request
 
 ```http
-DELETE https://api.polisapp.com/memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b
+DELETE /v1/memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ETag: {etag_value}
 ```
 
 ### HTTP Request
-`DELETE https://api.polisapp.com/memberships/{id}`
+`DELETE https://api.polisapp.com/v1/memberships/{id}`
 
 ### Query Parameters
 
@@ -383,7 +389,7 @@ id | true | Unique identifier of the membership.
 > Example Request
 
 ```http
-GET /memberships?filter=%2Fdata%2FuserId%20eq%20%2208f35132-7b4f-44d9-b212-6e5fad31aad3%22%20and%20%2Fdata%2Fstatus%20eq%20%22active%22&limit=9007199254740991&skip=0&sort=%5B%22id%22%2C%22ASC%22%5D HTTP/1.1
+GET /v1/memberships?filter=%2Fdata%2FuserId%20eq%20%2208f35132-7b4f-44d9-b212-6e5fad31aad3%22%20and%20%2Fdata%2Fstatus%20eq%20%22active%22&limit=9007199254740991&skip=0&sort=%5B%22id%22%2C%22ASC%22%5D HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -449,7 +455,7 @@ Authorization: Bearer {access_token}
 ```
 
 ### HTTP Request
-`GET https://api.polisapp.com/memberships?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+`GET https://api.polisapp.com/v1/memberships?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
 ### Query Parameters
 
@@ -461,3 +467,46 @@ skip | true | Data offset index. Useful for pagination.
 sort | true | Sort column. Ex.: `["id","ASC"]`
 
 Filter Example: `/data/userId eq "08f35132-7b4f-44d9-b212-6e5fad31aad3" and /data/status eq "active"`
+
+
+## Reset a member password
+
+> Example Request
+
+```http
+POST /v1/memberships/password-reset HTTP/1.1
+Host: api.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+{
+  "data": {
+    "membershipId": "583e4bb2-d237-4f34-80d2-0ab2b6d3ab3a"
+  },
+  "params": {
+    "password": "New Member Password",
+    "contextPassword": "Manager Password"
+  }
+}
+```
+
+> Example Response
+
+```http
+200 OK
+```
+
+Allows a manager to reset the password of canvasser users in their org
+or any user in their descendant orgs.
+
+### HTTP Request
+`POST https://api.polisapp.com/v1/memberships/password-reset`
+
+### Body Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+**data.membershipId** | true | Membership ID of user whose password will be changed.
+**params.password** | true | New password for the canvasser user.
+**params.contextPassword** | true | Password of the user owner of the API token.
+
+
