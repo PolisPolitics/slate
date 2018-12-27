@@ -647,6 +647,136 @@ ETag: {etag_value}
 }
 ```
 
+## Update multiple contacts
+
+> Example Request
+
+```http
+PATCH /v1/contacts/bulk HTTP/1.1
+Host: api.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+{
+	"data": [
+		{
+			"id": "8e8c2e84-9c4f-490c-b8bc-81dd7e24c622",
+			"etag": "4bb-1m+umYrN3hg8k/ds2fLTxdWH/Nw",
+			"data": [
+				{ "op": "replace", "path": "/profile/name/first", "value": "John" },
+				{ "op": "replace", "path": "/profile/name/last", "value": "Doe" }
+			]
+		},
+		{
+			"id": "ba36519a-2468-4d0b-803a-fba678cebfd4",
+			"etag": "4b5-a05nAD4wrRsbnVc/lNBlVCtyPSI",
+			"data": [
+				{ "op": "replace", "path": "/profile/name/first", "value": "John" },
+				{ "op": "replace", "path": "/profile/name/last", "value": "Doe" }
+			]
+		}
+	]
+}
+```
+
+> Example Response
+
+```json
+{
+    "data": [
+        {
+            "id": "8e8c2e84-9c4f-490c-b8bc-81dd7e24c622",
+            "data": {
+                "fields": {},
+                "listId": "a6abf2bf-5109-4237-a976-8267daa9db80",
+                "profile": {
+                    "name": {
+                        "first": "John",
+                        "last": "Doe"
+                    },
+                    "address": {
+                        "country": "United States",
+                        "position": {
+                            "type": "Point",
+                            "coordinates": [
+                                -87.592017,
+                                41.804027
+                            ]
+                        },
+                        "formatted": "5006 S Dorchester Ave Chicago IL 60615",
+                        "streetAddress": {
+                            "route": "S Dorchester Ave",
+                            "number": "5006",
+                            "formatted": "5006 S Dorchester Ave"
+                        },
+                        "postalCode": "60615",
+                        "state": "IL",
+                        "city": "Chicago"
+                    },
+                    "age": 53,
+                    "phone": [],
+                    "gender": "d"
+                },
+                "contacted": false,
+                "successful": false,
+                "reservation": {
+                    "reserved": false
+                }
+            },
+            "meta": {
+                "etag": "4bc-jQasVHl7NxorvkZb4wzIHQjmZu8",
+                "created": "2018-07-11T18:47:41.917Z",
+                "modified": "2018-12-27T13:27:17.990Z",
+                "resource": "contacts",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851"
+            },
+            "customerId": "f51b86dd-aaba-485e-b14d-65cbea28b8e4",
+            "securityGroupId": "f2baec89-8577-4f18-81e6-e99c5b77222d"
+        }
+    ],
+    "errors": [
+        {
+            "name": "ConcurrencyError",
+            "message": "The provided version does match the current value.",
+            "data": {
+                "position": 1
+            }
+        }
+    ]
+}
+```
+
+Update multiple contacts in an list.
+
+### HTTP Request
+
+`PATCH https://api.polisapp.com/v1/contacts/bulk`
+
+### Request Body
+
+The request body should have an array of patch requests under **data** key.
+Each patch request can update multiple fields of each contact.
+
+<aside class="notice">
+You can only patch attributes inside <b>data</b> key.
+</aside>
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | ID of the contact being updated.
+etag | true | Current ETag value of the contact.
+data | true | Patch request following [RFC 6902](https://tools.ietf.org/html/rfc6902).
+
+### Response
+
+The response will contain:
+
+Parameter | Description
+--------- | -----------
+data | Array of successfully updated contacts with its value updated.
+errors | Array of error for unsuccessful updates. It contains the error message and error key for each contact that was not possible to update.
+
 ## Delete a Contact
 
 ### HTTP Request
