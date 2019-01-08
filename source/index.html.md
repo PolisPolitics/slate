@@ -16,6 +16,8 @@ includes:
   - api/organizations
   - api/roles
   - api/segments
+  - api/statuses
+  - api/statusGroups
   - api/surveys
   - api/users
   - errors
