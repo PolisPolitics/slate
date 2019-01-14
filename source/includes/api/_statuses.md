@@ -4,27 +4,27 @@
 
 ```json
 {
-  "id": "1114c59b-a3bd-4bd7-aa26-fbe0ebaf891f",
+  "id": "91baec90-6c55-4fe6-8234-f8a4d5ee8d3d",
   "data": {
-    "icon": "faTimes:solid",
-    "name": "Inaccessible",
-    "pinColor": "#C8C8C8",
-    "iconColor": "#E95C41",
-    "contactState": "contacted-unavailable-other",
-    "defaultStatus": false,
-    "statusGroupId": "a9f9e8bb-246f-4127-a9c7-83d151c95415"
+      "icon": "faCalendar:regular",
+      "name": "Appointment",
+      "pinColor": "#C8C8C8",
+      "iconColor": "#01B5D6",
+      "contactState": "appointment",
+      "defaultStatus": true,
+      "statusGroupId": "3239be67-199f-4cef-a30b-faea8ea48785"
   },
   "meta": {
-    "etag": "264-2ZTRcL3W5ySJvg29c8WkF9Klwe8",
-    "created": "2019-01-04T11:40:08.812Z",
-    "modified": "2019-01-04T11:40:08.812Z",
-    "resource": "statuses",
-    "createdBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7",
-    "isDeleted": false,
-    "modifiedBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7"
+      "etag": "255-ZPNmy2TEWvLE5Uag2uh1tSvts9E",
+      "created": "2019-01-14T18:32:35.236Z",
+      "modified": "2019-01-14T18:32:35.236Z",
+      "resource": "statuses",
+      "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+      "isDeleted": false,
+      "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
   },
-  "customerId": "28ea23c0-1b1e-4778-8cb5-be02e13b60d9",
-  "securityGroupId": "75b37065-f7bd-4b1b-afff-c9ded1776f25"
+  "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+  "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
 }
 ```
 
@@ -54,22 +54,22 @@ statusGroupId | true | Id of the status-group that a status belongs to.
 
 > Example Request
 
-```http
-POST /v1/statuses HTTP/1.1
+```https
+POST /statuses HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 
 {
-  "data": {
-    "icon": "faTimes:solid",
+"data": {
+  "icon": "faTimes:solid",
     "name": "Inaccessible",
     "pinColor": "#C8C8C8",
     "iconColor": "#E95C41",
     "contactState": "contacted-unavailable-other",
-    "statusGroupId": "a9f9e8bb-246f-4127-a9c7-83d151c95415"
-  },
-  "customerId": "28ea23c0-1b1e-4778-8cb5-be02e13b60d9"
+    "statusGroupId": "3239be67-199f-4cef-a30b-faea8ea48785"
+},
+"customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4"
 }
 ```
 
@@ -77,27 +77,27 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-  "id": "1114c59b-a3bd-4bd7-aa26-fbe0ebaf891f",
-  "data": {
-    "icon": "faTimes:solid",
-    "name": "Inaccessible",
-    "pinColor": "#C8C8C8",
-    "iconColor": "#E95C41",
-    "contactState": "contacted-unavailable-other",
-    "defaultStatus": true,
-    "statusGroupId": "a9f9e8bb-246f-4127-a9c7-83d151c95415"
-  },
-  "meta": {
-    "etag": "264-2ZTRcL3W5ySJvg29c8WkF9Klwe8",
-    "created": "2019-01-04T11:40:08.812Z",
-    "modified": "2019-01-04T11:40:08.812Z",
-    "resource": "statuses",
-    "createdBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7",
-    "isDeleted": false,
-    "modifiedBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7"
-  },
-  "customerId": "28ea23c0-1b1e-4778-8cb5-be02e13b60d9",
-  "securityGroupId": "75b37065-f7bd-4b1b-afff-c9ded1776f25"
+    "id": "f575fbc6-e3b9-4025-ada9-97d97a9e6a11",
+    "data": {
+        "icon": "faTimes:solid",
+        "name": "Inaccessible",
+        "pinColor": "#C8C8C8",
+        "iconColor": "#E95C41",
+        "contactState": "contacted-unavailable-other",
+        "defaultStatus": false,
+        "statusGroupId": "3239be67-199f-4cef-a30b-faea8ea48785"
+    },
+    "meta": {
+        "etag": "262-SPYO6M3cY8znD5ujnOzxw/9WNhw",
+        "created": "2019-01-14T19:06:25.104Z",
+        "modified": "2019-01-14T19:06:25.104Z",
+        "resource": "statuses",
+        "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+        "isDeleted": false,
+        "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+    },
+    "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+    "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
 }
 ```
 
@@ -105,14 +105,14 @@ Creates a new status for a customer.
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/v1/statuses`
+`POST https://api.polisapp.com/statuses`
 
 ## Retrieve a status
 
 > Example Request
 
-```http
-GET /v1/statuses/1114c59b-a3bd-4bd7-aa26-fbe0ebaf891f HTTP/1.1
+```https
+GET /statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11 HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -121,27 +121,27 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-  "id": "1114c59b-a3bd-4bd7-aa26-fbe0ebaf891f",
-  "data": {
-    "icon": "faTimes:solid",
-    "name": "Inaccessible",
-    "pinColor": "#C8C8C8",
-    "iconColor": "#E95C41",
-    "contactState": "contacted-unavailable-other",
-    "defaultStatus": true,
-    "statusGroupId": "a9f9e8bb-246f-4127-a9c7-83d151c95415"
-  },
-  "meta": {
-    "etag": "264-2ZTRcL3W5ySJvg29c8WkF9Klwe8",
-    "created": "2019-01-04T11:40:08.812Z",
-    "modified": "2019-01-04T11:40:08.812Z",
-    "resource": "statuses",
-    "createdBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7",
-    "isDeleted": false,
-    "modifiedBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7"
-  },
-  "customerId": "28ea23c0-1b1e-4778-8cb5-be02e13b60d9",
-  "securityGroupId": "75b37065-f7bd-4b1b-afff-c9ded1776f25"
+    "id": "f575fbc6-e3b9-4025-ada9-97d97a9e6a11",
+    "data": {
+        "icon": "faTimes:solid",
+        "name": "Inaccessible",
+        "pinColor": "#C8C8C8",
+        "iconColor": "#E95C41",
+        "contactState": "contacted-unavailable-other",
+        "defaultStatus": false,
+        "statusGroupId": "3239be67-199f-4cef-a30b-faea8ea48785"
+    },
+    "meta": {
+        "etag": "262-SPYO6M3cY8znD5ujnOzxw/9WNhw",
+        "created": "2019-01-14T19:06:25.104Z",
+        "modified": "2019-01-14T19:06:25.104Z",
+        "resource": "statuses",
+        "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+        "isDeleted": false,
+        "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+    },
+    "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+    "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
 }
 ```
 
@@ -149,7 +149,7 @@ Obtains a single status object by ID.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/statuses/{statusId}`
+`GET https://api.polisapp.com/statuses/{statusId}`
 
 ### Query Parameters
 
@@ -161,8 +161,8 @@ statusId | true | Unique identifier of the status.
 
 > Example Request
 
-```http
-PATCH /v1/statuses/1114c59b-a3bd-4bd7-aa26-fbe0ebaf891f HTTP/1.1
+```https
+PATCH /statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11 HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -178,27 +178,27 @@ ETag: {etag_value}
 
 ```json
 {
-  "id": "1114c59b-a3bd-4bd7-aa26-fbe0ebaf891f",
-  "data": {
-    "icon": "faTimes:solid",
-    "name": "New Status Name",
-    "pinColor": "#C8C8C8",
-    "iconColor": "#E95C41",
-    "contactState": "contacted-unavailable-other",
-    "defaultStatus": true,
-    "statusGroupId": "a9f9e8bb-246f-4127-a9c7-83d151c95415"
-  },
-  "meta": {
-    "etag": "MTUxNjE0ODQ5MjI2MDI3ODI3Mg==",
-    "created": "2019-01-04T11:40:08.812Z",
-    "modified": "2019-01-04T11:40:08.812Z",
-    "resource": "statuses",
-    "createdBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7",
-    "isDeleted": false,
-    "modifiedBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7"
-  },
-  "customerId": "28ea23c0-1b1e-4778-8cb5-be02e13b60d9",
-  "securityGroupId": "75b37065-f7bd-4b1b-afff-c9ded1776f25"
+    "id": "f575fbc6-e3b9-4025-ada9-97d97a9e6a11",
+    "data": {
+        "icon": "faTimes:solid",
+        "name": "New Status Name",
+        "pinColor": "#C8C8C8",
+        "iconColor": "#E95C41",
+        "contactState": "contacted-unavailable-other",
+        "defaultStatus": false,
+        "statusGroupId": "3239be67-199f-4cef-a30b-faea8ea48785"
+    },
+    "meta": {
+        "created": "2019-01-14T19:06:25.104Z",
+        "modified": "2019-01-14T19:10:24.296Z",
+        "resource": "statuses",
+        "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+        "isDeleted": false,
+        "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+        "etag": "25b-flAkp9bnfXpUJxNTeMXblec9VpI"
+    },
+    "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+    "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
 }
 ```
 <aside class="notice">
@@ -209,19 +209,19 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v1/statuses/{statusId}`
+`PATCH https://api.polisapp.com/statuses/{statusId}`
 
 
 
 ## Delete a status
 
 ### HTTP Request
-`DELETE https://api.polisapp.com/v1/statuses/{statusId}`
+`DELETE https://api.polisapp.com/statuses/{statusId}`
 
 > Example Request
 
-```http
-DELETE https://api.polisapp.com/v1/statuses/1114c59b-a3bd-4bd7-aa26-fbe0ebaf891f
+```https
+DELETE https://api.polisapp.com/statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -231,8 +231,8 @@ Authorization: Bearer {access_token}
 
 > Example Request
 
-```http
-GET /v1/statuses?filter=/customerId+eq+""28ea23c0-1b1e-4778-8cb5-be02e13b60d9""&limit=100&skip=0&sort=["data/name","ASC"] HTTP/1.1
+```https
+GET /statuses?filter=/customerId+eq+"cc34e52f-5bfa-42ee-ac72-d331ac97b5c4"&limit=100&skip=0&sort=["data/name","ASC"] HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -241,31 +241,308 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-  "data": [
-    {
-      "id": "1114c59b-a3bd-4bd7-aa26-fbe0ebaf891f",
-      "data": {
-        "icon": "faTimes:solid",
-        "name": "New Status Name",
-        "pinColor": "#C8C8C8",
-        "iconColor": "#E95C41",
-        "contactState": "contacted-unavailable-other",
-        "defaultStatus": true,
-        "statusGroupId": "a9f9e8bb-246f-4127-a9c7-83d151c95415"
-      },
-      "meta": {
-        "etag": "MTUxNjE0ODQ5MjI2MDI3ODI3Mg==",
-        "created": "2019-01-04T11:40:08.812Z",
-        "modified": "2019-01-04T11:40:08.812Z",
-        "resource": "statuses",
-        "createdBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7",
-        "isDeleted": false,
-        "modifiedBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7"
-      },
-      "customerId": "28ea23c0-1b1e-4778-8cb5-be02e13b60d9",
-      "securityGroupId": "75b37065-f7bd-4b1b-afff-c9ded1776f25"
-    }
-  ]
+    "data": [
+        {
+            "id": "91baec90-6c55-4fe6-8234-f8a4d5ee8d3d",
+            "data": {
+                "icon": "faCalendar:regular",
+                "name": "Appointment",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#01B5D6",
+                "contactState": "appointment",
+                "defaultStatus": true,
+                "statusGroupId": "3239be67-199f-4cef-a30b-faea8ea48785"
+            },
+            "meta": {
+                "etag": "255-ZPNmy2TEWvLE5Uag2uh1tSvts9E",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "2579d3bf-6ee0-44f4-ab34-d40dc6a077c7",
+            "data": {
+                "icon": "faRedo:solid",
+                "name": "Come Back",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#01B5D6",
+                "contactState": "come-back",
+                "defaultStatus": true,
+                "statusGroupId": "c75a45d6-67cc-434c-b5b5-9a2bd2cee860"
+            },
+            "meta": {
+                "etag": "24b-3lJP37fqrMTQ7Sc86H1L4JeUInw",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "e228ff1a-d5bd-4496-ae66-73023412016e",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Deceased",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "40d81142-39ad-4390-b94f-dadc2c3ecc36"
+            },
+            "meta": {
+                "etag": "25d-yDVThi3oEQ/cA1qoHchWI8mspgs",
+                "created": "2019-01-14T18:32:35.237Z",
+                "modified": "2019-01-14T18:32:35.237Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "4af5d1ae-fc9b-4cb8-b30f-e210240c9ca4",
+            "data": {
+                "icon": "faHome:solid",
+                "name": "Default",
+                "pinColor": "#01B5D6",
+                "iconColor": "#01B5D6",
+                "contactState": "not-contacted-normal",
+                "defaultStatus": true,
+                "statusGroupId": "423de88d-1f38-4c4b-98a5-329e446423ea"
+            },
+            "meta": {
+                "etag": "254-XXuuobYVggZ7UFfTTEDB8+MDmqg",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "1f11979f-fe62-4bfa-b286-90701519d855",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Do Not Knock",
+                "pinColor": "#E95C41",
+                "iconColor": "#E95C41",
+                "contactState": "not-contacted-do-not-knock",
+                "defaultStatus": true,
+                "statusGroupId": "c81320a3-238c-4d4b-b2af-120f55161f0e"
+            },
+            "meta": {
+                "etag": "260-9tmmlmQW8FcbeF7iLDxqJDJO6WQ",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "8a7007e8-3a5a-4d05-81d4-b2fc4940e802",
+            "data": {
+                "icon": "faStar:solid",
+                "name": "High Priority",
+                "pinColor": "#FFBE00",
+                "iconColor": "#FFBE00",
+                "contactState": "not-contacted-high-priority",
+                "defaultStatus": true,
+                "statusGroupId": "1a64b38d-63da-437e-ab87-e30879d70c7a"
+            },
+            "meta": {
+                "etag": "261-zdVq0UojIuLCbw3nrXWEnAgrtMI",
+                "created": "2019-01-14T18:32:35.235Z",
+                "modified": "2019-01-14T18:32:35.235Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "1e055231-e35e-4503-92ba-99fd496aea46",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Inaccessible",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "40d81142-39ad-4390-b94f-dadc2c3ecc36"
+            },
+            "meta": {
+                "etag": "261-oFqgT5pn108rZXF1xeLE9IF+ocY",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "220fa738-df12-430a-83ce-2ec1ff44c02e",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Moved",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "40d81142-39ad-4390-b94f-dadc2c3ecc36"
+            },
+            "meta": {
+                "etag": "25a-XzCTE6MK4Zvob32E7rIa96zd1TY",
+                "created": "2019-01-14T18:32:35.237Z",
+                "modified": "2019-01-14T18:32:35.237Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "7c0516db-9948-4b93-9782-14d2c0cf2cd0",
+            "data": {
+                "icon": "polisNotHome",
+                "name": "Not Home",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#C8C8C8",
+                "contactState": "contacted-unavailable-not-home",
+                "defaultStatus": true,
+                "statusGroupId": "b9ed5a4a-8bd0-4734-98cf-78b1fe693982"
+            },
+            "meta": {
+                "etag": "25f-JCMkkex0GIxICChH/qtemPeAEB8",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "3d2e5861-de08-4090-95f7-68aa186497c6",
+            "data": {
+                "icon": "faThumbsDown:solid",
+                "name": "Not Successful",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-available-not-successful",
+                "defaultStatus": true,
+                "statusGroupId": "756585bf-57e3-41e4-8345-6e29b16894bf"
+            },
+            "meta": {
+                "etag": "26f-wiovWHU8KOprVHAnTQFKVoOB744",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "490f9437-17f6-40e3-9956-33e0acfb4691",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Other Language",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "40d81142-39ad-4390-b94f-dadc2c3ecc36"
+            },
+            "meta": {
+                "etag": "263-N2Rd6ufFnJRBTx2c+UbiDkLBVR0",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "88784604-034c-47cf-a83c-56b93e2ed911",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Refused",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "5c0d3183-c1cb-461a-ae0f-7ac2f52e6206"
+            },
+            "meta": {
+                "etag": "25c-6E9Cy8UiVDBCeygMz6LKgNazG0M",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "955b2213-c31f-490b-8004-27d4568865b1",
+            "data": {
+                "icon": "faThumbsUp:solid",
+                "name": "Successful",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#73C1B1",
+                "contactState": "contacted-available-successful",
+                "defaultStatus": true,
+                "statusGroupId": "7cba7113-f214-440d-9e2f-6f11fca47740"
+            },
+            "meta": {
+                "etag": "265-eXQzUr9FDo+GS+UU2+0Y6Ri+WJU",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        }
+    ],
+    "meta": {}
 }
 ```
 
@@ -273,7 +550,7 @@ Retrieves a list of statuses filtered by a criteria.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/statuses?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+`GET https://api.polisapp.com/statuses?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
 ### Query Parameters
 
@@ -295,8 +572,8 @@ List of attributes that are allowed to be used in a filter query.
 
 > Example Request
 
-```http
-PUT /campaigns/2cf2bdd2-3a84-43cc-8171-aad0f4433f89/statuses/27c2f041-971c-4446-9d88-eebabfc44ab8 HTTP/1.1
+```https
+PUT /campaigns/e660c056-ea61-4a2f-8bf4-ef9280413e0a/statuses/41eecffe-5b6a-4499-a7b9-70e93f35d78b HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -305,22 +582,22 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-  "id": "35004149-a941-4955-9b99-2572962d66a3",
-  "data": {
-    "campaignId": "2cf2bdd2-3a84-43cc-8171-aad0f4433f89",
-    "statusId": "27c2f041-971c-4446-9d88-eebabfc44ab8"
-  },
-  "meta": {
-    "created": "2019-01-07T13:07:47.948Z",
-    "createdBy": "32981f31-0c1f-4469-bcd8-930576593013",
-    "etag": "1fd-LbLNJ8jMZgewKlGyhtUQ02IsILQ",
-    "isDeleted": false,
-    "modified": "2019-01-07T13:07:47.948Z",
-    "modifiedBy": "32981f31-0c1f-4469-bcd8-930576593013",
-    "resource": "status-campaign"
-  },
-  "customerId": "1a525718-c0df-4d26-90c3-a25c6e5bd2eb",
-  "securityGroupId": "b5680128-fc63-4ce0-9c0b-2a22ea3a70bf",
+    "id": "eb7cedad-cba2-4ed4-86c4-ebecbc2b34a0",
+    "data": {
+        "statusId": "41eecffe-5b6a-4499-a7b9-70e93f35d78b",
+        "campaignId": "e660c056-ea61-4a2f-8bf4-ef9280413e0a"
+    },
+    "meta": {
+        "etag": "1fd-DZUtKhWFxo+Uj8aQcLuoNNTW2Ec",
+        "created": "2019-01-14T19:20:37.553Z",
+        "modified": "2019-01-14T19:20:37.553Z",
+        "resource": "status-campaign",
+        "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+        "isDeleted": false,
+        "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+    },
+    "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+    "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
 }
 ```
 
@@ -341,8 +618,8 @@ statusId | true | Unique identifier of the status.
 
 > Example Request
 
-```http
-GET /campaigns/:campaignId/statuses HTTP/1.1
+```https
+GET /campaigns/e660c056-ea61-4a2f-8bf4-ef9280413e0a/statuses HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -351,31 +628,307 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-  "data": [
-    {
-      "id": "1114c59b-a3bd-4bd7-aa26-fbe0ebaf891f",
-      "data": {
-        "icon": "faTimes:solid",
-        "name": "New Status Name",
-        "pinColor": "#C8C8C8",
-        "iconColor": "#E95C41",
-        "contactState": "contacted-unavailable-other",
-        "defaultStatus": true,
-        "statusGroupId": "a9f9e8bb-246f-4127-a9c7-83d151c95415"
-      },
-      "meta": {
-        "etag": "MTUxNjE0ODQ5MjI2MDI3ODI3Mg==",
-        "created": "2019-01-04T11:40:08.812Z",
-        "modified": "2019-01-04T11:40:08.812Z",
-        "resource": "statuses",
-        "createdBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7",
-        "isDeleted": false,
-        "modifiedBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7"
-      },
-      "customerId": "28ea23c0-1b1e-4778-8cb5-be02e13b60d9",
-      "securityGroupId": "75b37065-f7bd-4b1b-afff-c9ded1776f25"
-    }
-  ]
+    "data": [
+        {
+            "id": "8a7007e8-3a5a-4d05-81d4-b2fc4940e802",
+            "data": {
+                "icon": "faStar:solid",
+                "name": "High Priority",
+                "pinColor": "#FFBE00",
+                "iconColor": "#FFBE00",
+                "contactState": "not-contacted-high-priority",
+                "defaultStatus": true,
+                "statusGroupId": "1a64b38d-63da-437e-ab87-e30879d70c7a"
+            },
+            "meta": {
+                "etag": "261-zdVq0UojIuLCbw3nrXWEnAgrtMI",
+                "created": "2019-01-14T18:32:35.235Z",
+                "modified": "2019-01-14T18:32:35.235Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "4af5d1ae-fc9b-4cb8-b30f-e210240c9ca4",
+            "data": {
+                "icon": "faHome:solid",
+                "name": "Default",
+                "pinColor": "#01B5D6",
+                "iconColor": "#01B5D6",
+                "contactState": "not-contacted-normal",
+                "defaultStatus": true,
+                "statusGroupId": "423de88d-1f38-4c4b-98a5-329e446423ea"
+            },
+            "meta": {
+                "etag": "254-XXuuobYVggZ7UFfTTEDB8+MDmqg",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "3d2e5861-de08-4090-95f7-68aa186497c6",
+            "data": {
+                "icon": "faThumbsDown:solid",
+                "name": "Not Successful",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-available-not-successful",
+                "defaultStatus": true,
+                "statusGroupId": "756585bf-57e3-41e4-8345-6e29b16894bf"
+            },
+            "meta": {
+                "etag": "26f-wiovWHU8KOprVHAnTQFKVoOB744",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "91baec90-6c55-4fe6-8234-f8a4d5ee8d3d",
+            "data": {
+                "icon": "faCalendar:regular",
+                "name": "Appointment",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#01B5D6",
+                "contactState": "appointment",
+                "defaultStatus": true,
+                "statusGroupId": "3239be67-199f-4cef-a30b-faea8ea48785"
+            },
+            "meta": {
+                "etag": "255-ZPNmy2TEWvLE5Uag2uh1tSvts9E",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "955b2213-c31f-490b-8004-27d4568865b1",
+            "data": {
+                "icon": "faThumbsUp:solid",
+                "name": "Successful",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#73C1B1",
+                "contactState": "contacted-available-successful",
+                "defaultStatus": true,
+                "statusGroupId": "7cba7113-f214-440d-9e2f-6f11fca47740"
+            },
+            "meta": {
+                "etag": "265-eXQzUr9FDo+GS+UU2+0Y6Ri+WJU",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "490f9437-17f6-40e3-9956-33e0acfb4691",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Other Language",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "40d81142-39ad-4390-b94f-dadc2c3ecc36"
+            },
+            "meta": {
+                "etag": "263-N2Rd6ufFnJRBTx2c+UbiDkLBVR0",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "220fa738-df12-430a-83ce-2ec1ff44c02e",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Moved",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "40d81142-39ad-4390-b94f-dadc2c3ecc36"
+            },
+            "meta": {
+                "etag": "25a-XzCTE6MK4Zvob32E7rIa96zd1TY",
+                "created": "2019-01-14T18:32:35.237Z",
+                "modified": "2019-01-14T18:32:35.237Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "1f11979f-fe62-4bfa-b286-90701519d855",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Do Not Knock",
+                "pinColor": "#E95C41",
+                "iconColor": "#E95C41",
+                "contactState": "not-contacted-do-not-knock",
+                "defaultStatus": true,
+                "statusGroupId": "c81320a3-238c-4d4b-b2af-120f55161f0e"
+            },
+            "meta": {
+                "etag": "260-9tmmlmQW8FcbeF7iLDxqJDJO6WQ",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "e228ff1a-d5bd-4496-ae66-73023412016e",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Deceased",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "40d81142-39ad-4390-b94f-dadc2c3ecc36"
+            },
+            "meta": {
+                "etag": "25d-yDVThi3oEQ/cA1qoHchWI8mspgs",
+                "created": "2019-01-14T18:32:35.237Z",
+                "modified": "2019-01-14T18:32:35.237Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "2579d3bf-6ee0-44f4-ab34-d40dc6a077c7",
+            "data": {
+                "icon": "faRedo:solid",
+                "name": "Come Back",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#01B5D6",
+                "contactState": "come-back",
+                "defaultStatus": true,
+                "statusGroupId": "c75a45d6-67cc-434c-b5b5-9a2bd2cee860"
+            },
+            "meta": {
+                "etag": "24b-3lJP37fqrMTQ7Sc86H1L4JeUInw",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "1e055231-e35e-4503-92ba-99fd496aea46",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Inaccessible",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "40d81142-39ad-4390-b94f-dadc2c3ecc36"
+            },
+            "meta": {
+                "etag": "261-oFqgT5pn108rZXF1xeLE9IF+ocY",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "7c0516db-9948-4b93-9782-14d2c0cf2cd0",
+            "data": {
+                "icon": "polisNotHome",
+                "name": "Not Home",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#C8C8C8",
+                "contactState": "contacted-unavailable-not-home",
+                "defaultStatus": true,
+                "statusGroupId": "b9ed5a4a-8bd0-4734-98cf-78b1fe693982"
+            },
+            "meta": {
+                "etag": "25f-JCMkkex0GIxICChH/qtemPeAEB8",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        },
+        {
+            "id": "88784604-034c-47cf-a83c-56b93e2ed911",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Refused",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "contactState": "contacted-unavailable-other",
+                "defaultStatus": true,
+                "statusGroupId": "5c0d3183-c1cb-461a-ae0f-7ac2f52e6206"
+            },
+            "meta": {
+                "etag": "25c-6E9Cy8UiVDBCeygMz6LKgNazG0M",
+                "created": "2019-01-14T18:32:35.236Z",
+                "modified": "2019-01-14T18:32:35.236Z",
+                "resource": "statuses",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            },
+            "customerId": "cc34e52f-5bfa-42ee-ac72-d331ac97b5c4",
+            "securityGroupId": "8fa2a8d3-104f-48ce-9f00-c6795013edca"
+        }
+    ]
 }
 ```
 
@@ -395,8 +948,8 @@ campaignId | true | Unique identifier of the campaign.
 
 > Example Request
 
-```http
-DELETE /campaigns/:campaignId/statuses/:statusId HTTP/1.1
+```https
+DELETE /campaigns/e660c056-ea61-4a2f-8bf4-ef9280413e0a/statuses/41eecffe-5b6a-4499-a7b9-70e93f35d78b HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```

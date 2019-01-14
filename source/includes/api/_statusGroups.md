@@ -4,24 +4,24 @@
 
 ```json
 {
-  "id": "1033d9ec-e244-4210-b569-06d9f0029359", 
-  "data": {
-    "icon": "faCalendar:regular",
-    "name": "Appointment",
-    "pinColor": "#C8C8C8",
-    "iconColor": "#01B5D6",
-    "statusType": "appointment",
-    "contactState": "appointment"
-  },
-  "meta": {
-    "etag": "1c3-qK4WON+wwEzDcVWVND8Axzz14yQ",
-    "created": "2019-01-04T11:40:08.221Z",
-    "modified": "2019-01-04T11:40:08.221Z",
-    "resource": "status-groups",
-    "createdBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7",
-    "isDeleted": false,
-    "modifiedBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7"
-  }
+    "id": "3239be67-199f-4cef-a30b-faea8ea48785",
+    "data": {
+        "icon": "faCalendar:regular",
+        "name": "Appointment",
+        "pinColor": "#C8C8C8",
+        "iconColor": "#01B5D6",
+        "statusType": "appointment",
+        "contactState": "appointment"
+    },
+    "meta": {
+        "etag": "1bc-5enwzbhdhBgW9Uq/8W5AxwAoSj8",
+        "created": "2019-01-14T18:32:34.187Z",
+        "modified": "2019-01-14T18:32:34.187Z",
+        "resource": "status-groups",
+        "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+        "isDeleted": false,
+        "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+    }
 }
 ```
 
@@ -49,8 +49,8 @@ contactState | true | Compatibility attribute that maps a status-group to an old
 
 > Example Request
 
-```http
-GET /status-groups/23b9f19d-fb96-404c-93ea-d9517abe8830 HTTP/1.1
+```https
+GET /status-groups/3239be67-199f-4cef-a30b-faea8ea48785 HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -59,24 +59,24 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-  "id":"23b9f19d-fb96-404c-93ea-d9517abe8830",
-  "data": {
-    "contactState":"contacted-available-successful",
-    "icon":"success",
-    "iconColor":"#0000FF",
-    "name":"StatusGroup",
-    "pinColor":"#808080",
-    "statusType":"successful"
-  },
-  "meta":{
-    "created":"2019-01-04T17:40:18.074Z",
-    "createdBy":"bac9a571-848b-46cb-bf3b-4518fc1c5c7b",
-    "etag":"1c3-qK4WON+wwEzDcVWVND8Axzz14yQ",
-    "isDeleted":false,
-    "modified":"2019-01-04T17:40:18.074Z",
-    "modifiedBy":"bac9a571-848b-46cb-bf3b-4518fc1c5c7b",
-    "resource":"status-groups"
-  }
+    "id": "3239be67-199f-4cef-a30b-faea8ea48785",
+    "data": {
+        "icon": "faCalendar:regular",
+        "name": "Appointment",
+        "pinColor": "#C8C8C8",
+        "iconColor": "#01B5D6",
+        "statusType": "appointment",
+        "contactState": "appointment"
+    },
+    "meta": {
+        "etag": "1bc-5enwzbhdhBgW9Uq/8W5AxwAoSj8",
+        "created": "2019-01-14T18:32:34.187Z",
+        "modified": "2019-01-14T18:32:34.187Z",
+        "resource": "status-groups",
+        "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+        "isDeleted": false,
+        "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+    }
 }
 ```
 
@@ -99,7 +99,7 @@ Retrieves a list of existing status-groups
 > Example Request
 
 ```http
-GET /status-groups?limit=10&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
+GET /status-groups?limit=100&skip=0&sort=["data/name","ASC"] HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -108,50 +108,209 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-  "data": [
-    {
-      "id": "1033d9ec-e244-4210-b569-06d9f0029359",
-      "data": {
-        "icon": "faCalendar:regular",
-        "name": "Appointment",
-        "pinColor": "#C8C8C8",
-        "iconColor": "#01B5D6",
-        "statusType": "appointment",
-        "contactState": "appointment"
-      },
-      "meta": {
-        "etag": "1c3-+A8tftYDtDm1bESW/8P2PWBZm6c",
-        "created": "2019-01-04T11:40:08.221Z",
-        "modified": "2019-01-04T11:40:08.221Z",
-        "resource": "status-groups",
-        "createdBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7",
-        "isDeleted": false,
-        "modifiedBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7"
-      },
-    }
-    {
-      "id": "5b15e892-eb5c-4154-b75a-347554718cb1",
-      "data": {
-        "contactState":"not-contacted-high-priority",
-        "icon":"faStar:solid",
-        "iconColor":"#FFBE00",
-        "name":"High Priority",
-        "pinColor":"#FFBE00",
-        "statusType":"list"
-      },
-      "meta": {
-        "etag": "1c1-ZHoblhKhdlX+rpJo/FfcPuPQTwg",
-        "created": "2019-01-04T11:40:08.221Z",
-        "modified": "2019-01-04T11:40:08.221Z",
-        "resource": "status-groups",
-        "createdBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7",
-        "isDeleted": false,
-        "modifiedBy": "5a2c9e4b-7fec-4c91-a700-c36233b160e7"
-      }
-    }
-  ],
-  "meta": {
-  }
+    "data": [
+        {
+            "id": "3239be67-199f-4cef-a30b-faea8ea48785",
+            "data": {
+                "icon": "faCalendar:regular",
+                "name": "Appointment",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#01B5D6",
+                "statusType": "appointment",
+                "contactState": "appointment"
+            },
+            "meta": {
+                "etag": "1bc-5enwzbhdhBgW9Uq/8W5AxwAoSj8",
+                "created": "2019-01-14T18:32:34.187Z",
+                "modified": "2019-01-14T18:32:34.187Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        },
+        {
+            "id": "40d81142-39ad-4390-b94f-dadc2c3ecc36",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Bad Contact Info",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "statusType": "unavailable",
+                "contactState": "contacted-unavailable-other"
+            },
+            "meta": {
+                "etag": "1cc-5kPJw112Bo07yGNwe/VSr6Fpkks",
+                "created": "2019-01-14T18:32:34.161Z",
+                "modified": "2019-01-14T18:32:34.161Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        },
+        {
+            "id": "c75a45d6-67cc-434c-b5b5-9a2bd2cee860",
+            "data": {
+                "icon": "faRedo:solid",
+                "name": "Come Back",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#01B5D6",
+                "statusType": "unavailable",
+                "contactState": "come-back"
+            },
+            "meta": {
+                "etag": "1b2-8ZEVVqsW3EObYyq+yEZuusP0dbw",
+                "created": "2019-01-14T18:32:34.196Z",
+                "modified": "2019-01-14T18:32:34.196Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        },
+        {
+            "id": "423de88d-1f38-4c4b-98a5-329e446423ea",
+            "data": {
+                "icon": "faHome:solid",
+                "name": "Default",
+                "pinColor": "#01B5D6",
+                "iconColor": "#01B5D6",
+                "statusType": "list",
+                "contactState": "not-contacted-normal"
+            },
+            "meta": {
+                "etag": "1b4-3lq19W9GKj5wQ8IHqvr0iYS2Hgs",
+                "created": "2019-01-14T18:32:34.197Z",
+                "modified": "2019-01-14T18:32:34.197Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        },
+        {
+            "id": "c81320a3-238c-4d4b-b2af-120f55161f0e",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Do Not Knock",
+                "pinColor": "#E95C41",
+                "iconColor": "#E95C41",
+                "statusType": "list",
+                "contactState": "not-contacted-do-not-knock"
+            },
+            "meta": {
+                "etag": "1c0-ZXgeEWNAicSyNn4eWht0DRBD71U",
+                "created": "2019-01-14T18:32:34.197Z",
+                "modified": "2019-01-14T18:32:34.197Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        },
+        {
+            "id": "1a64b38d-63da-437e-ab87-e30879d70c7a",
+            "data": {
+                "icon": "faStar:solid",
+                "name": "High Priority",
+                "pinColor": "#FFBE00",
+                "iconColor": "#FFBE00",
+                "statusType": "list",
+                "contactState": "not-contacted-high-priority"
+            },
+            "meta": {
+                "etag": "1c1-jMdRPz/xL/vMMULMXybONAzKlRc",
+                "created": "2019-01-14T18:32:34.197Z",
+                "modified": "2019-01-14T18:32:34.197Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        },
+        {
+            "id": "b9ed5a4a-8bd0-4734-98cf-78b1fe693982",
+            "data": {
+                "icon": "polisNotHome",
+                "name": "Not Home",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#C8C8C8",
+                "statusType": "unavailable",
+                "contactState": "contacted-unavailable-not-home"
+            },
+            "meta": {
+                "etag": "1c6-RljukdOcr2FL3LREd20nZNTBsqY",
+                "created": "2019-01-14T18:32:34.161Z",
+                "modified": "2019-01-14T18:32:34.161Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        },
+        {
+            "id": "756585bf-57e3-41e4-8345-6e29b16894bf",
+            "data": {
+                "icon": "faThumbsDown:solid",
+                "name": "Not Successful",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "statusType": "unsuccessful",
+                "contactState": "contacted-available-not-successful"
+            },
+            "meta": {
+                "etag": "1d7-l3FztA7p5U725UR4rLvOuGRLpFo",
+                "created": "2019-01-14T18:32:34.161Z",
+                "modified": "2019-01-14T18:32:34.161Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        },
+        {
+            "id": "5c0d3183-c1cb-461a-ae0f-7ac2f52e6206",
+            "data": {
+                "icon": "faTimes:solid",
+                "name": "Refused",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#E95C41",
+                "statusType": "unavailable",
+                "contactState": "contacted-unavailable-other"
+            },
+            "meta": {
+                "etag": "1c3-Hm/j51heYK4nAeBI4ZOues+iDck",
+                "created": "2019-01-14T18:32:34.176Z",
+                "modified": "2019-01-14T18:32:34.176Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        },
+        {
+            "id": "7cba7113-f214-440d-9e2f-6f11fca47740",
+            "data": {
+                "icon": "faThumbsUp:solid",
+                "name": "Successful",
+                "pinColor": "#C8C8C8",
+                "iconColor": "#73C1B1",
+                "statusType": "successful",
+                "contactState": "contacted-available-successful"
+            },
+            "meta": {
+                "etag": "1cb-WsWYvLl/2CDMJ9JbqrGvYJ5VEcs",
+                "created": "2019-01-14T18:32:34.177Z",
+                "modified": "2019-01-14T18:32:34.177Z",
+                "resource": "status-groups",
+                "createdBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be",
+                "isDeleted": false,
+                "modifiedBy": "01c312cc-5d3b-4d2f-a594-0ecd100411be"
+            }
+        }
+    ],
+    "meta": {}
 }
 ```
 
