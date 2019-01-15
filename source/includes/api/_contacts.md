@@ -66,7 +66,9 @@
     "reservation": {
       "reserved": false
     },
-    "contacted": true
+    "contacted": true,
+    "state": "contacted-unavailable-other",
+    "statusId": "1e055231-e35e-4503-92ba-99fd496aea46"
   },
   "meta": {
     "created": "2017-12-15T19:46:01.594Z",
@@ -92,19 +94,21 @@ data | true | Contact data.
 Attribute | Required? | Description
 --------- | --------- | -----------
 listId | true | List identifier this contact belongs to.
-profile | true | Contact profile [details](#data-profile).
+profile | true | Contact profile [details](#data/profile).
 notes | false | String with custom text (max length: 2048 characters).
-fields | true | Custom fields [details](#data-fields).
-integration | false | Integration information [details](#data-integration).
-reservation | false | Route reservation [details](#data-reservation).
+fields | true | Custom fields [details](#data/fields).
+integration | false | Integration information [details](#data/integration).
+reservation | false | Route reservation [details](#data/reservation).
 contacted | false | Flag indicating if the contact has ever been contacted.
+state | false | Property that categorizes a contact by it's interaction [details](#data/state).
+statusId | false | Id of a status object. [details](#data/statusId).
 
 ### data/profile
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-name | false | Contact name [details](#data-profile-name).
-address | true | Contact address [details](#data-profile-address).
+name | false | Contact name [details](#data/profile/name).
+address | true | Contact address [details](#data/profile/address).
 email | false | Email address of the contact.
 phone | false | Array of phone numbers.
 gender | false |  decline: 'd'<br/> female: 'f'<br/> male: 'm'<br/> nonbinary: 'n'<br/> other: 'o',
@@ -169,6 +173,26 @@ Attribute | Required? | Description
 --------- | --------- | -----------
 reserved | true | Boolean indicating if this contact is reserved for some route.
 walklistId | false | Route identifier this contact is reserved to.
+
+### data/state
+
+Allowed values:
+
+* `'appointment'`
+* `'not-contacted-high-priority'`
+* `'not-contacted-do-not-knock'`
+* `'not-contacted-normal'`
+* `'contacted-available-successful'`
+* `'contacted-available-not-successful'`
+* `'contacted-unavailable-not-home'`
+* `'contacted-unavailable-other'`
+* `'come-back'`
+* `'unknown'`
+
+### data/statusId
+
+The statusId property must point to the id property of a status object.
+This status' `contactState` property must have the same value of the contact's `state` property, otherwise it's id will not be a valid statusId for the contact object.
 
 ### meta
 
