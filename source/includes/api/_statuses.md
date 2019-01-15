@@ -71,7 +71,7 @@ The following naming rules must be applied from Font Awesome's icon names to sta
 > Example Request
 
 ```https
-POST /statuses HTTP/1.1
+POST /v1/statuses HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -121,14 +121,14 @@ Creates a new status for a customer.
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/statuses`
+`POST https://api.polisapp.com/v1/statuses`
 
 ## Retrieve a status
 
 > Example Request
 
 ```https
-GET /statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11 HTTP/1.1
+GET /v1/statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11 HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -165,7 +165,7 @@ Obtains a single status object by ID.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/statuses/{statusId}`
+`GET https://api.polisapp.com/v1/statuses/{statusId}`
 
 ### Query Parameters
 
@@ -178,7 +178,7 @@ statusId | true | Unique identifier of the status.
 > Example Request
 
 ```https
-PATCH /statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11 HTTP/1.1
+PATCH /v1/statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11 HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -225,19 +225,19 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/statuses/{statusId}`
+`PATCH https://api.polisapp.com/v1/statuses/{statusId}`
 
 
 
 ## Delete a status
 
 ### HTTP Request
-`DELETE https://api.polisapp.com/statuses/{statusId}`
+`DELETE https://api.polisapp.com/v1/statuses/{statusId}`
 
 > Example Request
 
 ```https
-DELETE https://api.polisapp.com/statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11
+DELETE /v1/statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -566,7 +566,7 @@ Retrieves a list of statuses filtered by a criteria.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/statuses?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+`GET https://api.polisapp.com/v1/statuses?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
 ### Query Parameters
 
@@ -589,7 +589,7 @@ List of attributes that are allowed to be used in a filter query.
 > Example Request
 
 ```https
-PUT /campaigns/e660c056-ea61-4a2f-8bf4-ef9280413e0a/statuses/41eecffe-5b6a-4499-a7b9-70e93f35d78b HTTP/1.1
+PUT /v1/campaigns/e660c056-ea61-4a2f-8bf4-ef9280413e0a/statuses/41eecffe-5b6a-4499-a7b9-70e93f35d78b HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -635,7 +635,7 @@ statusId | true | Unique identifier of the status.
 > Example Request
 
 ```https
-GET /campaigns/e660c056-ea61-4a2f-8bf4-ef9280413e0a/statuses HTTP/1.1
+GET /v1/campaigns/e660c056-ea61-4a2f-8bf4-ef9280413e0a/statuses HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -965,7 +965,7 @@ campaignId | true | Unique identifier of the campaign.
 > Example Request
 
 ```https
-DELETE /campaigns/e660c056-ea61-4a2f-8bf4-ef9280413e0a/statuses/41eecffe-5b6a-4499-a7b9-70e93f35d78b HTTP/1.1
+DELETE /v1/campaigns/e660c056-ea61-4a2f-8bf4-ef9280413e0a/statuses/41eecffe-5b6a-4499-a7b9-70e93f35d78b HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
