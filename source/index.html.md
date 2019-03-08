@@ -7,12 +7,21 @@ language_tabs: # must be one of https://git.io/vQNgJ
 includes:
   - environments
   - authentication
-  - api/integrations
-  - api/lists
+  - api/campaigns
   - api/contacts
+  - api/integrations
+  - api/interactions
+  - api/lists
+  - api/memberships
+  - api/organizations
+  - api/roles
+  - api/segments
+  - api/surveys
+  - api/users
   - errors
   - filters
   - meta
+  - languages
 
 search: true
 ---
