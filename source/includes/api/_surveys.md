@@ -282,7 +282,7 @@ questionId | false | Identifier of the next question.
 
 ```
 http
-POST /surveys HTTP/1.1
+POST /v1/surveys HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -474,14 +474,14 @@ Creates a new survey.
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/surveys`
+`POST https://api.polisapp.com/v1/surveys`
 
 ## Retrieve a survey
 
 > Example Request
 
 ```http
-GET /surveys/07d8e307-a545-4ff8-9698-41776e27ad3c HTTP/1.1
+GET /v1/surveys/07d8e307-a545-4ff8-9698-41776e27ad3c HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -597,7 +597,7 @@ Obtains a single survey object by it's id.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/surveys/{id}`
+`GET https://api.polisapp.com/v1/surveys/{id}`
 
 ### Query Parameters
 
@@ -619,7 +619,7 @@ You can only patch attributes inside <b>data</b> key.
 > Example Request
 
 ```http
-PATCH /surveys/f2636525-36d7-439c-924d-a2aaf3848716 HTTP/1.1
+PATCH /v1/surveys/f2636525-36d7-439c-924d-a2aaf3848716 HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -884,7 +884,7 @@ ETag: {etag_value}
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/surveys/{id}`
+`PATCH https://api.polisapp.com/v1/surveys/{id}`
 
 ### Query Parameters
 
@@ -897,14 +897,14 @@ id | true | Unique identifier of the survey.
 > Example Request
 
 ```http
-DELETE https://api.polisapp.com/surveys/f2636525-36d7-439c-924d-a2aaf3848716
+DELETE https://api.polisapp.com/v1/surveys/f2636525-36d7-439c-924d-a2aaf3848716
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ETag: {etag_value}
 ```
 
 ### HTTP Request
-`DELETE https://api.polisapp.com/surveys/{id}`
+`DELETE https://api.polisapp.com/v1/surveys/{id}`
 
 ### Query Parameters
 
@@ -919,7 +919,7 @@ Retrieved two surveys from the same campaign.
 > Example Request
 
 ```http
-GET /surveys?filter=%2Fdata%2FcampaignId%20eq%20%220cb2dc71-73ba-4eca-977c-548085328521%22&limit=10&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
+GET /v1/surveys?filter=%2Fdata%2FcampaignId%20eq%20%220cb2dc71-73ba-4eca-977c-548085328521%22&limit=10&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -1117,7 +1117,7 @@ Authorization: Bearer {access_token}
 ```
 
 ### HTTP Request
-`GET https://api.polisapp.com/surveys?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+`GET https://api.polisapp.com/v1/surveys?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
 ### Query Parameters
 
@@ -1126,6 +1126,6 @@ Parameter | Required | Description
 fiter | false | Query to filter data. [See documentation](#filters).
 limit | true | Limit results returned. Useful for pagination.
 skip | true | Data offset index. Useful for pagination.
-sort | true | Sort column. Ex.: `["data/name","ASC"]`
+sort | true | Sort column. Ex.: `["id","ASC"]`
 
 Filter Example: `/data/campaignId eq "0cb2dc71-73ba-4eca-977c-548085328521"`

@@ -90,7 +90,7 @@ permissions | false | Array of permissions allowed to that role.
 > Example Request
 
 ```http
-GET /roles/d188e998-dee9-45a9-8f97-92a71f3cee9b HTTP/1.1
+GET /v1/roles/d188e998-dee9-45a9-8f97-92a71f3cee9b HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -162,14 +162,14 @@ Authorization: Bearer {access_token}
 ```
 
 ### HTTP Request
-`GET https://api.polisapp.com/roles/{id}`
+`GET https://api.polisapp.com/v1/roles/{id}`
 
 ## Get many roles
 
 > Example Request
 
 ```http
-GET /roles?filter=%2FcustomerId%20eq%20%22f51b86dd-aaba-485e-b14d-65cbea28b8e4%22&limit=100&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
+GET /v1/roles?filter=%2FcustomerId%20eq%20%22f51b86dd-aaba-485e-b14d-65cbea28b8e4%22&limit=100&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -370,7 +370,7 @@ Authorization: Bearer {access_token}
 ```
 
 ### HTTP Request
-`GET https://api.polisapp.com/roles?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+`GET https://api.polisapp.com/v1/roles?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
 ### Query Parameters
 
@@ -379,6 +379,6 @@ Parameter | Required | Description
 fiter | false | Query to filter data. [See documentation](#filters).
 limit | true | Limit results returned. Useful for pagination.
 skip | true | Data offset index. Useful for pagination.
-sort | true | Sort column. Ex.: `["data/name","ASC"]`
+sort | true | Sort column. Ex.: `["id","ASC"]`
 
 Filter Example: `/customerId eq "f51b86dd-aaba-485e-b14d-65cbea28b8e4"`

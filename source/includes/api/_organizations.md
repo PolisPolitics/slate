@@ -59,7 +59,7 @@ requireSignUpConfirmation | false | Joining organization by link, if `false`, do
 > Example Request
 
 ```http
-GET /organizations/eb4dfe83-f1fd-46dd-a69d-b7cf7b566319 HTTP/1.1
+GET /v1/organizations/eb4dfe83-f1fd-46dd-a69d-b7cf7b566319 HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -94,14 +94,14 @@ Authorization: Bearer {access_token}
 ```
 
 ### HTTP Request
-`GET https://api.polisapp.com/organizations/{id}`
+`GET https://api.polisapp.com/v1/organizations/{id}`
 
 ## Get many organizations
 
 > Example Request
 
 ```http
-GET /organizations?filter=%2FcustomerId%20eq%20%22f51b86dd-aaba-485e-b14d-65cbea28b8e4%22&limit=100&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
+GET /v1/organizations?filter=%2FcustomerId%20eq%20%22f51b86dd-aaba-485e-b14d-65cbea28b8e4%22&limit=100&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -166,7 +166,7 @@ Authorization: Bearer {access_token}
 ```
 
 ### HTTP Request
-`GET https://api.polisapp.com/organizations?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+`GET https://api.polisapp.com/v1/organizations?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
 ### Query Parameters
 
@@ -175,6 +175,6 @@ Parameter | Required | Description
 fiter | false | Query to filter data. [See documentation](#filters).
 limit | true | Limit results returned. Useful for pagination.
 skip | true | Data offset index. Useful for pagination.
-sort | true | Sort column. Ex.: `["data/name","ASC"]`
+sort | true | Sort column. Ex.: `["id","ASC"]`
 
 Filter Example: `/customerId eq "f51b86dd-aaba-485e-b14d-65cbea28b8e4"`

@@ -99,7 +99,7 @@ Retrieves a list of existing status-groups
 > Example Request
 
 ```http
-GET /v1/status-groups?limit=100&skip=0&sort=["data/name","ASC"] HTTP/1.1
+GET /v1/status-groups?limit=100&skip=0&sort=["id","ASC"] HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -325,4 +325,4 @@ Parameter | Required | Description
 fiter | false | Query to filter data. [See documentation](#filters).
 limit | true | Limit results returned. Useful for pagination.
 skip | true | Data offset index. Useful for pagination.
-sort | true | Sort column. Ex.: `["data/name","ASC"]`
+sort | true | Sort column. Ex.: `["id","ASC"]`

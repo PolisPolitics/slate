@@ -49,11 +49,12 @@ DELETE /v1/integrations/credentials HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
+ETag: {etag_value}
 
 {
 	"data": {
 		"clientId": "{client_id}",
-		"organizationId": "65576faf-4937-4871-8029-bb6f4e902f5f"	
+		"organizationId": "65576faf-4937-4871-8029-bb6f4e902f5f"
 	}
 }
 ```

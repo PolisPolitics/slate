@@ -521,7 +521,7 @@ Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
 
- 
+
 
 > Example Response
 
@@ -598,9 +598,9 @@ Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ETag: {etag_value}
-{  
-   "data":[  
-      {  
+{
+   "data":[
+      {
          "op":"replace",
          "path":"/profile/email",
          "value":"abc@gmail.com"
@@ -812,6 +812,7 @@ errors | Array of error for unsuccessful updates. It contains the error message 
 DELETE https://api.polisapp.com/v1/contacts/4155c6a9-f3fc-475f-a76e-df203d28f55a
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
+ETag: {etag_value}
 
 ```
 
@@ -828,12 +829,12 @@ Parameter | Required | Description
 filter | true | Query to filter data. Example filter : /data/listId = {listId}
 limit | true | Limit results returned. Usefull for paggination.
 skip | true | Data offset index. Usefull for paggination.
-sort | true | Sort column. Ex.: `["data/name","ASC"]`
+sort | true | Sort column. Ex.: `["id","ASC"]`
 
 > Example Request
 
 ```http
-GET /v1/contacts?filter=/data/listId+eq+"81414d4e-e237-467e-81f1-80cbe6652231"&limit=100&skip=0&sort=["data/name","ASC"] HTTP/1.1
+GET /v1/contacts?filter=/data/listId+eq+"81414d4e-e237-467e-81f1-80cbe6652231"&limit=100&skip=0&sort=["id","ASC"] HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
