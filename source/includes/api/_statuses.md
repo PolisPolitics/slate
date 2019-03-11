@@ -240,6 +240,7 @@ You can only patch attributes inside <b>data</b> key.
 DELETE /v1/statuses/f575fbc6-e3b9-4025-ada9-97d97a9e6a11
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
+ETag: {etag_value}
 ```
 
 
@@ -248,7 +249,7 @@ Authorization: Bearer {access_token}
 > Example Request
 
 ```https
-GET /statuses?filter=/customerId+eq+"cc34e52f-5bfa-42ee-ac72-d331ac97b5c4"&limit=100&skip=0&sort=["data/name","ASC"] HTTP/1.1
+GET /statuses?filter=/customerId+eq+"cc34e52f-5bfa-42ee-ac72-d331ac97b5c4"&limit=100&skip=0&sort=["id","ASC"] HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -575,7 +576,7 @@ Parameter | Required | Description
 filter | true | Query to filter data. [See documentation](#filters).
 limit | true | Limit results returned. Usefull for paggination.
 skip | true | Data offset index. Usefull for paggination.
-sort | true | Sort column. Ex.: `["data/name","ASC"]`
+sort | true | Sort column. Ex.: `["id","ASC"]`
 
 ### Allowed attributes
 

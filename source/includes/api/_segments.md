@@ -78,7 +78,7 @@ value | true | Value used for comparison.
 
 ```
 http
-POST /segments HTTP/1.1
+POST /v1/segments HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -142,14 +142,14 @@ Creates a new segment.
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/segments`
+`POST https://api.polisapp.com/v1/segments`
 
 ## Retrieve a segment
 
 > Example Request
 
 ```http
-GET /segments/f2636525-36d7-439c-924d-a2aaf3848716 HTTP/1.1
+GET /v1/segments/f2636525-36d7-439c-924d-a2aaf3848716 HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -194,7 +194,7 @@ Obtains a single segment object by ID.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/segments/{id}`
+`GET https://api.polisapp.com/v1/segments/{id}`
 
 ### Query Parameters
 
@@ -207,7 +207,7 @@ id | true | Unique identifier of the segment.
 > Example Request
 
 ```http
-PATCH /segments/f2636525-36d7-439c-924d-a2aaf3848716 HTTP/1.1
+PATCH /v1/segments/f2636525-36d7-439c-924d-a2aaf3848716 HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -268,7 +268,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/segments/{id}`
+`PATCH https://api.polisapp.com/v1/segments/{id}`
 
 ### Query Parameters
 
@@ -281,14 +281,14 @@ id | true | Unique identifier of the segment.
 > Example Request
 
 ```http
-DELETE https://api.polisapp.com/segments/f2636525-36d7-439c-924d-a2aaf3848716
+DELETE https://api.polisapp.com/v1/segments/f2636525-36d7-439c-924d-a2aaf3848716
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ETag: {etag_value}
 ```
 
 ### HTTP Request
-`DELETE https://api.polisapp.com/segments/{id}`
+`DELETE https://api.polisapp.com/v1/segments/{id}`
 
 ### Query Parameters
 
@@ -303,7 +303,7 @@ id | true | Unique identifier of the segement.
 > Example Request
 
 ```http
-GET /segments?filter=%2Fdata%2FcampaignId%20eq%20%22d012c895-4318-4725-9012-b1099e96643d%22&limit=100&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
+GET /v1/segments?filter=%2Fdata%2FcampaignId%20eq%20%22d012c895-4318-4725-9012-b1099e96643d%22&limit=100&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 ```
@@ -379,7 +379,7 @@ Authorization: Bearer {access_token}
 ```
 
 ### HTTP Request
-`GET https://api.polisapp.com/segments?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+`GET https://api.polisapp.com/v1/segments?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
 ### Query Parameters
 
@@ -388,7 +388,7 @@ Parameter | Required | Description
 fiter | false | Query to filter data. [See documentation](#filters).
 limit | true | Limit results returned. Useful for pagination.
 skip | true | Data offset index. Useful for pagination.
-sort | true | Sort column. Ex.: `["data/name","ASC"]`
+sort | true | Sort column. Ex.: `["id","ASC"]`
 
 Filter Example: `/data/organizationId eq "eb4dfe83-f1fd-46dd-a69d-b7cf7b566319" and /data/status eq "complete"`
 
@@ -399,7 +399,7 @@ Swap precedences of two segments.
 > Example Request
 
 ```http
-POST /segments/swap-precedences HTTP/1.1
+POST /v1/segments/swap-precedences HTTP/1.1
 Host: api.polisapp.com
 Authorization: Bearer {access_token}
 {
@@ -486,4 +486,4 @@ Authorization: Bearer {access_token}
 ```
 
 ### HTTP Request
-`POST https://api.polisapp.com/segments/swap-precedences`
+`POST https://api.polisapp.com/v1/segments/swap-precedences`
