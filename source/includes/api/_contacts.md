@@ -1,268 +1,553 @@
 # Contacts
 
-## The contact object
-
-```json
-{
-  "id": "0d011563-c7c6-4a09-8fde-f3b8c6f2b22d",
-  "customerId": "e3899af9-2b74-45dd-b2b1-d7be8ad47bae",
-  "securityGroupId": "d4a1d326-a2c7-415c-bfea-dd9fc84f8d00",
-  "data": {
-    "listId": "2210d9ea-1870-4b8d-8803-ce426e33a96b",
-    "profile": {
-      "name": {
-        "first": "John",
-        "last": "Snow",
-        "title": "Mr"
-      },
-      "address": {
-        "country": "United States of America",
-        "position": {
-          "type": "Point",
-          "coordinates": [
-            -71.067513,
-            42.3520436
-          ]
-        },
-        "formatted": "100 Boylseton Street, Boston, MA 02266, USA",
-        "streetAddress": {
-          "formatted": "100 Boylseton Street",
-          "number": "100",
-          "route": "Boylseton Street"
-        },
-        "postalCode": "02266",
-        "state": "Massachusettes",
-        "county": "Suffolk County",
-        "city": "Boston",
-        "neighborhood": "Downtown Boston"
-      },
-      "email": "john@testemail.com",
-      "phone": [
-        "9781234568",
-        "3171234568",
-        "2631234568"
-      ],
-      "gender": "m",
-      "languages": [
-        "en"
-      ],
-      "birthdate": "1987-09-03",
-      "age": 30
-    },
-    "notes": "test notes",
-    "fields": {
-      "available": "true",
-      "bestpet": "Cat",
-      "buypet": [
-        "Horse",
-        "Snake"
-      ],
-      "mothername": "Jane Doe"
-    },
-    "integration": {
-      "integrationId": "e5f5b8b9-9275-426d-ae52-3e684b6c7c76",
-      "externalId": 1001,
-    },
-    "reservation": {
-      "reserved": false
-    },
-    "contacted": true,
-    "state": "contacted-unavailable-other",
-    "statusId": "1e055231-e35e-4503-92ba-99fd496aea46"
-  },
-  "meta": {
-    "created": "2017-12-15T19:46:01.594Z",
-    "modified": "2017-12-15T19:46:02.219Z",
-    "isDeleted": false,
-    "resource": "contacts",
-    "createdBy": "11b78eab-8b3e-45e7-804c-4a94045367d4",
-    "modifiedBy": "11b78eab-8b3e-45e7-804c-4a94045367d4",
-    "etag": "MTUxMzM2NzE2NTI3MzM3NDcyMA=="
-  }
-}
-```
+## The Contacts object
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Unique identifier for the object.
-customerId | true | Customer this resource belongs to.
-securityGroupId | true | Security group of this resource.
-data | true | Contact data.
+id | true | Identifier of this record
+securityGroupId | true | Identifier of the associated securitygroup
+customerId | true | Identifier of the associated customer
+data | true | Todo: description
 
 ### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-listId | true | List identifier this contact belongs to.
-profile | true | Contact profile [details](#data/profile).
+profile | true | Contact profile
 notes | false | String with custom text (max length: 2048 characters).
-fields | true | Custom fields [details](#data/fields).
-integration | false | Integration information [details](#data/integration).
-reservation | false | Route reservation [details](#data/reservation).
-contacted | false | Flag indicating if the contact has ever been contacted.
-state | false | Property that categorizes a contact by it's interaction [details](#data/state).
-statusId | false | Id of a status object. [details](#data/statusId).
+fields | true | Custom fields
+externalId | false | An external identifier for imports and exports.
+primaryHouseholdId | false | Id of the primary household associated for this contact
 
 ### data/profile
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-name | false | Contact name [details](#data/profile/name).
-address | true | Contact address [details](#data/profile/address).
-email | false | Email address of the contact.
-phone | false | Array of phone numbers.
-gender | false |  decline: 'd'<br/> female: 'f'<br/> male: 'm'<br/> nonbinary: 'n'<br/> other: 'o',
+name | false | Contact name
+emails | false | Array of emails
+phones | false | Array of phones
+gender | false | decline: 'd', female: 'f', male: 'm', nonbinary: 'n', other: 'o'
 languages | false | [ISO 639-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code (i.e.: en, es, af).
 birthdate | false | Birthdate in ISO-8601 format (YYYY-MM-DD).
-age | false | Integer representing the age of the contact.
+age | false | Number representing the age of the contact.
+
+### data/fields
+
+Attribute | Required? | Description
+--------- | --------- | -----------
 
 ### data/profile/name
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-title | false | Name title.
-first | true | First name.
-middle | false | Middle name.
-last | true | Last name.
-suffix | false | Name suffix.
+anglican | true | Name in anglican format
 
-### data/profile/address
+### data/profile/name/anglican
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-country | false | Country.
-position | false | Coordinates in [GeoJSON](https://tools.ietf.org/html/rfc7946) format (only `Point` is supported).
-formatted | false | Full address.
-streetAddress | false | Street address decomposed.
-postalCode | false | Postal code.
-state | false | State.
-county | false | Conty.
-city | false | City.
-neighborhood | false | Neighborhood.
-
-### data/profile/address/streetAddress
-
-Attribute | Required? | Description
---------- | --------- | -----------
-formatted | true | Formatted street address.
-route | true | Street name.
-number | true | Street number.
-unit | false | Unit number.
-unitType | false | Unit type (e.g.: suite, unit, apartment).
-
-### data/fields
-
-This is a flat object that contains custom data for this contact.
-Allowed values:
-
-* `String`
-* `Number`
-* `Array` - not containing objects.
-* `Boolean`
-
-### data/integration
-
-Attribute | Required? | Description
---------- | --------- | -----------
-integrationId | false | Identifier of the integration this contact as pulled from.
-externalId | false | Identifier that identifies this contact on an external platform. This can be either an integer or a string.
-
-### data/reservation
-
-Attribute | Required? | Description
---------- | --------- | -----------
-reserved | true | Boolean indicating if this contact is reserved for some route.
-walklistId | false | Route identifier this contact is reserved to.
-
-### data/state
-
-Allowed values:
-
-* `'appointment'`
-* `'not-contacted-high-priority'`
-* `'not-contacted-do-not-knock'`
-* `'not-contacted-normal'`
-* `'contacted-available-successful'`
-* `'contacted-available-not-successful'`
-* `'contacted-unavailable-not-home'`
-* `'contacted-unavailable-other'`
-* `'come-back'`
-* `'unknown'`
-
-### data/statusId
-
-The statusId property must point to the id property of a status object.
-This status' `contactState` property must have the same value of the contact's `state` property, otherwise it's id will not be a valid statusId for the contact object.
+title | false | Title
+given | true | First name
+middlename | false | Middle name
+surname | true | Surname
+suffix | false | Name Suffix
 
 ### meta
 
-[See documentation](#metadata-object).
+[See documentation](#metadata-object)
+
+
+
+```json
+{
+	"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
+	"data": {
+		"fields": {
+			"2438cc93-4395-4ded-99f0-0a4ac88e2577": 1,
+			"510922c1-0a7e-40e1-b329-168b88c6cf3b": "laboriosam",
+			"60a528b7-1b36-483a-9bdb-65c00b067e62": [
+				"Snake"
+			],
+			"77227e62-d098-46b3-985b-a83e19a4850d": "House",
+			"7e23f830-23a1-42dc-a33b-5617402cd880": "nemo",
+			"83439622-cf55-4f0d-a7da-046862b73761": "true",
+			"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "at",
+			"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Deceased",
+			"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
+				"Dog"
+			],
+			"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
+		},
+		"status": "pending",
+		"profile": {
+			"age": 66,
+			"name": {
+				"anglican": {
+					"given": "James",
+					"surname": "Bond"
+				}
+			},
+			"emails": [
+				{
+					"email": "007@hotmail.com",
+					"active": true,
+					"primary": true
+				},
+				{
+					"email": "licensetokill@hotmail.com",
+					"active": true,
+					"primary": false
+				}
+			],
+			"gender": "m",
+			"phones": [
+				{
+					"phone": "777.777.7007 x72507",
+					"active": true,
+					"primary": true,
+					"phoneType": "mobile"
+				},
+				{
+					"phone": "1-960-777-7777",
+					"active": true,
+					"primary": false,
+					"phoneType": "mobile"
+				}
+			]
+		},
+		"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
+	},
+	"meta": {
+		"etag": "",
+		"created": "2019-04-03T18:55:30.718Z",
+		"modified": "2019-04-03T18:55:30.718Z",
+		"resource": "contacts",
+		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+		"isDeleted": false,
+		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+	},
+	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+}
+```
+
+
+## Get many contacts
+
+> Example Request
+
+```http
+GET /v3/contacts?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+```
+
+> Example Response
+
+```json
+{
+	"data": [
+		{
+			"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
+			"data": {
+				"fields": {
+					"2438cc93-4395-4ded-99f0-0a4ac88e2577": 1,
+					"510922c1-0a7e-40e1-b329-168b88c6cf3b": "laboriosam",
+					"60a528b7-1b36-483a-9bdb-65c00b067e62": [
+						"Snake"
+					],
+					"77227e62-d098-46b3-985b-a83e19a4850d": "House",
+					"7e23f830-23a1-42dc-a33b-5617402cd880": "nemo",
+					"83439622-cf55-4f0d-a7da-046862b73761": "true",
+					"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "at",
+					"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Deceased",
+					"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
+						"Dog"
+					],
+					"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
+				},
+				"status": "pending",
+				"profile": {
+					"age": 66,
+					"name": {
+						"anglican": {
+							"given": "James",
+							"surname": "Bond"
+						}
+					},
+					"emails": [
+						{
+							"email": "007@hotmail.com",
+							"active": true,
+							"primary": true
+						},
+						{
+							"email": "licensetokill@hotmail.com",
+							"active": true,
+							"primary": false
+						}
+					],
+					"gender": "m",
+					"phones": [
+						{
+							"phone": "777.777.7007 x72507",
+							"active": true,
+							"primary": true,
+							"phoneType": "mobile"
+						},
+						{
+							"phone": "1-960-777-7777",
+							"active": true,
+							"primary": false,
+							"phoneType": "mobile"
+						}
+					]
+				},
+				"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
+			},
+			"meta": {
+				"etag": "",
+				"created": "2019-04-03T18:55:30.718Z",
+				"modified": "2019-04-03T18:55:30.718Z",
+				"resource": "contacts",
+				"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+				"isDeleted": false,
+				"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+			},
+			"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+			"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+		},
+		{
+			"id": "3189f3ed-b78a-4586-a86d-b7e1aa1a1099",
+			"data": {
+				"fields": {
+					"2438cc93-4395-4ded-99f0-0a4ac88e2577": 3,
+					"510922c1-0a7e-40e1-b329-168b88c6cf3b": "perferendis",
+					"60a528b7-1b36-483a-9bdb-65c00b067e62": [
+						"Horse"
+					],
+					"77227e62-d098-46b3-985b-a83e19a4850d": "House",
+					"7e23f830-23a1-42dc-a33b-5617402cd880": "sed",
+					"83439622-cf55-4f0d-a7da-046862b73761": "false",
+					"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "aliquid",
+					"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Refused",
+					"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
+						"Dog"
+					],
+					"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
+				},
+				"status": "pending",
+				"profile": {
+					"age": 63,
+					"name": {
+						"anglican": {
+							"given": "Aegon",
+							"surname": "Targaeryan"
+						}
+					},
+					"emails": [
+						{
+							"email": "callmejon@ravenmail.com",
+							"active": true,
+							"primary": true
+						},
+						{
+							"email": "lordcommander@nightswatch.com",
+							"active": true,
+							"primary": false
+						}
+					],
+					"gender": "n",
+					"phones": [
+						{
+							"phone": "(111) 111-1111",
+							"active": true,
+							"primary": true,
+							"phoneType": "home"
+						}
+					]
+				},
+				"primaryHouseholdId": "f0cbc9d5-28e0-4123-bcb5-80ece858153c"
+			},
+			"meta": {
+				"etag": "",
+				"created": "2019-04-03T18:55:30.719Z",
+				"modified": "2019-04-03T18:55:30.719Z",
+				"resource": "contacts",
+				"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+				"isDeleted": false,
+				"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+			},
+			"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+			"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+		}
+	],
+	"meta": {}
+}
+```
+
+### HTTP Request
+
+`GET /v3/contacts`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+filter | false | Query to filter data. `/customerId eq "eb4dfe83-f1fd-46dd-a69d-b7cf7b566319"`
+limit | true | Limits number of result-rows. Should be a positive integer. Useful for pagination.
+skip | true | Offset data by given number. Useful for pagination.
+sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
+
+
+## Get a contact
+
+> Example Request
+
+```http
+GET /v3/contacts/b7a9a3e2-e419-4c0a-9d03-4c8f280b2967 HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+```
+
+> Example Response
+
+```json
+{
+	"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
+	"data": {
+		"fields": {
+			"2438cc93-4395-4ded-99f0-0a4ac88e2577": 1,
+			"510922c1-0a7e-40e1-b329-168b88c6cf3b": "laboriosam",
+			"60a528b7-1b36-483a-9bdb-65c00b067e62": [
+				"Snake"
+			],
+			"77227e62-d098-46b3-985b-a83e19a4850d": "House",
+			"7e23f830-23a1-42dc-a33b-5617402cd880": "nemo",
+			"83439622-cf55-4f0d-a7da-046862b73761": "true",
+			"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "at",
+			"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Deceased",
+			"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
+				"Dog"
+			],
+			"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
+		},
+		"status": "pending",
+		"profile": {
+			"age": 66,
+			"name": {
+				"anglican": {
+					"given": "James",
+					"surname": "Bond"
+				}
+			},
+			"emails": [
+				{
+					"email": "007@hotmail.com",
+					"active": true,
+					"primary": true
+				},
+				{
+					"email": "licensetokill@hotmail.com",
+					"active": true,
+					"primary": false
+				}
+			],
+			"gender": "m",
+			"phones": [
+				{
+					"phone": "777.777.7007 x72507",
+					"active": true,
+					"primary": true,
+					"phoneType": "mobile"
+				},
+				{
+					"phone": "1-960-777-7777",
+					"active": true,
+					"primary": false,
+					"phoneType": "mobile"
+				}
+			]
+		},
+		"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
+	},
+	"meta": {
+		"etag": "",
+		"created": "2019-04-03T18:55:30.718Z",
+		"modified": "2019-04-03T18:55:30.718Z",
+		"resource": "contacts",
+		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+		"isDeleted": false,
+		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+	},
+	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+}
+```
+
+### HTTP Request
+
+`GET /v3/contacts/{id}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | The id of the contact to be retrieved.
+
+
+## Get all the households for a contact
+
+> Example Request
+
+```http
+GET /v3/contacts/e5554be7-0b3c-45cf-9c78-266dc45e2878/households/ HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+```
+
+> Example Response
+
+```json
+{
+	"data": [
+		{
+			"id": "e5554be7-0b3c-45cf-9c78-266dc45e2878",
+			"data": {
+				"unitNum": "1119",
+				"address": {
+					"id": "1733d7c1-a86a-45ca-a482-b2c966f40d94",
+					"data": {
+						"city": "Cambridge",
+						"coords": {
+							"lat": 42.3795514,
+							"lng": -71.2525621
+						},
+						"number": "10",
+						"postalCode": "02115",
+						"streetName": "Ware St",
+						"country": "USA",
+						"state": "Massachusetts"
+					}
+				}
+			},
+			"meta": {
+				"etag": "1d6-xrQmtj+iIt6a0EB+5vdp6DrDDxg",
+				"created": "2019-04-22T20:53:20.615Z",
+				"modified": "2019-04-22T20:53:20.615Z",
+				"resource": "households",
+				"createdBy": "c9891431-53b1-4be6-81bb-bc853b035618",
+				"isDeleted": false,
+				"modifiedBy": "c9891431-53b1-4be6-81bb-bc853b035618"
+			},
+			"customerId": "5edda33d-0268-4fb5-849f-cd100e02ef04",
+			"securityGroupId": "b5464d3b-6ac1-45a9-b804-9a5009e894ed",
+			"params": {
+				"contactHouseholdId": "1321a9bb-fb90-4cdb-a964-6e63c895cd73"
+			}
+		},
+		{
+			"id": "273b66d6-e1b6-466d-816f-f85ea74cdc73",
+			"data": {
+				"unitNum": "200",
+				"address": {
+					"id": "1d329289-f846-43bd-ae3a-1922844d4367",
+					"data": {
+						"city": "Cambridge",
+						"coords": {
+							"lat": 42.3795514,
+							"lng": -71.2525621
+						},
+						"number": "20",
+						"postalCode": "02115",
+						"streetName": "Main St",
+						"country": "USA",
+						"state": "Massachusetts"
+					}
+				}
+			},
+			"meta": {
+				"etag": "1d5-QxGl3LA77FwIqKGkf0z6KZr2dHU",
+				"created": "2019-04-22T20:53:20.998Z",
+				"modified": "2019-04-22T20:53:20.998Z",
+				"resource": "households",
+				"createdBy": "c9891431-53b1-4be6-81bb-bc853b035618",
+				"isDeleted": false,
+				"modifiedBy": "c9891431-53b1-4be6-81bb-bc853b035618"
+			},
+			"customerId": "5edda33d-0268-4fb5-849f-cd100e02ef04",
+			"securityGroupId": "b5464d3b-6ac1-45a9-b804-9a5009e894ed",
+			"params": {
+				"contactHouseholdId": "81499955-c476-49bc-b091-caf8d2a649de"
+			}
+		}
+	],
+	"meta": {}
+}
+```
+
+### HTTP Request
+
+`GET /v3/contacts/{contactId}/households/`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+contactId | true | The id of the contact
+filter | false | Query to filter data.
+limit | true | Limits number of result-rows. Should be a positive integer. Useful for pagination.
+skip | true | Offset data by given number. Useful for pagination.
+sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
+
 
 ## Create a contact
 
 > Example Request
 
 ```http
-POST /v1/contacts HTTP/1.1
-Host: api.polisapp.com
+POST /v3/contacts HTTP/1.1
+Host: api2.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
-
 {
-  "data": {
-    "listId": "2210d9ea-1870-4b8d-8803-ce426e33a96b",
-    "profile": {
-      "name": {
-        "first": "John",
-        "last": "Snow",
-        "title": "Mr"
-      },
-      "address": {
-        "country": "United States of America",
-        "position": {
-          "type": "Point",
-          "coordinates": [
-            -71.067513,
-            42.3520436
-          ]
-        },
-        "formatted": "100 Boylseton Street, Boston, MA 02266, USA",
-        "streetAddress": {
-          "formatted": "100 Boylseton Street",
-          "number": "100",
-          "route": "Boylseton Street"
-        },
-        "postalCode": "02266",
-        "state": "Massachusettes",
-        "county": "Suffolk County",
-        "city": "Boston",
-        "neighborhood": "Downtown Boston"
-      },
-      "email": "john@testemail.com",
-      "phone": [
-        "9781234568",
-        "3171234568",
-        "2631234568"
-      ],
-      "gender": "m",
-      "languages": [
-        "en"
-      ],
-      "birthdate": "1987-09-03",
-      "age": 30
-    },
-    "notes": "test notes",
-    "fields": {
-      "dogliker": "true",
-      "bestpet": "Cat",
-      "buypet": [
-        "Horse",
-        "Snake"
-      ],
-      "catlikeness": 4,
-      "mothername": "Jane Doe"
-    }
-  }
+	"data": {
+		"fields": {},
+		"profile": {
+			"emails": [
+				{
+					"email": "007@hotmail.com",
+					"active": true,
+					"primary": true
+				},
+				{
+					"email": "licensetokill@hotmail.com",
+					"active": true,
+					"primary": false
+				}
+			],
+			"gender": "m",
+			"phones": [
+				{
+					"phone": "777.777.7007 x72507",
+					"active": true,
+					"primary": true,
+					"phoneType": "mobile"
+				},
+				{
+					"phone": "1-960-777-7777",
+					"active": true,
+					"primary": false,
+					"phoneType": "mobile"
+				}
+			]
+		},
+		"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
+	},
+	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6"
 }
 ```
 
@@ -270,432 +555,298 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-  "id": "0d011563-c7c6-4a09-8fde-f3b8c6f2b22d",
-  "customerId": "e3899af9-2b74-45dd-b2b1-d7be8ad47bae",
-  "securityGroupId": "d4a1d326-a2c7-415c-bfea-dd9fc84f8d00",
-  "data": {
-    "listId": "2210d9ea-1870-4b8d-8803-ce426e33a96b",
-    "profile": {
-      "name": {
-        "first": "John",
-        "last": "Snow",
-        "title": "Mr"
-      },
-      "address": {
-        "country": "United States of America",
-        "position": {
-          "type": "Point",
-          "coordinates": [
-            -71.067513,
-            42.3520436
-          ]
-        },
-        "formatted": "100 Boylseton Street, Boston, MA 02266, USA",
-        "streetAddress": {
-          "formatted": "100 Boylseton Street",
-          "number": "100",
-          "route": "Boylseton Street"
-        },
-        "postalCode": "02266",
-        "state": "Massachusettes",
-        "county": "Suffolk County",
-        "city": "Boston",
-        "neighborhood": "Downtown Boston"
-      },
-      "email": "john@testemail.com",
-      "phone": [
-        "9781234568",
-        "3171234568",
-        "2631234568"
-      ],
-      "gender": "m",
-      "languages": [
-        "en"
-      ],
-      "birthdate": "1987-09-03",
-      "age": 30
-    },
-    "notes": "test notes",
-    "fields": {
-      "dogliker": "true",
-      "bestpet": "Cat",
-      "buypet": [
-        "Horse",
-        "Snake"
-      ],
-      "catlikeness": 4,
-      "mothername": "Jane Doe"
-    },
-    "reservation": {
-      "reserved": false
-    },
-    "contacted": false
-  },
-  "meta": {
-    "created": "2017-12-15T19:46:01.594Z",
-    "modified": "2017-12-15T19:46:02.219Z",
-    "isDeleted": false,
-    "resource": "contacts",
-    "createdBy": "11b78eab-8b3e-45e7-804c-4a94045367d4",
-    "modifiedBy": "11b78eab-8b3e-45e7-804c-4a94045367d4",
-    "etag": "MTUxMzM2NzE2NTI3MzM3NDcyMA=="
-  }
+	"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
+	"data": {
+		"fields": {
+			"2438cc93-4395-4ded-99f0-0a4ac88e2577": 1,
+			"510922c1-0a7e-40e1-b329-168b88c6cf3b": "laboriosam",
+			"60a528b7-1b36-483a-9bdb-65c00b067e62": [
+				"Snake"
+			],
+			"77227e62-d098-46b3-985b-a83e19a4850d": "House",
+			"7e23f830-23a1-42dc-a33b-5617402cd880": "nemo",
+			"83439622-cf55-4f0d-a7da-046862b73761": "true",
+			"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "at",
+			"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Deceased",
+			"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
+				"Dog"
+			],
+			"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
+		},
+		"status": "pending",
+		"profile": {
+			"age": 66,
+			"name": {
+				"anglican": {
+					"given": "James",
+					"surname": "Bond"
+				}
+			},
+			"emails": [
+				{
+					"email": "007@hotmail.com",
+					"active": true,
+					"primary": true
+				},
+				{
+					"email": "licensetokill@hotmail.com",
+					"active": true,
+					"primary": false
+				}
+			],
+			"gender": "m",
+			"phones": [
+				{
+					"phone": "777.777.7007 x72507",
+					"active": true,
+					"primary": true,
+					"phoneType": "mobile"
+				},
+				{
+					"phone": "1-960-777-7777",
+					"active": true,
+					"primary": false,
+					"phoneType": "mobile"
+				}
+			]
+		},
+		"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
+	},
+	"meta": {
+		"etag": "",
+		"created": "2019-04-03T18:55:30.718Z",
+		"modified": "2019-04-03T18:55:30.718Z",
+		"resource": "contacts",
+		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+		"isDeleted": false,
+		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+	},
+	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
 }
 ```
 
-Creates a new contact in an list.
-
 ### HTTP Request
 
-`POST https://api.polisapp.com/v1/contacts`
+`POST /v3/contacts`
 
-## Create multiple contacts
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+data | true | The data of contact to be created
+customerId | false | The id of the customer to which this resource belongs
+
+## Create many contacts
 
 > Example Request
 
 ```http
-POST /v1/contacts/bulk HTTP/1.1
-Host: api.polisapp.com
-Content-Type: application/json
-Authorization: Bearer {access_token}
-
-{
-  "data": [
-    {
-      "data": {
-        "listId": "2210d9ea-1870-4b8d-8803-ce426e33a96b",
-        "profile": {
-          "name": {
-            "first": "John",
-            "last": "Snow",
-            "title": "Mr"
-          },
-          "address": {
-            "country": "United States of America",
-            "position": {
-              "type": "Point",
-              "coordinates": [
-                -71.067513,
-                42.3520436
-              ]
-            },
-            "formatted": "100 Boylseton Street, Boston, MA 02266, USA",
-            "streetAddress": {
-              "formatted": "100 Boylseton Street",
-              "number": "100",
-              "route": "Boylseton Street"
-            },
-            "postalCode": "02266",
-            "state": "Massachusettes",
-            "county": "Suffolk County",
-            "city": "Boston",
-            "neighborhood": "Downtown Boston"
-          },
-          "email": "john@testemail.com",
-          "phone": [
-            "9781234568",
-            "3171234568",
-            "2631234568"
-          ],
-          "gender": "m",
-          "languages": [
-            "en"
-          ],
-          "birthdate": "1987-09-03",
-          "age": 30
-        },
-        "notes": "test notes",
-        "fields": {
-          "dogliker": "true",
-          "bestpet": "Cat",
-          "buypet": [
-            "Horse",
-            "Snake"
-          ],
-          "catlikeness": 4,
-          "mothername": "Jane Doe"
-        }
-      }
-    }
-  ]
-}
-```
-
-> Example Response
-
-```json
-{
-  "data": [
-    {
-      "id": "0d011563-c7c6-4a09-8fde-f3b8c6f2b22d",
-      "customerId": "e3899af9-2b74-45dd-b2b1-d7be8ad47bae",
-      "securityGroupId": "d4a1d326-a2c7-415c-bfea-dd9fc84f8d00",
-      "data": {
-        "listId": "2210d9ea-1870-4b8d-8803-ce426e33a96b",
-        "profile": {
-          "name": {
-            "first": "John",
-            "last": "Snow",
-            "title": "Mr"
-          },
-          "address": {
-            "country": "United States of America",
-            "position": {
-              "type": "Point",
-              "coordinates": [
-                -71.067513,
-                42.3520436
-              ]
-            },
-            "formatted": "100 Boylseton Street, Boston, MA 02266, USA",
-            "streetAddress": {
-              "formatted": "100 Boylseton Street",
-              "number": "100",
-              "route": "Boylseton Street"
-            },
-            "postalCode": "02266",
-            "state": "Massachusettes",
-            "county": "Suffolk County",
-            "city": "Boston",
-            "neighborhood": "Downtown Boston"
-          },
-          "email": "john@testemail.com",
-          "phone": [
-            "9781234568",
-            "3171234568",
-            "2631234568"
-          ],
-          "gender": "m",
-          "languages": [
-            "en"
-          ],
-          "birthdate": "1987-09-03",
-          "age": 30
-        },
-        "notes": "test notes",
-        "fields": {
-          "dogliker": "true",
-          "bestpet": "Cat",
-          "buypet": [
-            "Horse",
-            "Snake"
-          ],
-          "catlikeness": 4,
-          "mothername": "Jane Doe"
-        },
-        "reservation": {
-          "reserved": false
-        },
-        "contacted": false
-      },
-      "meta": {
-        "created": "2017-12-15T19:46:01.594Z",
-        "modified": "2017-12-15T19:46:02.219Z",
-        "isDeleted": false,
-        "resource": "contacts",
-        "createdBy": "11b78eab-8b3e-45e7-804c-4a94045367d4",
-        "modifiedBy": "11b78eab-8b3e-45e7-804c-4a94045367d4",
-        "etag": "MTUxMzM2NzE2NTI3MzM3NDcyMA=="
-      }
-    }
-  ]
-}
-```
-
-Creates multiple contacts in an list.
-
-### HTTP Request
-
-`POST https://api.polisapp.com/v1/contacts/bulk`
-
-## Retrieve a Contact
-
-### HTTP Request
-`GET https://api.polisapp.com/v1/contacts/{contactsId}`
-
-> Example Request
-
-```http
-GET /v1/contacts/bfced18e-1b90-433b-8f4e-d905d2406524 HTTP/1.1
-Host: api.polisapp.com
-Authorization: Bearer {access_token}
-```
-
-
-
-> Example Response
-
-```json
-{
-    "id": "bfced18e-1b90-433b-8f4e-d905d2406524",
-    "data": {
-        "fields": {
-            "likeness": false,
-            "available": false
-        },
-        "listId": "81414d4e-e237-467e-81f1-80cbe6652231",
-        "profile": {
-            "name": {
-                "first": "Wilber",
-                "last": "Mertz"
-            },
-            "address": {
-                "country": "US",
-                "position": {
-                    "type": "Point",
-                    "coordinates": [
-                        -74.07787,
-                        40.70426
-                    ]
-                },
-                "formatted": "53 Arlington Ave Apt 1  Jersey City NJ 7305",
-                "streetAddress": {
-                    "unit": "1",
-                    "route": "Arlington Ave",
-                    "number": "53",
-                    "formatted": "53 Arlington Ave Apt 1"
-                },
-                "postalCode": "7305",
-                "state": "NJ",
-                "county": "Jersey City"
-            },
-            "age": 24,
-            "email": "Marc.Monahan@yahoo.com",
-            "phone": [
-                "1-495-660-3830 x42618"
-            ],
-            "gender": "n"
-        },
-        "contacted": false,
-        "reservation": {
-            "reserved": false
-        }
-    },
-    "meta": {
-        "etag": "4dc-5aWkR+Lvoft7CAdRm6/R8X1IBvM",
-        "created": "2018-03-28T16:09:43.028Z",
-        "modified": "2018-03-28T16:09:43.028Z",
-        "resource": "contacts",
-        "createdBy": "a46d8825-3f9e-45f4-9db9-be5a77883e18",
-        "isDeleted": false,
-        "modifiedBy": "a46d8825-3f9e-45f4-9db9-be5a77883e18"
-    },
-    "customerId": "f0e2736d-31c5-461a-89d1-e64f697d9e98",
-    "securityGroupId": "1bdf50d1-d3d5-4ecf-922c-f2541cd9ba37"
-}
-```
-
-## Update a Contact
-
-### HTTP Request
-`PATCH https://api.polisapp.com/v1/contacts/{contactId}`
-
-> Example Request
-
-```http
-PATCH /v1/contacts/bfced18e-1b90-433b-8f4e-d905d2406524 HTTP/1.1
-Host: api.polisapp.com
-Content-Type: application/json
-Authorization: Bearer {access_token}
-ETag: {etag_value}
-{
-   "data":[
-      {
-         "op":"replace",
-         "path":"/profile/email",
-         "value":"abc@gmail.com"
-      }
-   ]
-}
-```
-
-> Example Response
-
-```json
-{
-    "id": "bfced18e-1b90-433b-8f4e-d905d2406524",
-    "data": {
-        "fields": {
-            "likeness": false,
-            "available": false
-        },
-        "listId": "81414d4e-e237-467e-81f1-80cbe6652231",
-        "profile": {
-            "name": {
-                "first": "Wilber",
-                "last": "Mertz"
-            },
-            "address": {
-                "country": "US",
-                "position": {
-                    "type": "Point",
-                    "coordinates": [
-                        -74.07787,
-                        40.70426
-                    ]
-                },
-                "formatted": "53 Arlington Ave Apt 1  Jersey City NJ 7305",
-                "streetAddress": {
-                    "unit": "1",
-                    "route": "Arlington Ave",
-                    "number": "53",
-                    "formatted": "53 Arlington Ave Apt 1"
-                },
-                "postalCode": "7305",
-                "state": "NJ",
-                "county": "Jersey City"
-            },
-            "age": 24,
-            "email": "abc@gmail.com",
-            "phone": [
-                "1-495-660-3830 x42618"
-            ],
-            "gender": "n"
-        },
-        "contacted": false,
-        "reservation": {
-            "reserved": false
-        }
-    },
-    "meta": {
-        "etag": "4dc-5aWkR+Lvoft7CAdRm6/R8X1IBvM",
-        "created": "2018-03-28T16:09:43.028Z",
-        "modified": "2018-03-28T16:09:43.028Z",
-        "resource": "contacts",
-        "createdBy": "a46d8825-3f9e-45f4-9db9-be5a77883e18",
-        "isDeleted": false,
-        "modifiedBy": "a46d8825-3f9e-45f4-9db9-be5a77883e18"
-    },
-    "customerId": "f0e2736d-31c5-461a-89d1-e64f697d9e98",
-    "securityGroupId": "1bdf50d1-d3d5-4ecf-922c-f2541cd9ba37"
-}
-```
-
-## Update multiple contacts
-
-> Example Request
-
-```http
-PATCH /v1/contacts/bulk HTTP/1.1
-Host: api.polisapp.com
+POST /v3/contacts/bulk HTTP/1.1
+Host: api2.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
 	"data": [
 		{
-			"id": "8e8c2e84-9c4f-490c-b8bc-81dd7e24c622",
+			"data": {
+				"fields": {},
+				"profile": {
+					"emails": [
+						{
+							"email": "007@hotmail.com",
+							"active": true,
+							"primary": true
+						},
+						{
+							"email": "licensetokill@hotmail.com",
+							"active": true,
+							"primary": false
+						}
+					],
+					"gender": "m",
+					"phones": [
+						{
+							"phone": "777.777.7007 x72507",
+							"active": true,
+							"primary": true,
+							"phoneType": "mobile"
+						},
+						{
+							"phone": "1-960-777-7777",
+							"active": true,
+							"primary": false,
+							"phoneType": "mobile"
+						}
+					]
+				},
+				"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
+			},
+			"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6"
+		},
+		{
+			"data": {
+				"fields": {},
+				"profile": {
+					"age": 63,
+					"name": {
+						"anglican": {
+							"given": "Aegon",
+							"surname": "Targaeryan"
+						}
+					},
+					"emails": [
+						{
+							"email": "callmejon@ravenmail.com",
+							"active": true,
+							"primary": true
+						},
+						{
+							"email": "lordcommander@nightswatch.com",
+							"active": true,
+							"primary": false
+						}
+					],
+					"gender": "n",
+					"phones": [
+						{
+							"phone": "(111) 111-1111",
+							"active": true,
+							"primary": true,
+							"phoneType": "home"
+						}
+					]
+				},
+				"primaryHouseholdId": "f0cbc9d5-28e0-4123-bcb5-80ece858153c"
+			},
+			"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6"
+		}
+	]
+}
+```
+
+> Example Response
+
+```json
+{
+	"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
+	"data": {
+		"fields": {
+			"2438cc93-4395-4ded-99f0-0a4ac88e2577": 1,
+			"510922c1-0a7e-40e1-b329-168b88c6cf3b": "laboriosam",
+			"60a528b7-1b36-483a-9bdb-65c00b067e62": [
+				"Snake"
+			],
+			"77227e62-d098-46b3-985b-a83e19a4850d": "House",
+			"7e23f830-23a1-42dc-a33b-5617402cd880": "nemo",
+			"83439622-cf55-4f0d-a7da-046862b73761": "true",
+			"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "at",
+			"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Deceased",
+			"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
+				"Dog"
+			],
+			"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
+		},
+		"status": "pending",
+		"profile": {
+			"age": 66,
+			"name": {
+				"anglican": {
+					"given": "James",
+					"surname": "Bond"
+				}
+			},
+			"emails": [
+				{
+					"email": "007@hotmail.com",
+					"active": true,
+					"primary": true
+				},
+				{
+					"email": "licensetokill@hotmail.com",
+					"active": true,
+					"primary": false
+				}
+			],
+			"gender": "m",
+			"phones": [
+				{
+					"phone": "777.777.7007 x72507",
+					"active": true,
+					"primary": true,
+					"phoneType": "mobile"
+				},
+				{
+					"phone": "1-960-777-7777",
+					"active": true,
+					"primary": false,
+					"phoneType": "mobile"
+				}
+			]
+		},
+		"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
+	},
+	"meta": {
+		"etag": "",
+		"created": "2019-04-03T18:55:30.718Z",
+		"modified": "2019-04-03T18:55:30.718Z",
+		"resource": "contacts",
+		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+		"isDeleted": false,
+		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+	},
+	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+}
+```
+
+### HTTP Request
+
+`POST /v3/contacts/bulk`
+
+
+## Update many contacts
+
+> Example Request
+
+```http
+PATCH /v3/contacts/bulk HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+etag: etag_value
+{
+	"data": [
+		{
+			"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
 			"etag": "4bb-1m+umYrN3hg8k/ds2fLTxdWH/Nw",
 			"data": [
-				{ "op": "replace", "path": "/profile/name/first", "value": "John" },
-				{ "op": "replace", "path": "/profile/name/last", "value": "Doe" }
+				{
+					"op": "replace",
+					"path": "/profile/name/anglican/given",
+					"value": "John"
+				},
+				{
+					"op": "replace",
+					"path": "/profile/name/anglican/surname",
+					"value": "Doe"
+				}
 			]
 		},
 		{
-			"id": "ba36519a-2468-4d0b-803a-fba678cebfd4",
+			"id": "3189f3ed-b78a-4586-a86d-b7e1aa1a1099",
 			"etag": "4b5-a05nAD4wrRsbnVc/lNBlVCtyPSI",
 			"data": [
-				{ "op": "replace", "path": "/profile/name/first", "value": "John" },
-				{ "op": "replace", "path": "/profile/name/last", "value": "Doe" }
+				{
+					"op": "replace",
+					"path": "/profile/name/anglican/given",
+					"value": "John"
+				},
+				{
+					"op": "replace",
+					"path": "/profile/name/anglican/surname",
+					"value": "Doe"
+				}
 			]
 		}
 	]
@@ -706,136 +857,264 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-    "data": [
-        {
-            "id": "8e8c2e84-9c4f-490c-b8bc-81dd7e24c622",
-            "data": {
-                "fields": {},
-                "listId": "a6abf2bf-5109-4237-a976-8267daa9db80",
-                "profile": {
-                    "name": {
-                        "first": "John",
-                        "last": "Doe"
-                    },
-                    "address": {
-                        "country": "United States",
-                        "position": {
-                            "type": "Point",
-                            "coordinates": [
-                                -87.592017,
-                                41.804027
-                            ]
-                        },
-                        "formatted": "5006 S Dorchester Ave Chicago IL 60615",
-                        "streetAddress": {
-                            "route": "S Dorchester Ave",
-                            "number": "5006",
-                            "formatted": "5006 S Dorchester Ave"
-                        },
-                        "postalCode": "60615",
-                        "state": "IL",
-                        "city": "Chicago"
-                    },
-                    "age": 53,
-                    "phone": [],
-                    "gender": "d"
-                },
-                "contacted": false,
-                "successful": false,
-                "reservation": {
-                    "reserved": false
-                }
-            },
-            "meta": {
-                "etag": "4bc-jQasVHl7NxorvkZb4wzIHQjmZu8",
-                "created": "2018-07-11T18:47:41.917Z",
-                "modified": "2018-12-27T13:27:17.990Z",
-                "resource": "contacts",
-                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
-                "isDeleted": false,
-                "modifiedBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851"
-            },
-            "customerId": "f51b86dd-aaba-485e-b14d-65cbea28b8e4",
-            "securityGroupId": "f2baec89-8577-4f18-81e6-e99c5b77222d"
-        }
-    ],
-    "errors": [
-        {
-            "name": "ConcurrencyError",
-            "message": "The provided version does match the current value.",
-            "data": {
-                "position": 1
-            }
-        }
-    ]
+	"data": [
+		{
+			"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
+			"data": {
+				"fields": {
+					"2438cc93-4395-4ded-99f0-0a4ac88e2577": 1,
+					"510922c1-0a7e-40e1-b329-168b88c6cf3b": "laboriosam",
+					"60a528b7-1b36-483a-9bdb-65c00b067e62": [
+						"Snake"
+					],
+					"77227e62-d098-46b3-985b-a83e19a4850d": "House",
+					"7e23f830-23a1-42dc-a33b-5617402cd880": "nemo",
+					"83439622-cf55-4f0d-a7da-046862b73761": "true",
+					"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "at",
+					"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Deceased",
+					"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
+						"Dog"
+					],
+					"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
+				},
+				"status": "pending",
+				"profile": {
+					"age": 66,
+					"name": {
+						"anglican": {
+							"given": "John",
+							"surname": "Doe"
+						}
+					},
+					"emails": [
+						{
+							"email": "007@hotmail.com",
+							"active": true,
+							"primary": true
+						},
+						{
+							"email": "licensetokill@hotmail.com",
+							"active": true,
+							"primary": false
+						}
+					],
+					"gender": "m",
+					"phones": [
+						{
+							"phone": "777.777.7007 x72507",
+							"active": true,
+							"primary": true,
+							"phoneType": "mobile"
+						},
+						{
+							"phone": "1-960-777-7777",
+							"active": true,
+							"primary": false,
+							"phoneType": "mobile"
+						}
+					]
+				},
+				"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
+			},
+			"meta": {
+				"etag": "",
+				"created": "2019-04-03T18:55:30.718Z",
+				"modified": "2019-04-03T18:55:30.718Z",
+				"resource": "contacts",
+				"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+				"isDeleted": false,
+				"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+			},
+			"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+			"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+		}
+	],
+	"errors": [
+		{
+			"name": "ConcurrencyError",
+			"message": "The provided version does match the current value.",
+			"data": {
+				"position": 1
+			}
+		}
+	]
 }
 ```
 
-Update multiple contacts in an list.
-
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v1/contacts/bulk`
+`PATCH /v3/contacts/bulk`
 
-### Request Body
 
-The request body should have an array of patch requests under **data** key.
-Each patch request can update multiple fields of each contact.
-
-<aside class="notice">
-You can only patch attributes inside <b>data</b> key.
-</aside>
-
-Parameter | Required | Description
---------- | -------- | -----------
-id | true | ID of the contact being updated.
-etag | true | Current ETag value of the contact.
-data | true | Patch request following [RFC 6902](https://tools.ietf.org/html/rfc6902).
-
-### Response
-
-The response will contain:
-
-Parameter | Description
---------- | -----------
-data | Array of successfully updated contacts with its value updated.
-errors | Array of error for unsuccessful updates. It contains the error message and error key for each contact that was not possible to update.
-
-## Delete a Contact
-
-### HTTP Request
-`DELETE https://api.polisapp.com/v1/contacts/{contactId}`
+## Update a contact
 
 > Example Request
 
 ```http
-DELETE https://api.polisapp.com/v1/contacts/4155c6a9-f3fc-475f-a76e-df203d28f55a
-Host: api.polisapp.com
+PATCH /v3/contacts/{id} HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
-ETag: {etag_value}
-
+etag: etag_value
+{
+	"data": [
+		{
+			"op": "replace",
+			"path": "/profile/emails/0/email",
+			"value": "abc@gmail.com"
+		}
+	]
+}
 ```
 
-## Get all Contacts
-Retrieves a list of contacts filtered by a criteria
+
+<aside class='notice'>
+You can only patch attributes inside <b>data</b> key.
+</aside>
+
+> Example Response
+
+```json
+{
+	"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
+	"data": {
+		"fields": {
+			"2438cc93-4395-4ded-99f0-0a4ac88e2577": 1,
+			"510922c1-0a7e-40e1-b329-168b88c6cf3b": "laboriosam",
+			"60a528b7-1b36-483a-9bdb-65c00b067e62": [
+				"Snake"
+			],
+			"77227e62-d098-46b3-985b-a83e19a4850d": "House",
+			"7e23f830-23a1-42dc-a33b-5617402cd880": "nemo",
+			"83439622-cf55-4f0d-a7da-046862b73761": "true",
+			"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "at",
+			"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Deceased",
+			"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
+				"Dog"
+			],
+			"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
+		},
+		"status": "pending",
+		"profile": {
+			"age": 66,
+			"name": {
+				"anglican": {
+					"given": "John",
+					"surname": "Doe"
+				}
+			},
+			"emails": [
+				{
+					"email": "abc@gmail.com",
+					"active": true,
+					"primary": true
+				},
+				{
+					"email": "licensetokill@hotmail.com",
+					"active": true,
+					"primary": false
+				}
+			],
+			"gender": "m",
+			"phones": [
+				{
+					"phone": "777.777.7007 x72507",
+					"active": true,
+					"primary": true,
+					"phoneType": "mobile"
+				},
+				{
+					"phone": "1-960-777-7777",
+					"active": true,
+					"primary": false,
+					"phoneType": "mobile"
+				}
+			]
+		},
+		"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
+	},
+	"meta": {
+		"etag": "",
+		"created": "2019-04-03T18:55:30.718Z",
+		"modified": "2019-04-03T18:55:30.718Z",
+		"resource": "contacts",
+		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+		"isDeleted": false,
+		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+	},
+	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+}
+```
 
 ### HTTP Request
-`GET https://api.polisapp.com/v1/contacts?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+
+`PATCH /v3/contacts/{id}`
 
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-filter | true | Query to filter data. Example filter : /data/listId = {listId}
-limit | true | Limit results returned. Usefull for paggination.
-skip | true | Data offset index. Usefull for paggination.
-sort | true | Sort column. Ex.: `["id","ASC"]`
+id | true	| ID of the contact being updated.
+etag | true	| Current eTag value of the contact.
+data | true	| Patch request following RFC 6902.
+
+
+## Deletea contact
 
 > Example Request
 
 ```http
-GET /v1/contacts?filter=/data/listId+eq+"81414d4e-e237-467e-81f1-80cbe6652231"&limit=100&skip=0&sort=["id","ASC"] HTTP/1.1
-Host: api.polisapp.com
+DELETE /v3/contacts/{id} HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+etag: etag_value
+```
+
+### HTTP Request
+
+`DELETE /v3/contacts/{id}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | The id for the v3/contacts item.
+
+
+## Delete a contact-household record
+
+> Example Request
+
+```http
+DELETE /v3/contacts/{contactId}/households/{householdId} HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+etag: etag_value
+```
+
+### HTTP Request
+
+`DELETE /v3/contacts/{contactId}/households/{householdId}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+contactId | true | The id of the contact
+householdId | true | The id of the household
+
+
+## Creates contact-household record
+
+> Example Request
+
+```http
+PUT /v3/contacts/9c453ba8-106c-4fa5-ac49-e056aca7529b/households/904a4f4b-6c74-42a5-9437-15bd9728ffb9 HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
 
@@ -843,67 +1122,33 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-   "data":[
-      {
-         "id":"02b88c4e-3901-4fd7-a580-79eaec83058a",
-         "data":{
-            "fields":{
-               "likeness":false,
-               "available":false
-            },
-            "listId":"81414d4e-e237-467e-81f1-80cbe6652231",
-            "profile":{
-               "name":{
-                  "first":"Wilber",
-                  "last":"Mertz"
-               },
-               "address":{
-                  "country":"US",
-                  "position":{
-                     "type":"Point",
-                     "coordinates":[
-                        -74.07787,
-                        40.70426
-                     ]
-                  },
-                  "formatted":"53 Arlington Ave Apt 1  Jersey City NJ 7305",
-                  "streetAddress":{
-                     "unit":"1",
-                     "route":"Arlington Ave",
-                     "number":"53",
-                     "formatted":"53 Arlington Ave Apt 1"
-                  },
-                  "postalCode":"7305",
-                  "state":"NJ",
-                  "county":"Jersey City"
-               },
-               "age":24,
-               "email":"Marc.Monahan@yahoo.com",
-               "phone":[
-                  "1-495-660-3830 x42618"
-               ],
-               "gender":"n"
-            },
-            "contacted":false,
-            "reservation":{
-               "reserved":false
-            }
-         },
-         "meta":{
-            "etag":"4dc-5aWkR+Lvoft7CAdRm6/R8X1IBvM",
-            "created":"2018-03-28T16:09:43.028Z",
-            "modified":"2018-03-28T16:09:43.028Z",
-            "resource":"contacts",
-            "createdBy":"a46d8825-3f9e-45f4-9db9-be5a77883e18",
-            "isDeleted":false,
-            "modifiedBy":"a46d8825-3f9e-45f4-9db9-be5a77883e18"
-         },
-         "customerId":"f0e2736d-31c5-461a-89d1-e64f697d9e98",
-         "securityGroupId":"1bdf50d1-d3d5-4ecf-922c-f2541cd9ba37"
-      }
-   ],
-   "meta":{
-
-   }
+	"id": "3eba0ce4-3ab1-42c9-b3b8-015655137458",
+	"data": {
+		"contactId": "9c453ba8-106c-4fa5-ac49-e056aca7529b",
+		"householdId": "904a4f4b-6c74-42a5-9437-15bd9728ffb9"
+	},
+	"meta": {
+		"etag": "202-cM+xYVME1IsPAJSsCGT4XAPC7Gw",
+		"created": "2019-04-22T20:38:49.919Z",
+		"modified": "2019-04-22T20:38:49.919Z",
+		"resource": "contact-households",
+		"createdBy": "d1efa6f1-79fc-44fe-9ac2-b5faa35874bf",
+		"isDeleted": false,
+		"modifiedBy": "d1efa6f1-79fc-44fe-9ac2-b5faa35874bf"
+	},
+	"customerId": "23a9a81b-1ebc-4aac-954f-86482f271870",
+	"securityGroupId": "f5909f51-3b8c-49ee-b3d9-b45eb2dc20fd"
 }
 ```
+
+### HTTP Request
+
+`PUT /v3/contacts/{contactId}/households/{householdId}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+contactId | true | The id of the contact
+householdId | true | The id of the household
+

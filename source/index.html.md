@@ -9,15 +9,17 @@ includes:
   - authentication
   - api/campaigns
   - api/contacts
+  - api/households
   - api/integrations
   - api/interactions
   - api/lists
+  - api/notes
   - api/memberships
   - api/organizations
   - api/roles
   - api/segments
   - api/statuses
-  - api/statusGroups
+  - api/status-groups
   - api/surveys
   - api/users
   - errors

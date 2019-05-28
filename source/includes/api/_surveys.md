@@ -1,488 +1,255 @@
 # Surveys
 
-## The survey object
-
-```json
-{
-  "id": "07d8e307-a545-4ff8-9698-41776e27ad3c",
-  "customerId": "d94d4ae9-1221-4fea-90ae-41c1c65ff466",
-  "securityGroupId": "3453b386-60b5-4e58-b7f6-46b4977791ad",
-  "data": {
-    "name": "My Survey",
-    "questions": [
-      {
-        "tag": "available",
-        "text": "availability",
-        "type": "availability",
-        "options": [
-          {
-            "icon": "no",
-            "text": "Unavailable",
-            "value": "false",
-            "action": {
-              "type": "question",
-              "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-            },
-            "success": false
-          },
-          {
-            "icon": "yes",
-            "text": "Available",
-            "value": "true",
-            "action": {
-              "type": "question",
-              "questionId": "2a61c99a-6c37-48f0-9b0c-ea25ba4bc5e5"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "349b5655-67eb-4898-b70b-c9097d0f300a"
-      },
-      {
-        "tag": "unavailable_reason",
-        "text": "Why were they unavailable?",
-        "type": "multi-choice",
-        "options": [
-          {
-            "text": "Not Home",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Refused",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Inaccessible",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Moved",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Other Language",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Deceased",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-      },
-      {
-        "tag": "yes-no",
-        "text": "Yes/No Example",
-        "type": "multi-choice",
-        "options": [
-          {
-            "tag": "yes-no_Yes",
-            "icon": "yes",
-            "text": "Yes",
-            "value": "true",
-            "action": {
-              "type": "question",
-              "questionId": "4a729102-7f54-4b46-8025-1095dfbb6a3c"
-            },
-            "success": true
-          },
-          {
-            "tag": "yes-no_No",
-            "icon": "yes",
-            "text": "No",
-            "value": "false",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "2a61c99a-6c37-48f0-9b0c-ea25ba4bc5e5"
-      },
-      {
-        "tag": "select-q",
-        "text": "Select q",
-        "type": "multi-select",
-        "choices": [
-          {
-            "tag": "select-q_select1",
-            "text": "select1",
-            "success": false
-          },
-          {
-            "tag": "select-q_select2",
-            "text": "select2",
-            "success": false
-          }
-        ],
-        "options": [
-          {
-            "tag": "select-q_Submit",
-            "icon": "yes",
-            "text": "Submit",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "14fafa64-9976-4f4b-a41a-cf018ee7d6c1"
-      }
-    ],
-    "campaignId": "0cb2dc71-73ba-4eca-977c-548085328521",
-    "discoverable": false,
-  },
-  "meta": {
-    "created": "2018-09-19T13:32:05.413Z",
-    "modified": "2018-09-19T14:05:51.234Z",
-    "resource": "surveys",
-    "createdBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-    "isDeleted": false,
-    "modifiedBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-    "etag": "1337-5aJR1+zTeNml3uPDvBIhCZjsYm4"
-  }
-}
-```
+## The Survey object
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Unique identifier for the object.
-customerId | true | Customer this resource belongs to.
-securityGroupId | true | Security group of this resource.
-data | true | Survey data.
+id | true | Identifier of this record
+securityGroupId | true | Identifier of the associated securitygroup
+customerId | true | Identifier of the associated customer
+data | true | Surveys data
 
 ### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-campaignId | true | Identifier of the campaign that this survey belongs to.
-discoverable | false | Boolean value that allow a survey to be shared between organizations. Default value is `false`.
-name | true | Name of the survey.
-questions | false | Array of questions.
+discoverable | false | Boolean value that allow a survey to be shared between organizations. Default value is `false`
+name | true | Name of the survey
+questionFlow | false | The flow of questions in this survey
+questions | true | Array of questions.
 
 ### data/questions
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-questionId | false | Identifier of the question. By default a new id is generated.
-text | true | Text of the question.
-tag | true | Question tag.
-options | true | Array of options. The option object depends on the type.
-type | true | Type of a question. Can be `availability`, `multi-choice`, `multi-select`, `payment`, `pdf`, `scale`, `text`, `verification`or `youtube`.
+questionId | true | Identifier of the question
+actions | true | Array of actions that can be taken for this question
 
-For each type of question the option object will change and it may be that more attributes are added to the option.
-
-Types:
-#### availability
+### data/questions/actions
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-options | true | Array of possible options. Minimum of 2 options.
-
-#### multi-choice
-
-Attribute | Required? | Description
---------- | --------- | -----------
-options | true | Array of possible options. Minimum of 2 options.
-
-#### multi-select
-Attribute | Required? | Description
---------- | --------- | -----------
-options | true | Array of possible options. Minimum of 1 options.
-choices | true | Array of possible choices. Minimum of 1 choice.
-
-#### payment
-Attribute | Required? | Description
---------- | --------- | -----------
-options | true | Array of possible options. Minimum of 2 options.
-
-#### pdf
-Attribute | Required? | Description
---------- | --------- | -----------
-options | true | Array of possible options. Must be 2 options.
-url | true | String containing the url to the pdf.
-
-#### scale
-Attribute | Required? | Description
---------- | --------- | -----------
-options | true | Array of possible options. Must be 5 options.
-
-#### text
-Attribute | Required? | Description
---------- | --------- | -----------
-options | true | Array of possible options. Must be 2 options.
-multiline | false | Defines if the text input is multiline. Default value is `false`.
-max | false | Max size of the input string. Default `256`.
-keyboard | false | Type of input. Can be `text`, `email`, `number`. Default value is `text`.
-placeholder | false | Input placeholder. Default is an empty string.
-
-#### verification
-Attribute | Required? | Description
---------- | --------- | -----------
-options | true | Array of possible options. Minimum of 1 options and maximum of 2 options.
-
-#### youtube
-Attribute | Required? | Description
---------- | --------- | -----------
-options | true | Array of possible options. Minimum of 1 options and maximum of 2 options.
-url | true | String containing the url to the youtube video.
-
-### Option Object
-
-The `icon` or `text` is required.
-
-Attribute | Required? | Description
---------- | --------- | -----------
-text | false | Description text of the option.
-icon | false | Icon that will appear on the app. Can be `face-neutral`, `face-happy`, `face-sad`, `face-happiest`, `face-saddest`, `yes`, `no` or `questionmark`.
-tag | false | Tag of the option.
-success | false | Makes this option a success if `true`. By default is set to `false`.
-value | false | Value of the option.
-action | false | Action executed if the option is selected.
-
-### Action Object
-
-The action object is used to define the order of questions of a survey.
-When an option of a question is selected, if it's action equals to `question` then next question will be called and if it's action type equals to `end`, the survey will finish.
-
-Attribute | Required? | Description
---------- | --------- | -----------
-type | false | Type of action that will be executed. Can be `question` or `end`.
-questionId | false | Identifier of the next question.
+questionId | true | Identifier of the question
+type | true | Allowed values ['question', 'end', 'pdf', 'edit']
+icon | true | Name of the icon. Should be one `faceNeutral`, `faceHappy`, `faceSad`, `faceHappiest`, `faceSaddest`,
+  `yes`, `no`, `questionMark`
 
 ### meta
 
-[See documentation](#metadata-object).
+[See documentation](#metadata-object)
 
-## Create a survey
 
-> Default Survey Example Request
-
-```
-http
-POST /v1/surveys HTTP/1.1
-Host: api.polisapp.com
-Content-Type: application/json
-Authorization: Bearer {access_token}
-{
-  "data": {
-    "name": "My Survey",
-    "campaignId": "0cb2dc71-73ba-4eca-977c-548085328521",
-    "questions": [
-      {
-        "questionId": "349b5655-67eb-4898-b70b-c9097d0f300a",
-        "text": "availability",
-        "type": "availability",
-        "tag": "available",
-        "options": [
-          {
-            "text": "Unavailable",
-            "icon": "no",
-            "value": "false",
-            "action": {
-              "type": "question",
-              "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-            }
-          },
-          {
-            "text": "Available",
-            "icon": "yes",
-            "value": "true",
-            "action": {
-              "type": "end"
-            }
-          }
-        ]
-      },
-      {
-        "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b",
-        "text": "Why were they unavailable?",
-        "type": "multi-choice",
-        "tag": "unavailable_reason",
-        "options": [
-          {
-            "text": "Not Home",
-            "action": {
-              "type": "end"
-            }
-          },
-          {
-            "text": "Refused",
-            "action": {
-              "type": "end"
-            }
-          },
-          {
-            "text": "Inaccessible",
-            "action": {
-              "type": "end"
-            }
-          },
-          {
-            "text": "Moved",
-            "action": {
-              "type": "end"
-            }
-          },
-          {
-            "text": "Other Language",
-            "action": {
-              "type": "end"
-            }
-          },
-          {
-            "text": "Deceased",
-            "action": {
-              "type": "end"
-            }
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-> Example Response
 
 ```json
 {
-  "id": "07d8e307-a545-4ff8-9698-41776e27ad3c",
-  "customerId": "d94d4ae9-1221-4fea-90ae-41c1c65ff466",
-  "securityGroupId": "3453b386-60b5-4e58-b7f6-46b4977791ad",
-  "data": {
-    "name": "My Survey",
-    "questions": [
-      {
-        "tag": "available",
-        "text": "availability",
-        "type": "availability",
-        "options": [
-          {
-            "icon": "no",
-            "text": "Unavailable",
-            "value": "false",
-            "action": {
-              "type": "question",
-              "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-            },
-            "success": false
-          },
-          {
-            "icon": "yes",
-            "text": "Available",
-            "value": "true",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "349b5655-67eb-4898-b70b-c9097d0f300a"
-      },
-      {
-        "tag": "unavailable_reason",
-        "text": "Why were they unavailable?",
-        "type": "multi-choice",
-        "options": [
-          {
-            "text": "Not Home",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Refused",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Inaccessible",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Moved",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Other Language",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Deceased",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-      }
-    ],
-    "campaignId": "0cb2dc71-73ba-4eca-977c-548085328521",
-    "discoverable": false
-  },
-  "meta": {
-    "etag": "58d-WRUgjR0jOoXcOLr8v2hd3n7p69E",
-    "created": "2018-09-19T13:32:05.413Z",
-    "modified": "2018-09-19T13:32:05.413Z",
-    "resource": "surveys",
-    "createdBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-    "isDeleted": false,
-    "modifiedBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3"
-  }
+	"id": "76a86650-5524-4634-bbad-ad52f5237f7d",
+	"data": {
+		"name": "Default Survey",
+		"questions": [
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6",
+						"questionOptionId": "e4f57754-9348-4abe-8bae-ae820dc9f252"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"questionId": "83439622-cf55-4f0d-a7da-046862b73761",
+						"questionOptionId": "ee3417b4-e644-499e-9aae-54424818f5aa"
+					}
+				],
+				"questionId": "fea9b266-3def-4d4e-89fd-824bfed902a3"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "1471c7f2-f881-4841-a066-55c8210eb000"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "51c75a1d-e424-4580-ba28-434ed65fbc4f"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "5322941d-0ff9-475f-b545-498fd102ce9a"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "5d97bbbe-7ab4-46e3-beea-afa7f631b038"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "be2fbcc1-acf9-4411-a97b-92c14aaa3d77"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "d784faec-3a21-4edc-8f2d-05b484251994"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "fae56419-dbaf-4439-8062-cd5be748e17b"
+					}
+				],
+				"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+						"questionOptionId": "b36e32b1-1b0a-4ec6-a945-f56fa61f051c"
+					},
+					{
+						"type": "question",
+						"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+						"questionOptionId": "578ef90b-df35-42f2-befc-6c7d19f956e4"
+					}
+				],
+				"questionId": "83439622-cf55-4f0d-a7da-046862b73761"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "0e21abce-fe32-4353-91cc-5bac307fd293"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "c3f42d6d-7a28-4f44-b11f-1fae28113584"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "87d31382-88ba-4540-b754-6e3e4dccb254"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "5a92928b-4f27-4a37-abcc-0f0b49081b19"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "96660749-a57f-47bd-8774-bc8ca3ee6e52"
+					}
+				],
+				"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+					}
+				],
+				"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+					}
+				],
+				"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Confirm",
+						"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+					}
+				],
+				"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+					}
+				],
+				"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+					}
+				],
+				"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "5b17d78c-9f36-4d84-ad9f-f3a29fc5d45d"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "50092030-dbf5-4b45-a827-c17571ce5405"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "60208cd2-0fd5-4cb3-9cba-0a2b6c34da12"
+					}
+				],
+				"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+			}
+		],
+		"discoverable": false
+	},
+	"meta": {
+		"created": "2019-04-03T18:55:28.721Z",
+		"modified": "2019-04-03T18:55:29.991Z",
+		"resource": "surveys",
+		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+		"isDeleted": false,
+		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+	},
+	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
 }
 ```
 
-Creates a new survey.
 
-### HTTP Request
-
-`POST https://api.polisapp.com/v1/surveys`
-
-## Retrieve a survey
+## Get many surveys
 
 > Example Request
 
 ```http
-GET /v1/surveys/07d8e307-a545-4ff8-9698-41776e27ad3c HTTP/1.1
-Host: api.polisapp.com
+GET /surveys?filter%5B%2Fdata%2Fdiscoverable%5D=false&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
 
@@ -490,642 +257,1321 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-  "id": "07d8e307-a545-4ff8-9698-41776e27ad3c",
-
-  "customerId": "d94d4ae9-1221-4fea-90ae-41c1c65ff466",
-  "securityGroupId": "3453b386-60b5-4e58-b7f6-46b4977791ad",
-  "data": {
-    "name": "My Survey",
-    "questions": [
-      {
-        "tag": "available",
-        "text": "availability",
-        "type": "availability",
-        "options": [
-          {
-            "icon": "no",
-            "text": "Unavailable",
-            "value": "false",
-            "action": {
-              "type": "question",
-              "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-            },
-            "success": false
-          },
-          {
-            "icon": "yes",
-            "text": "Available",
-            "value": "true",
-            "action": {
-              "type": "question",
-              "questionId": "2a61c99a-6c37-48f0-9b0c-ea25ba4bc5e5"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "349b5655-67eb-4898-b70b-c9097d0f300a"
-      },
-      {
-        "tag": "unavailable_reason",
-        "text": "Why were they unavailable?",
-        "type": "multi-choice",
-        "options": [
-          {
-            "text": "Not Home",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Refused",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Inaccessible",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Moved",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Other Language",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Deceased",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-      },
-    ],
-    "campaignId": "0cb2dc71-73ba-4eca-977c-548085328521",
-    "discoverable": false,
-  },
-  "meta": {
-    "created": "2018-09-19T13:32:05.413Z",
-    "modified": "2018-09-19T14:05:51.234Z",
-    "resource": "surveys",
-    "createdBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-    "isDeleted": false,
-    "modifiedBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-    "etag": "1337-5aJR1+zTeNml3uPDvBIhCZjsYm4"
-  }
+	"data": [
+		{
+			"id": "76a86650-5524-4634-bbad-ad52f5237f7d",
+			"data": {
+				"name": "Default Survey",
+				"questions": [
+					{
+						"actions": [
+							{
+								"icon": "no",
+								"type": "question",
+								"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6",
+								"questionOptionId": "e4f57754-9348-4abe-8bae-ae820dc9f252"
+							},
+							{
+								"icon": "yes",
+								"type": "question",
+								"questionId": "83439622-cf55-4f0d-a7da-046862b73761",
+								"questionOptionId": "ee3417b4-e644-499e-9aae-54424818f5aa"
+							}
+						],
+						"questionId": "fea9b266-3def-4d4e-89fd-824bfed902a3"
+					},
+					{
+						"actions": [
+							{
+								"type": "end",
+								"questionOptionId": "1471c7f2-f881-4841-a066-55c8210eb000"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "51c75a1d-e424-4580-ba28-434ed65fbc4f"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "5322941d-0ff9-475f-b545-498fd102ce9a"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "5d97bbbe-7ab4-46e3-beea-afa7f631b038"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "be2fbcc1-acf9-4411-a97b-92c14aaa3d77"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "d784faec-3a21-4edc-8f2d-05b484251994"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "fae56419-dbaf-4439-8062-cd5be748e17b"
+							}
+						],
+						"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6"
+					},
+					{
+						"actions": [
+							{
+								"type": "question",
+								"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+								"questionOptionId": "b36e32b1-1b0a-4ec6-a945-f56fa61f051c"
+							},
+							{
+								"type": "question",
+								"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+								"questionOptionId": "578ef90b-df35-42f2-befc-6c7d19f956e4"
+							}
+						],
+						"questionId": "83439622-cf55-4f0d-a7da-046862b73761"
+					},
+					{
+						"actions": [
+							{
+								"type": "question",
+								"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+								"questionOptionId": "0e21abce-fe32-4353-91cc-5bac307fd293"
+							},
+							{
+								"type": "question",
+								"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+								"questionOptionId": "c3f42d6d-7a28-4f44-b11f-1fae28113584"
+							},
+							{
+								"type": "question",
+								"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+								"questionOptionId": "87d31382-88ba-4540-b754-6e3e4dccb254"
+							},
+							{
+								"type": "question",
+								"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+								"questionOptionId": "5a92928b-4f27-4a37-abcc-0f0b49081b19"
+							},
+							{
+								"type": "question",
+								"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+								"questionOptionId": "96660749-a57f-47bd-8774-bc8ca3ee6e52"
+							}
+						],
+						"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577"
+					},
+					{
+						"actions": [
+							{
+								"icon": "no",
+								"type": "question",
+								"optionText": "Cancel",
+								"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+							},
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Submit",
+								"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+							}
+						],
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b"
+					},
+					{
+						"actions": [
+							{
+								"icon": "no",
+								"type": "question",
+								"optionText": "Cancel",
+								"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+							},
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Submit",
+								"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+							}
+						],
+						"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+					},
+					{
+						"actions": [
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Confirm",
+								"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+							}
+						],
+						"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+					},
+					{
+						"actions": [
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Submit",
+								"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+							}
+						],
+						"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+					},
+					{
+						"actions": [
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Submit",
+								"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+							}
+						],
+						"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+					},
+					{
+						"actions": [
+							{
+								"type": "end",
+								"questionOptionId": "5b17d78c-9f36-4d84-ad9f-f3a29fc5d45d"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "50092030-dbf5-4b45-a827-c17571ce5405"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "60208cd2-0fd5-4cb3-9cba-0a2b6c34da12"
+							}
+						],
+						"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+					}
+				],
+				"discoverable": false
+			},
+			"meta": {
+				"created": "2019-04-03T18:55:28.721Z",
+				"modified": "2019-04-03T18:55:29.991Z",
+				"resource": "surveys",
+				"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+				"isDeleted": false,
+				"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+			},
+			"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+			"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+		},
+		{
+			"id": "a1a61b83-0697-4354-a64b-59a9f64cd5d2",
+			"data": {
+				"name": "Default Survey",
+				"questions": [
+					{
+						"actions": [
+							{
+								"icon": "yes",
+								"type": "question",
+								"questionId": "4f70354f-f569-4993-8814-a895ebbf6904",
+								"questionOptionId": "c4ecd514-624e-4b01-9b3e-d53df5e327e5"
+							},
+							{
+								"icon": "no",
+								"type": "question",
+								"questionId": "9445d976-fa58-4e3b-853c-8d7d9b3ab665",
+								"questionOptionId": "f936b287-7a6e-4bd8-a981-32814169aec0"
+							}
+						],
+						"questionId": "3f0757f5-8ff3-44f2-b634-d01e0cc54143"
+					},
+					{
+						"actions": [
+							{
+								"type": "end",
+								"questionOptionId": "0edef130-0271-4b77-908b-ecf9cdb3a4c1"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "16a141aa-1b24-46e8-abe1-5c2321943581"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "43227576-c4c0-483d-bab9-300bcd9b8f35"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "453b0b04-556b-4cc8-87bc-db4c7654e76e"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "7d68ea6e-d32d-4867-aa4b-0e9a1de5c45a"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "a1468bd6-5ed1-4616-8efb-4783907a56bb"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "e3033b72-300a-4b22-ae4b-688e87a50217"
+							}
+						],
+						"questionId": "9445d976-fa58-4e3b-853c-8d7d9b3ab665"
+					},
+					{
+						"actions": [
+							{
+								"type": "question",
+								"questionId": "2537adb6-2cbd-4f88-af1e-0f35ce10ebc8",
+								"questionOptionId": "b8701ab0-812f-488e-8985-474f86725cb2"
+							},
+							{
+								"type": "question",
+								"questionId": "2537adb6-2cbd-4f88-af1e-0f35ce10ebc8",
+								"questionOptionId": "907e13e5-ae0e-408d-b834-1ff6a0dc467e"
+							}
+						],
+						"questionId": "4f70354f-f569-4993-8814-a895ebbf6904"
+					},
+					{
+						"actions": [
+							{
+								"type": "question",
+								"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+								"questionOptionId": "f04ce726-2ae3-4ddd-96bd-48739c29ba4c"
+							},
+							{
+								"type": "question",
+								"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+								"questionOptionId": "cc155424-9296-433b-8bfc-f7e5f4f8a1b8"
+							},
+							{
+								"type": "question",
+								"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+								"questionOptionId": "8db71633-0576-4422-9d0d-27059520d8b3"
+							},
+							{
+								"type": "question",
+								"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+								"questionOptionId": "213581f6-d369-413f-8824-a76e6cccfaf2"
+							},
+							{
+								"type": "question",
+								"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+								"questionOptionId": "7801e142-78bb-4b8d-898e-ff9826c396da"
+							}
+						],
+						"questionId": "2537adb6-2cbd-4f88-af1e-0f35ce10ebc8"
+					},
+					{
+						"actions": [
+							{
+								"icon": "no",
+								"type": "question",
+								"optionText": "Cancel",
+								"questionId": "4ce739cb-6a75-4bb3-952b-ed30278148be"
+							},
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Submit",
+								"questionId": "4ce739cb-6a75-4bb3-952b-ed30278148be"
+							}
+						],
+						"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762"
+					},
+					{
+						"actions": [
+							{
+								"icon": "no",
+								"type": "question",
+								"optionText": "Cancel",
+								"questionId": "26f35c96-ad0b-4474-98b6-4b51ecba33ee"
+							},
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Submit",
+								"questionId": "26f35c96-ad0b-4474-98b6-4b51ecba33ee"
+							}
+						],
+						"questionId": "4ce739cb-6a75-4bb3-952b-ed30278148be"
+					},
+					{
+						"actions": [
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Confirm",
+								"questionId": "51402915-6bb6-420f-9c53-3309d00b7a76"
+							}
+						],
+						"questionId": "26f35c96-ad0b-4474-98b6-4b51ecba33ee"
+					},
+					{
+						"actions": [
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Submit",
+								"questionId": "b4d92723-d1d6-4b99-9ff4-75b622b6e3d8"
+							}
+						],
+						"questionId": "51402915-6bb6-420f-9c53-3309d00b7a76"
+					},
+					{
+						"actions": [
+							{
+								"icon": "yes",
+								"type": "question",
+								"optionText": "Submit",
+								"questionId": "abe83390-8897-4659-b39f-f22623f2f180"
+							}
+						],
+						"questionId": "b4d92723-d1d6-4b99-9ff4-75b622b6e3d8"
+					},
+					{
+						"actions": [
+							{
+								"type": "end",
+								"questionOptionId": "ae2c12f9-b5c9-4f59-b3c8-400fab20e7db"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "29c8c38e-a4f9-4d99-a655-5ffbf9afd1dc"
+							},
+							{
+								"type": "end",
+								"questionOptionId": "cfffdfb7-cba9-4391-aaa6-54609b0f0b2a"
+							}
+						],
+						"questionId": "abe83390-8897-4659-b39f-f22623f2f180"
+					}
+				],
+				"discoverable": false
+			},
+			"meta": {
+				"etag": "",
+				"created": "2019-04-19T18:58:24.963Z",
+				"modified": "2019-04-19T18:58:24.963Z",
+				"resource": "surveys",
+				"createdBy": "1aafa574-82ce-416e-801c-588142cb4824",
+				"isDeleted": false,
+				"modifiedBy": "1aafa574-82ce-416e-801c-588142cb4824"
+			},
+			"customerId": "29e66b77-4f40-43c0-b239-1544e16cd4fc",
+			"securityGroupId": "95bcaa14-10ff-4a41-90f0-5d98a960dd00"
+		}
+	],
+	"meta": {}
 }
 ```
 
-Obtains a single survey object by it's id.
-
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/surveys/{id}`
+`GET /surveys`
 
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-id | true | Unique identifier of the survey.
+filter | false | Query to filter data. `/data/campaignId eq "0cb2dc71-73ba-4eca-977c-548085328521"`
+limit | true | Limits number of result-rows. Should be a positive integer. Useful for pagination.
+skip | true | Offset data by given number. Useful for pagination.
+sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
+
+
+## Get a survey
+
+> Example Request
+
+```http
+GET /surveys/76a86650-5524-4634-bbad-ad52f5237f7d HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+```
+
+> Example Response
+
+```json
+{
+	"id": "76a86650-5524-4634-bbad-ad52f5237f7d",
+	"data": {
+		"name": "Default Survey",
+		"questions": [
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6",
+						"questionOptionId": "e4f57754-9348-4abe-8bae-ae820dc9f252"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"questionId": "83439622-cf55-4f0d-a7da-046862b73761",
+						"questionOptionId": "ee3417b4-e644-499e-9aae-54424818f5aa"
+					}
+				],
+				"questionId": "fea9b266-3def-4d4e-89fd-824bfed902a3"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "1471c7f2-f881-4841-a066-55c8210eb000"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "51c75a1d-e424-4580-ba28-434ed65fbc4f"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "5322941d-0ff9-475f-b545-498fd102ce9a"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "5d97bbbe-7ab4-46e3-beea-afa7f631b038"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "be2fbcc1-acf9-4411-a97b-92c14aaa3d77"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "d784faec-3a21-4edc-8f2d-05b484251994"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "fae56419-dbaf-4439-8062-cd5be748e17b"
+					}
+				],
+				"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+						"questionOptionId": "b36e32b1-1b0a-4ec6-a945-f56fa61f051c"
+					},
+					{
+						"type": "question",
+						"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+						"questionOptionId": "578ef90b-df35-42f2-befc-6c7d19f956e4"
+					}
+				],
+				"questionId": "83439622-cf55-4f0d-a7da-046862b73761"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "0e21abce-fe32-4353-91cc-5bac307fd293"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "c3f42d6d-7a28-4f44-b11f-1fae28113584"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "87d31382-88ba-4540-b754-6e3e4dccb254"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "5a92928b-4f27-4a37-abcc-0f0b49081b19"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "96660749-a57f-47bd-8774-bc8ca3ee6e52"
+					}
+				],
+				"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+					}
+				],
+				"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+					}
+				],
+				"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Confirm",
+						"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+					}
+				],
+				"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+					}
+				],
+				"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+					}
+				],
+				"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "5b17d78c-9f36-4d84-ad9f-f3a29fc5d45d"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "50092030-dbf5-4b45-a827-c17571ce5405"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "60208cd2-0fd5-4cb3-9cba-0a2b6c34da12"
+					}
+				],
+				"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+			}
+		],
+		"discoverable": false
+	},
+	"meta": {
+		"created": "2019-04-03T18:55:28.721Z",
+		"modified": "2019-04-03T18:55:29.991Z",
+		"resource": "surveys",
+		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+		"isDeleted": false,
+		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+	},
+	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+}
+```
+
+### HTTP Request
+
+`GET /surveys/{id}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | The id of the survey to be retrieved.
+
+
+## Create a survey.
+
+> Example Request
+
+```http
+POST /surveys HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+{
+	"data": {
+		"name": "Default Survey",
+		"discoverable": false,
+		"questions": [
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6",
+						"questionOptionId": "e4f57754-9348-4abe-8bae-ae820dc9f252"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"questionId": "83439622-cf55-4f0d-a7da-046862b73761",
+						"questionOptionId": "ee3417b4-e644-499e-9aae-54424818f5aa"
+					}
+				],
+				"questionId": "fea9b266-3def-4d4e-89fd-824bfed902a3"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "1471c7f2-f881-4841-a066-55c8210eb000"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "51c75a1d-e424-4580-ba28-434ed65fbc4f"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "5322941d-0ff9-475f-b545-498fd102ce9a"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "5d97bbbe-7ab4-46e3-beea-afa7f631b038"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "be2fbcc1-acf9-4411-a97b-92c14aaa3d77"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "d784faec-3a21-4edc-8f2d-05b484251994"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "fae56419-dbaf-4439-8062-cd5be748e17b"
+					}
+				],
+				"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+						"questionOptionId": "b36e32b1-1b0a-4ec6-a945-f56fa61f051c"
+					},
+					{
+						"type": "question",
+						"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+						"questionOptionId": "578ef90b-df35-42f2-befc-6c7d19f956e4"
+					}
+				],
+				"questionId": "83439622-cf55-4f0d-a7da-046862b73761"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "0e21abce-fe32-4353-91cc-5bac307fd293"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "c3f42d6d-7a28-4f44-b11f-1fae28113584"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "87d31382-88ba-4540-b754-6e3e4dccb254"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "5a92928b-4f27-4a37-abcc-0f0b49081b19"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "96660749-a57f-47bd-8774-bc8ca3ee6e52"
+					}
+				],
+				"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+					}
+				],
+				"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+					}
+				],
+				"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Confirm",
+						"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+					}
+				],
+				"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+					}
+				],
+				"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+					}
+				],
+				"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "5b17d78c-9f36-4d84-ad9f-f3a29fc5d45d"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "50092030-dbf5-4b45-a827-c17571ce5405"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "60208cd2-0fd5-4cb3-9cba-0a2b6c34da12"
+					}
+				],
+				"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+			}
+		]
+	},
+	"customerId": "f16a1733-f553-4395-bc22-d16d5085a634"
+}
+```
+
+> Example Response
+
+```json
+{
+	"id": "76a86650-5524-4634-bbad-ad52f5237f7d",
+	"data": {
+		"name": "Default Survey",
+		"questions": [
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6",
+						"questionOptionId": "e4f57754-9348-4abe-8bae-ae820dc9f252"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"questionId": "83439622-cf55-4f0d-a7da-046862b73761",
+						"questionOptionId": "ee3417b4-e644-499e-9aae-54424818f5aa"
+					}
+				],
+				"questionId": "fea9b266-3def-4d4e-89fd-824bfed902a3"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "1471c7f2-f881-4841-a066-55c8210eb000"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "51c75a1d-e424-4580-ba28-434ed65fbc4f"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "5322941d-0ff9-475f-b545-498fd102ce9a"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "5d97bbbe-7ab4-46e3-beea-afa7f631b038"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "be2fbcc1-acf9-4411-a97b-92c14aaa3d77"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "d784faec-3a21-4edc-8f2d-05b484251994"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "fae56419-dbaf-4439-8062-cd5be748e17b"
+					}
+				],
+				"questionId": "b0f2bc7e-3089-401d-afb7-5e6659d0f1e6"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+						"questionOptionId": "b36e32b1-1b0a-4ec6-a945-f56fa61f051c"
+					},
+					{
+						"type": "question",
+						"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577",
+						"questionOptionId": "578ef90b-df35-42f2-befc-6c7d19f956e4"
+					}
+				],
+				"questionId": "83439622-cf55-4f0d-a7da-046862b73761"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "0e21abce-fe32-4353-91cc-5bac307fd293"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "c3f42d6d-7a28-4f44-b11f-1fae28113584"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "87d31382-88ba-4540-b754-6e3e4dccb254"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "5a92928b-4f27-4a37-abcc-0f0b49081b19"
+					},
+					{
+						"type": "question",
+						"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b",
+						"questionOptionId": "96660749-a57f-47bd-8774-bc8ca3ee6e52"
+					}
+				],
+				"questionId": "2438cc93-4395-4ded-99f0-0a4ac88e2577"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+					}
+				],
+				"questionId": "510922c1-0a7e-40e1-b329-168b88c6cf3b"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+					}
+				],
+				"questionId": "940f694b-d8d6-4b40-9f3d-efe9b6b110b5"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Confirm",
+						"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+					}
+				],
+				"questionId": "7e23f830-23a1-42dc-a33b-5617402cd880"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+					}
+				],
+				"questionId": "eb444550-4f38-43a2-a5c0-6634c3d9a003"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+					}
+				],
+				"questionId": "60a528b7-1b36-483a-9bdb-65c00b067e62"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "5b17d78c-9f36-4d84-ad9f-f3a29fc5d45d"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "50092030-dbf5-4b45-a827-c17571ce5405"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "60208cd2-0fd5-4cb3-9cba-0a2b6c34da12"
+					}
+				],
+				"questionId": "77227e62-d098-46b3-985b-a83e19a4850d"
+			}
+		],
+		"discoverable": false
+	},
+	"meta": {
+		"created": "2019-04-03T18:55:28.721Z",
+		"modified": "2019-04-03T18:55:29.991Z",
+		"resource": "surveys",
+		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
+		"isDeleted": false,
+		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
+	},
+	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
+	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+}
+```
+
+### HTTP Request
+
+`POST /surveys`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+data | true | The data of the survey to be created
+
 
 ## Update a survey
 
-To add a new question you have to include it with the other questions and send a patch request like in the example.
-Make sure that the actions are properly set to order your questions survey flow correctly.
-
-<aside class="notice">
-You can only patch attributes inside <b>data</b> key.
-</aside>
-
-[RFC 6902 - JavaScript Object Notation (JSON) Patch](https://tools.ietf.org/html/rfc6902)
-
 > Example Request
 
 ```http
-PATCH /v1/surveys/f2636525-36d7-439c-924d-a2aaf3848716 HTTP/1.1
-Host: api.polisapp.com
+PATCH /surveys/a1a61b83-0697-4354-a64b-59a9f64cd5d2 HTTP/1.1
+Host: api2.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
-ETag: {etag_value}
+etag: etag_value
 {
-  "data": [
-    {
-      "op": "replace",
-      "path": "/questions",
-      "value": [
-        {
-          "tag": "available",
-          "text": "availability",
-          "type": "availability",
-          "options": [
-            {
-              "icon": "no",
-              "text": "Unavailable",
-              "value": "false",
-              "action": {
-                "type": "question",
-                "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-              },
-              "success": false
-            },
-            {
-              "icon": "yes",
-              "text": "Available",
-              "value": "true",
-              "action": {
-                "type": "question",
-                "questionId": "2a61c99a-6c37-48f0-9b0c-ea25ba4bc5e5"
-              },
-              "success": false
-            }
-          ],
-          "required": false,
-          "questionId": "349b5655-67eb-4898-b70b-c9097d0f300a"
-        },
-        {
-          "tag": "unavailable_reason",
-          "text": "Why were they unavailable?",
-          "type": "multi-choice",
-          "options": [
-            {
-              "text": "Not Home",
-              "action": {
-                "type": "end"
-              },
-              "success": false
-            },
-            {
-              "text": "Refused",
-              "action": {
-                "type": "end"
-              },
-              "success": false
-            },
-            {
-              "text": "Inaccessible",
-              "action": {
-                "type": "end"
-              },
-              "success": false
-            },
-            {
-              "text": "Moved",
-              "action": {
-                "type": "end"
-              },
-              "success": false
-            },
-            {
-              "text": "Other Language",
-              "action": {
-                "type": "end"
-              },
-              "success": false
-            },
-            {
-              "text": "Deceased",
-              "action": {
-                "type": "end"
-              },
-              "success": false
-            }
-          ],
-          "required": false,
-          "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-        },
-        {
-          "tag": "yes-no",
-          "text": "Yes/No Example",
-          "type": "multi-choice",
-          "options": [
-            {
-              "tag": "yes-no_Yes",
-              "icon": "yes",
-              "text": "Yes",
-              "value": "true",
-              "action": {
-                "type": "end"
-              },
-              "success": true
-            },
-            {
-              "tag": "yes-no_No",
-              "icon": "yes",
-              "text": "No",
-              "value": "false",
-              "action": {
-                "type": "end"
-              },
-              "success": false
-            }
-          ],
-          "required": false,
-          "questionId": "2a61c99a-6c37-48f0-9b0c-ea25ba4bc5e5"
-        }
-      ]
-    }
-  ]
+	"data": [
+		{
+			"op": "replace",
+			"path": "/discoverable",
+			"value": true
+		}
+	]
 }
 ```
+
+
+<aside class='notice'>
+You can only patch attributes inside <b>data</b> key.
+</aside>
 
 > Example Response
 
 ```json
 {
-  "id": "07d8e307-a545-4ff8-9698-41776e27ad3c",
-  "data": {
-    "name": "My Survey",
-    "questions": [
-      {
-        "tag": "available",
-        "text": "availability",
-        "type": "availability",
-        "options": [
-          {
-            "icon": "no",
-            "text": "Unavailable",
-            "value": "false",
-            "action": {
-              "type": "question",
-              "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-            },
-            "success": false
-          },
-          {
-            "icon": "yes",
-            "text": "Available",
-            "value": "true",
-            "action": {
-              "type": "question",
-              "questionId": "2a61c99a-6c37-48f0-9b0c-ea25ba4bc5e5"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "349b5655-67eb-4898-b70b-c9097d0f300a"
-      },
-      {
-        "tag": "unavailable_reason",
-        "text": "Why were they unavailable?",
-        "type": "multi-choice",
-        "options": [
-          {
-            "text": "Not Home",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Refused",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Inaccessible",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Moved",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Other Language",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          },
-          {
-            "text": "Deceased",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-      },
-      {
-        "tag": "yes-no",
-        "text": "Yes/No Example",
-        "type": "multi-choice",
-        "options": [
-          {
-            "tag": "yes-no_Yes",
-            "icon": "yes",
-            "text": "Yes",
-            "value": "true",
-            "action": {
-              "type": "question",
-              "questionId": "4a729102-7f54-4b46-8025-1095dfbb6a3c"
-            },
-            "success": true
-          },
-          {
-            "tag": "yes-no_No",
-            "icon": "yes",
-            "text": "No",
-            "value": "false",
-            "action": {
-              "type": "end"
-            },
-            "success": false
-          }
-        ],
-        "required": false,
-        "questionId": "2a61c99a-6c37-48f0-9b0c-ea25ba4bc5e5"
-      },
-    ],
-    "campaignId": "0cb2dc71-73ba-4eca-977c-548085328521",
-    "discoverable": false,
-  },
-  "meta": {
-    "created": "2018-09-19T13:32:05.413Z",
-    "modified": "2018-09-19T14:05:51.234Z",
-    "resource": "surveys",
-    "createdBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-    "isDeleted": false,
-    "modifiedBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-    "etag": "1337-5aJR1+zTeNml3uPDvBIhCZjsYm4"
-  },
-  "customerId": "d94d4ae9-1221-4fea-90ae-41c1c65ff466",
-  "securityGroupId": "3453b386-60b5-4e58-b7f6-46b4977791ad"
+	"id": "a1a61b83-0697-4354-a64b-59a9f64cd5d2",
+	"data": {
+		"name": "Default Survey",
+		"questions": [
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"questionId": "4f70354f-f569-4993-8814-a895ebbf6904",
+						"questionOptionId": "c4ecd514-624e-4b01-9b3e-d53df5e327e5"
+					},
+					{
+						"icon": "no",
+						"type": "question",
+						"questionId": "9445d976-fa58-4e3b-853c-8d7d9b3ab665",
+						"questionOptionId": "f936b287-7a6e-4bd8-a981-32814169aec0"
+					}
+				],
+				"questionId": "3f0757f5-8ff3-44f2-b634-d01e0cc54143"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "0edef130-0271-4b77-908b-ecf9cdb3a4c1"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "16a141aa-1b24-46e8-abe1-5c2321943581"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "43227576-c4c0-483d-bab9-300bcd9b8f35"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "453b0b04-556b-4cc8-87bc-db4c7654e76e"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "7d68ea6e-d32d-4867-aa4b-0e9a1de5c45a"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "a1468bd6-5ed1-4616-8efb-4783907a56bb"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "e3033b72-300a-4b22-ae4b-688e87a50217"
+					}
+				],
+				"questionId": "9445d976-fa58-4e3b-853c-8d7d9b3ab665"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "2537adb6-2cbd-4f88-af1e-0f35ce10ebc8",
+						"questionOptionId": "b8701ab0-812f-488e-8985-474f86725cb2"
+					},
+					{
+						"type": "question",
+						"questionId": "2537adb6-2cbd-4f88-af1e-0f35ce10ebc8",
+						"questionOptionId": "907e13e5-ae0e-408d-b834-1ff6a0dc467e"
+					}
+				],
+				"questionId": "4f70354f-f569-4993-8814-a895ebbf6904"
+			},
+			{
+				"actions": [
+					{
+						"type": "question",
+						"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+						"questionOptionId": "f04ce726-2ae3-4ddd-96bd-48739c29ba4c"
+					},
+					{
+						"type": "question",
+						"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+						"questionOptionId": "cc155424-9296-433b-8bfc-f7e5f4f8a1b8"
+					},
+					{
+						"type": "question",
+						"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+						"questionOptionId": "8db71633-0576-4422-9d0d-27059520d8b3"
+					},
+					{
+						"type": "question",
+						"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+						"questionOptionId": "213581f6-d369-413f-8824-a76e6cccfaf2"
+					},
+					{
+						"type": "question",
+						"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762",
+						"questionOptionId": "7801e142-78bb-4b8d-898e-ff9826c396da"
+					}
+				],
+				"questionId": "2537adb6-2cbd-4f88-af1e-0f35ce10ebc8"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "4ce739cb-6a75-4bb3-952b-ed30278148be"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "4ce739cb-6a75-4bb3-952b-ed30278148be"
+					}
+				],
+				"questionId": "c907bbd8-56df-425a-beb4-0b2611bd6762"
+			},
+			{
+				"actions": [
+					{
+						"icon": "no",
+						"type": "question",
+						"optionText": "Cancel",
+						"questionId": "26f35c96-ad0b-4474-98b6-4b51ecba33ee"
+					},
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "26f35c96-ad0b-4474-98b6-4b51ecba33ee"
+					}
+				],
+				"questionId": "4ce739cb-6a75-4bb3-952b-ed30278148be"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Confirm",
+						"questionId": "51402915-6bb6-420f-9c53-3309d00b7a76"
+					}
+				],
+				"questionId": "26f35c96-ad0b-4474-98b6-4b51ecba33ee"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "b4d92723-d1d6-4b99-9ff4-75b622b6e3d8"
+					}
+				],
+				"questionId": "51402915-6bb6-420f-9c53-3309d00b7a76"
+			},
+			{
+				"actions": [
+					{
+						"icon": "yes",
+						"type": "question",
+						"optionText": "Submit",
+						"questionId": "abe83390-8897-4659-b39f-f22623f2f180"
+					}
+				],
+				"questionId": "b4d92723-d1d6-4b99-9ff4-75b622b6e3d8"
+			},
+			{
+				"actions": [
+					{
+						"type": "end",
+						"questionOptionId": "ae2c12f9-b5c9-4f59-b3c8-400fab20e7db"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "29c8c38e-a4f9-4d99-a655-5ffbf9afd1dc"
+					},
+					{
+						"type": "end",
+						"questionOptionId": "cfffdfb7-cba9-4391-aaa6-54609b0f0b2a"
+					}
+				],
+				"questionId": "abe83390-8897-4659-b39f-f22623f2f180"
+			}
+		],
+		"discoverable": true
+	},
+	"meta": {
+		"etag": "",
+		"created": "2019-04-19T18:58:24.963Z",
+		"modified": "2019-04-19T18:58:24.963Z",
+		"resource": "surveys",
+		"createdBy": "1aafa574-82ce-416e-801c-588142cb4824",
+		"isDeleted": false,
+		"modifiedBy": "1aafa574-82ce-416e-801c-588142cb4824"
+	},
+	"customerId": "29e66b77-4f40-43c0-b239-1544e16cd4fc",
+	"securityGroupId": "95bcaa14-10ff-4a41-90f0-5d98a960dd00"
 }
-
 ```
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v1/surveys/{id}`
+`PATCH /surveys/{id}`
 
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-id | true | Unique identifier of the survey.
+id | true | The id of the survey to be updated.
+
 
 ## Delete a survey
 
 > Example Request
 
 ```http
-DELETE https://api.polisapp.com/v1/surveys/f2636525-36d7-439c-924d-a2aaf3848716
-Host: api.polisapp.com
+DELETE /surveys/76a86650-5524-4634-bbad-ad52f5237f7d HTTP/1.1
+Host: api2.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
-ETag: {etag_value}
+etag: etag_value
 ```
 
 ### HTTP Request
-`DELETE https://api.polisapp.com/v1/surveys/{id}`
+
+`DELETE /surveys/{id}`
 
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-id | true | Unique identifier of the survey.
+id | true | The id of the survey to be deleted.
 
-## Get many surveys
-
-Retrieved two surveys from the same campaign.
-
-> Example Request
-
-```http
-GET /v1/surveys?filter=%2Fdata%2FcampaignId%20eq%20%220cb2dc71-73ba-4eca-977c-548085328521%22&limit=10&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
-Host: api.polisapp.com
-Authorization: Bearer {access_token}
-```
-
-> Example Response
-
-```json
-{
-  "data": [
-    {
-      "id": "f2cf5cad-fff3-496d-9e28-e5333fe22268",
-      "data": {
-        "name": "Default Survey",
-        "questions": [],
-        "campaignId": "0cb2dc71-73ba-4eca-977c-548085328521",
-        "discoverable": false
-      },
-      "meta": {
-        "etag": "1ff-fnZHGuU/MMY7ug7UKZ/4uI8cLbQ",
-        "created": "2018-09-19T13:30:42.760Z",
-        "modified": "2018-09-19T13:30:42.760Z",
-        "resource": "surveys",
-        "createdBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-        "isDeleted": false,
-        "modifiedBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3"
-      },
-      "customerId": "d94d4ae9-1221-4fea-90ae-41c1c65ff466",
-      "securityGroupId": "3453b386-60b5-4e58-b7f6-46b4977791ad"
-    },
-    {
-      "id": "07d8e307-a545-4ff8-9698-41776e27ad3c",
-      "data": {
-        "name": "My Survey",
-        "questions": [
-          {
-            "tag": "available",
-            "text": "availability",
-            "type": "availability",
-            "options": [
-              {
-                "icon": "no",
-                "text": "Unavailable",
-                "value": "false",
-                "action": {
-                  "type": "question",
-                  "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-                },
-                "success": false
-              },
-              {
-                "icon": "yes",
-                "text": "Available",
-                "value": "true",
-                "action": {
-                  "type": "question",
-                  "questionId": "2a61c99a-6c37-48f0-9b0c-ea25ba4bc5e5"
-                },
-                "success": false
-              }
-            ],
-            "required": false,
-            "questionId": "349b5655-67eb-4898-b70b-c9097d0f300a"
-          },
-          {
-            "tag": "unavailable_reason",
-            "text": "Why were they unavailable?",
-            "type": "multi-choice",
-            "options": [
-              {
-                "text": "Not Home",
-                "action": {
-                  "type": "end"
-                },
-                "success": false
-              },
-              {
-                "text": "Refused",
-                "action": {
-                  "type": "end"
-                },
-                "success": false
-              },
-              {
-                "text": "Inaccessible",
-                "action": {
-                  "type": "end"
-                },
-                "success": false
-              },
-              {
-                "text": "Moved",
-                "action": {
-                  "type": "end"
-                },
-                "success": false
-              },
-              {
-                "text": "Other Language",
-                "action": {
-                  "type": "end"
-                },
-                "success": false
-              },
-              {
-                "text": "Deceased",
-                "action": {
-                  "type": "end"
-                },
-                "success": false
-              }
-            ],
-            "required": false,
-            "questionId": "901f6503-a0b7-40a2-85a6-d582cbde346b"
-          },
-          {
-            "tag": "yes-no",
-            "text": "Yes/No Example",
-            "type": "multi-choice",
-            "options": [
-              {
-                "tag": "yes-no_Yes",
-                "icon": "yes",
-                "text": "Yes",
-                "value": "true",
-                "action": {
-                  "type": "question",
-                  "questionId": "bcf7cea1-99c4-486b-90a3-11611f043666"
-                },
-                "success": true
-              },
-              {
-                "tag": "yes-no_No",
-                "icon": "yes",
-                "text": "No",
-                "value": "false",
-                "action": {
-                  "type": "question",
-                  "questionId": "bcf7cea1-99c4-486b-90a3-11611f043666"
-                },
-                "success": false
-              }
-            ],
-            "required": false,
-            "questionId": "2a61c99a-6c37-48f0-9b0c-ea25ba4bc5e5"
-          },
-          {
-            "tag": "select-q",
-            "text": "Select q",
-            "type": "multi-select",
-            "choices": [
-              {
-                "tag": "select-q_select1",
-                "text": "select1",
-                "success": false
-              },
-              {
-                "tag": "select-q_select2",
-                "text": "select2",
-                "success": false
-              }
-            ],
-            "options": [
-              {
-                "tag": "select-q_Submit",
-                "icon": "yes",
-                "text": "Submit",
-                "action": {
-                  "type": "end"
-                },
-                "success": false
-              }
-            ],
-            "required": false,
-            "questionId": "14fafa64-9976-4f4b-a41a-cf018ee7d6c1"
-          }
-        ],
-        "campaignId": "0cb2dc71-73ba-4eca-977c-548085328521",
-        "discoverable": true,
-      },
-      "meta": {
-        "created": "2018-09-19T13:32:05.413Z",
-        "modified": "2018-09-19T18:03:59.373Z",
-        "resource": "surveys",
-        "createdBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-        "isDeleted": false,
-        "modifiedBy": "08f35132-7b4f-44d9-b212-6e5fad31aad3",
-        "etag": "a5c-UyhPHXG3X5oU8UUJo+ySk0oJg1g"
-      },
-      "customerId": "d94d4ae9-1221-4fea-90ae-41c1c65ff466",
-      "securityGroupId": "3453b386-60b5-4e58-b7f6-46b4977791ad"
-    }
-  ],
-  "meta": {}
-}
-```
-
-### HTTP Request
-`GET https://api.polisapp.com/v1/surveys?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-fiter | false | Query to filter data. [See documentation](#filters).
-limit | true | Limit results returned. Useful for pagination.
-skip | true | Data offset index. Useful for pagination.
-sort | true | Sort column. Ex.: `["id","ASC"]`
-
-Filter Example: `/data/campaignId eq "0cb2dc71-73ba-4eca-977c-548085328521"`

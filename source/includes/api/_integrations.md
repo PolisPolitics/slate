@@ -1,79 +1,96 @@
 # Integrations
 
-## Set Credentials
+## The Integration object
 
-> Request
+Attribute | Required? | Description
+--------- | --------- | -----------
+id | true | Identifier of this record
+securityGroupId | true | Identifier of the associated security group
+customerId | true | Identifier of the customer to which this resource belongs
+data | true | Integration data
+
+### data
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+status | false | State of this integration. Should be either `active` or `paused`
+accountName | false | Name of the account holder for this integration
+provider | true | Name of the provider. Should be one of [`escoware`, `nationBuilder`, `republicanNationalCommittee`,
+  `stripe`, `crowdskout`]
+slug | false | Identifies Polis when it's integrating with 3rd party
+interactionTypeId | false | The interaction type.Should be a number
+pushAllInteractions | false | Flag indicating whether all interactions should be pushed to the database
+clientId | false | Identifier for 3rd parties using Polis's API
+
+### meta
+
+[See documentation](#metadata-object)
+
+## Sets the credentials of an existing integration
+
+> Example Request
 
 ```http
-POST /v1/integrations/credentials HTTP/1.1
-Host: api.polisapp.com
+POST /integrations/credentials HTTP/1.1
+Host: api2.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
-
 {
 	"data": {
 		"clientId": "{client_id}",
-		"organizationId": "65576faf-4937-4871-8029-bb6f4e902f5f",
+		"customerId": "65576faf-4937-4871-8029-bb6f4e902f5f",
 		"accessToken": "1234"
 	}
 }
 ```
 
-> Response
+> Example Response
 
 ```http
 HTTP 201 Created
 ```
 
-If you are integrating with Polis and you'd like Polis to push contact interactions back to your application, you need to set the `access_token` used to make requests to your API.
-
 ### HTTP Request
 
-`POST https://api.polisapp.com/v1/integrations/credentials`
+`POST /integrations/credentials`
 
 ### Query Parameters
 
-Parameter | Description
---------- | -----------
-clientId | Client ID of the application provided during registration.
-organizationId | Organization ID that has the integration activated.
-accessToken | Access token used for Polis to make requests to the integration API.
+Parameter | Required | Description
+--------- | -------- | -----------
+data | true | The data for the new credentials. Should contain `clientId`, `customerId`, `accessToken`
 
 
-## Remove Credentials
+## Deletes the credentials of an existing integration
 
-> Request
+> Example Request
 
 ```http
-DELETE /v1/integrations/credentials HTTP/1.1
-Host: api.polisapp.com
+DELETE /integrations/credentials HTTP/1.1
+Host: api2.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
-ETag: {etag_value}
-
+etag: etag_value
 {
 	"data": {
 		"clientId": "{client_id}",
-		"organizationId": "65576faf-4937-4871-8029-bb6f4e902f5f"
+		"customerId": "65576faf-4937-4871-8029-bb6f4e902f5f"
 	}
 }
 ```
 
-> Response
+> Example Response
 
 ```http
 HTTP 200 Success
 ```
 
-If you would like to disable your integration with Polis, you only need to send the clientId and organizationId.
-
 ### HTTP Request
 
-`DELETE https://api.polisapp.com/v1/integrations/credentials`
+`DELETE /integrations/credentials`
 
 ### Query Parameters
 
-Parameter | Description
---------- | -----------
-clientId | Client ID of the application provided during registration.
-organizationId | Organization ID that has the integration activated.
+Parameter | Required | Description
+--------- | -------- | -----------
+data | true | Should contain `clientId`, `customerId`
