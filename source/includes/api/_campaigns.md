@@ -706,7 +706,7 @@ You can only patch attributes inside <b>data</b> key.
 {
 	"id": "b29dd2bc-677a-42ba-a327-51f1d9a155e9",
 	"data": {
-		"name": "My Campaignn Changed",
+		"name": "My Campaign Changed",
 		"lists": [
 			{
 				"type": "normal",
