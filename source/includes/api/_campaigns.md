@@ -1,6 +1,6 @@
 # Campaigns
 
-## The campaign object
+## The Campaign object
 
 ```json
 {
@@ -89,8 +89,8 @@ data | true | Campaign data.
 Attribute | Required? | Description
 --------- | --------- | -----------
 name | true | Name of the Campaign.
-lists | false | Array of lists of contacts associated with the campaign. [details](#data/lists)
-fields | false | Information available to a canvasser about the contact on the mobile app. [details](#data/fields)
+lists | false | Array of lists of contacts associated with the campaign. [details](#data-lists)
+fields | false | Information available to a canvasser about the contact on the mobile app. [details](#data-fields)
 status | true | Current status of this campaign. Can be `pending`, `started` or `complete`.
 description | false | Description of the campaign.
 organizationId | true | Organization indentifier that this campaign belongs to.

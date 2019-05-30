@@ -1,6 +1,6 @@
 # Memberships
 
-## The membership object
+## The Membership object
 
 ```json
 {

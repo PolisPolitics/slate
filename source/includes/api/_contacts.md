@@ -13,7 +13,7 @@ data | true | Contacts data.
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-profile | true | Contact profile. [details](#data/profile)
+profile | true | Contact profile. [details](#data-profile)
 notes | false | String with custom text (max length: 2048 characters).
 fields | true | Custom fields.
 externalId | false | An external identifier for imports and exports.
@@ -24,8 +24,8 @@ primaryHouseholdId | false | Id of the primary household associated for this con
 Attribute | Required? | Description
 --------- | --------- | -----------
 name | false | Contact name.
-emails | false | Array of emails. [details](#data/profile/emails)
-phones | false | Array of phones. [details](#data/profile/phones)
+emails | false | Array of emails. [details](#data-profile-emails)
+phones | false | Array of phones. [details](#data-profile-phones)
 gender | false | decline: 'd', female: 'f', male: 'm', nonbinary: 'n', other: 'o'.
 languages | false | [ISO 639-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code (i.e.: en, es, af).
 birthdate | false | Birthdate in ISO-8601 format (YYYY-MM-DD).

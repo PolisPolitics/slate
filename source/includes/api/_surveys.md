@@ -16,7 +16,7 @@ Attribute | Required? | Description
 discoverable | false | Boolean value that allow a survey to be shared between organizations. Default value is `false`
 name | true | Name of the survey
 questionFlow | false | The flow of questions in this survey
-questions | true | Array of questions. [details](#data/questions)
+questions | true | Array of questions. [details](#data-questions)
 
 ### data/questions
 Array of the following:
@@ -24,7 +24,7 @@ Array of the following:
 Attribute | Required? | Description
 --------- | --------- | -----------
 questionId | true | Identifier of the question.
-actions | true | Array of actions that can be taken for this question. [details](#data/questions/actions)
+actions | true | Array of actions that can be taken for this question. [details](#data-questions-actions)
 
 ### data/questions/actions
 Array of the following:
@@ -43,7 +43,7 @@ Attribute | Required? | Description
 text | true | Text of the question. Max 512 characters.
 tag | true | Short description or identifier of the question. 128 chars max.
 required | false | Flag indicating whether question is required. Default `false`.
-criteria | true | Object that defines the criteria used to analyze the contacts. [details](#data/criteria)
+criteria | true | Object that defines the criteria used to analyze the contacts. [details](#data-criteria)
 questionId | false | Unique Identifier for this question.
 
 ### data/criteria
@@ -51,7 +51,7 @@ questionId | false | Unique Identifier for this question.
 Attribute | Required? | Description
 --------- | --------- | -----------
 filter | true | Can be `any` or `all`.
-clauses | true | Specifies something. Minimum 1 clause. [details](#data/criteria/clause)
+clauses | true | Specifies something. Minimum 1 clause. [details](#data-criteria-clause)
 
 ### data/criteria/clause
 

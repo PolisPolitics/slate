@@ -18,8 +18,8 @@ contactId | true | Identifier of the contact with whom this interaction occurred
 householdId | true | Identifier of the household where this interaction occurred.
 contactHouseholdId | true | Identifier of the contact-household.
 timestamp | true | Timestamp of this interaction.
-survey | true | The survey data. [details](#data/survey)
-location | false | Location data. [details](#data/location)
+survey | true | The survey data. [details](#data-survey)
+location | false | Location data. [details](#data-location)
 successful | false | Flag indicating whether this interaction was successful.
 unavailable | true | Flag indicating whether the contact was unavailable.
 unavailableReason | false | Reason specifying why the contact was unavailable.
