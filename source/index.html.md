@@ -19,7 +19,7 @@ includes:
   - api/roles
   - api/segments
   - api/statuses
-  - api/status-groups
+  - api/statusGroups
   - api/surveys
   - api/users
   - errors
