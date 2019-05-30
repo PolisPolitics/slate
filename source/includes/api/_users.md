@@ -45,8 +45,8 @@ data | true | User data.
 Attribute | Required? | Description
 --------- | --------- | -----------
 email | true | Email that will be used to login.
-profile | false | Object containing the user personal information. [details](#data/profile)
-privacy | false | Object with public info available. [details](#data/privacy)
+profile | false | Object containing the user personal information.
+privacy | false | Object with public info available.
 status | false | Current status of the user. Can be `active`, `pending`, `inactive`. By default is set to `pending`.
 
 ### data/profile
