@@ -4,18 +4,18 @@
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Identifier of this record
-securityGroupId | true | Identifier of the associated security group
-customerId | true | Identifier of the associated customer
-data | true | Role data
+id | true | Identifier of this record.
+securityGroupId | true | Identifier of the associated security group.
+customerId | true | Identifier of the associated customer.
+data | true | Role data.
 
 ### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-name | true | Name of the role
-description | false | Descriptions of the role
-permissions | false | Array of permissions allowed to that role
+name | true | Name of the role.
+description | false | Descriptions of the role.
+permissions | false | Array of permissions allowed to that role.
 
 ### meta
 

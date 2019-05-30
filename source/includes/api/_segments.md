@@ -50,7 +50,7 @@ name | true | Name of the segment.
 description | false | Description of the segment.
 campaignId | true | Camapaign indentifier that this segment belongs to.
 surveyId | true | Survey indentifier that this segment will use.
-criteria | true | Object that defines the criteria used to analyze the contacts.
+criteria | true | Object that defines the criteria used to analyze the contacts.[details](#data/criteria)
 precedence | true | Level of precedence between segments.
 
 ### data/criteria
@@ -58,7 +58,7 @@ precedence | true | Level of precedence between segments.
 Attribute | Required? | Description
 --------- | --------- | -----------
 filter | true | Can be `any` or `all`.
-clauses | true | Specifies something. Minimum 1 clause.
+clauses | true | Specifies something. Minimum 1 clause. [details](#data/criteria/clause)
 
 ### data/criteria/clause
 

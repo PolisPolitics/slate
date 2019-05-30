@@ -4,53 +4,67 @@
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Identifier of this record
-securityGroupId | true | Identifier of the associated securitygroup
-customerId | true | Identifier of the associated customer
-data | true | Todo: description
+id | true | Identifier of this record.
+securityGroupId | true | Identifier of the associated security group.
+customerId | true | Identifier of the associated customer.
+data | true | Contacts data.
 
 ### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-profile | true | Contact profile
+profile | true | Contact profile. [details](#data/profile)
 notes | false | String with custom text (max length: 2048 characters).
-fields | true | Custom fields
+fields | true | Custom fields.
 externalId | false | An external identifier for imports and exports.
-primaryHouseholdId | false | Id of the primary household associated for this contact
+primaryHouseholdId | false | Id of the primary household associated for this contact.
 
 ### data/profile
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-name | false | Contact name
-emails | false | Array of emails
-phones | false | Array of phones
-gender | false | decline: 'd', female: 'f', male: 'm', nonbinary: 'n', other: 'o'
+name | false | Contact name.
+emails | false | Array of emails. [details](#data/profile/emails)
+phones | false | Array of phones. [details](#data/profile/phones)
+gender | false | decline: 'd', female: 'f', male: 'm', nonbinary: 'n', other: 'o'.
 languages | false | [ISO 639-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code (i.e.: en, es, af).
 birthdate | false | Birthdate in ISO-8601 format (YYYY-MM-DD).
 age | false | Number representing the age of the contact.
-
-### data/fields
-
-Attribute | Required? | Description
---------- | --------- | -----------
 
 ### data/profile/name
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-anglican | true | Name in anglican format
+anglican | true | Name in anglican format.
 
 ### data/profile/name/anglican
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-title | false | Title
-given | true | First name
-middlename | false | Middle name
-surname | true | Surname
+title | false | Title.
+given | true | First name.
+middlename | false | Middle name.
+surname | true | Surname.
 suffix | false | Name Suffix
+
+### data/profile/emails
+Array of the following object:
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+email | false | Email.
+active | false | Flag indicating whether this email is active. Default `true`.
+primary | false | Flag indicating whether this email is primary. Default `false`.
+
+### data/profile/phones
+Array of the following object:
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+phone | false | Phone.
+phoneType | false | Type of the phone. Allowed values `home`, `mobile` or `business`.
+active | false | Flag indicating whether this email is active. Default `true`.
+primary | false | Flag indicating whether this email is primary. Default `false`.
 
 ### meta
 

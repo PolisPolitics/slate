@@ -4,21 +4,21 @@
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Identifier of this record
-securityGroupId | true | Identifier of the associated securitygroup
-customerId | true | Identifier of the associated customer
-data | true | The list data
-contactsCount | false | Number of contacts in this list
+id | true | Identifier of this record.
+securityGroupId | true | Identifier of the associated security group.
+customerId | true | Identifier of the associated customer.
+data | true | The list data.
+contactsCount | false | Number of contacts in this list.
 
 ### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-organizationId | true | Identifier of the organization to which this list belongs
-name | true | Name of this list
-description | false | Description text of this list
-required | false | Array of strings
-integrations | false | Array of the integrations associated with this list
+organizationId | true | Identifier of the organization to which this list belongs.
+name | true | Name of this list.
+description | false | Description text of this list.
+required | false | Array of strings.
+integrations | false | Array of the integrations associated with this list.
 
 ### meta
 

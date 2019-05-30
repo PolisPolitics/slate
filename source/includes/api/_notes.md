@@ -4,17 +4,17 @@
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Id of this record
-securityGroupId | true | Id of the associated securitygroup
-customerId | true | Id of the associated customer
-data | true | Note data
+id | true | Id of this record.
+securityGroupId | true | Id of the associated security group.
+customerId | true | Id of the associated customer.
+data | true | Note data.
 
 ### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-contactId | true | Id of the contact associated with this note
-text | true | Note text
+contactId | true | Id of the contact associated with this note.
+text | true | Note text.
 
 ### meta
 

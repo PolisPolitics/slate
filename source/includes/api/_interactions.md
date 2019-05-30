@@ -4,25 +4,25 @@
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Unique identifier for this object
-securityGroupId | true | Security group of this resource
-customerId | true | Customer to which this resource belongs
-data | true | Interaction data
+id | true | Unique identifier for this object.
+securityGroupId | true | Security group of this resource.
+customerId | true | Customer to which this resource belongs.
+data | true | Interaction data.
 
 ### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-campaignId | true | Identifier of the campaign with which this interaction is associated
-contactId | true | Identifier of the contact with whom this interaction occurred
-householdId | true | Identifier of the household where this interaction occurred
-contactHouseholdId | true | Identifier of the contact-household
-timestamp | true | Timestamp of this interaction
-survey | true | The survey data
-location | false | Location data
-successful | false | Flag indicating whether this interaction was successful
-unavailable | true | Flag indicating whether the contact was unavailable
-unavailableReason | false | Reason specifying why the contact was unavailable
+campaignId | true | Identifier of the campaign with which this interaction is associated.
+contactId | true | Identifier of the contact with whom this interaction occurred.
+householdId | true | Identifier of the household where this interaction occurred.
+contactHouseholdId | true | Identifier of the contact-household.
+timestamp | true | Timestamp of this interaction.
+survey | true | The survey data. [details](#data/survey)
+location | false | Location data. [details](#data/location)
+successful | false | Flag indicating whether this interaction was successful.
+unavailable | true | Flag indicating whether the contact was unavailable.
+unavailableReason | false | Reason specifying why the contact was unavailable.
 distance | false | Distance between canvasser's location and household location in miles. For fraud detection.
 statusId | false | Identifier of the status of this interaction.
 walklistId | false | Identifier of the walklist route under which the contact was reserved.
@@ -31,16 +31,16 @@ walklistId | false | Identifier of the walklist route under which the contact wa
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-surveyId | true | Identifier of the survey
-responses | false | Response recorded for the suvey questions
+surveyId | true | Identifier of the survey.
+responses | false | Response recorded for the suvey questions.
 
 ### data/location
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-lat | false | Coordinate specifying north-south position of this location on Earth
-lng | false | Coordinate specifying east-west position of this location on Earth
-confidence | false | Quantitative accuracy of the location coordinates
+lat | false | Coordinate specifying north-south position of this location on Earth.
+lng | false | Coordinate specifying east-west position of this location on Earth.
+confidence | false | Quantitative accuracy of the location coordinates.
 
 ### meta
 

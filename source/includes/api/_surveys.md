@@ -16,23 +16,144 @@ Attribute | Required? | Description
 discoverable | false | Boolean value that allow a survey to be shared between organizations. Default value is `false`
 name | true | Name of the survey
 questionFlow | false | The flow of questions in this survey
-questions | true | Array of questions.
+questions | true | Array of questions. [details](#data/questions)
 
 ### data/questions
+Array of the following:
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-questionId | true | Identifier of the question
-actions | true | Array of actions that can be taken for this question
+questionId | true | Identifier of the question.
+actions | true | Array of actions that can be taken for this question. [details](#data/questions/actions)
 
 ### data/questions/actions
+Array of the following:
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-questionId | true | Identifier of the question
-type | true | Allowed values ['question', 'end', 'pdf', 'edit']
+questionId | true | Identifier of the question.
+type | true | Allowed values ['question', 'end', 'pdf', 'edit'].
 icon | true | Name of the icon. Should be one `faceNeutral`, `faceHappy`, `faceSad`, `faceHappiest`, `faceSaddest`,
-  `yes`, `no`, `questionMark`
+  `yes`, `no`, `questionMark`.
+
+
+### questions
+Attribute | Required? | Description
+--------- | --------- | -----------
+text | true | Text of the question. Max 512 characters.
+tag | true | Short description or identifier of the question. 128 chars max.
+required | false | Flag indicating whether question is required. Default `false`.
+criteria | true | Object that defines the criteria used to analyze the contacts. [details](#data/criteria)
+questionId | false | Unique Identifier for this question.
+
+### data/criteria
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+filter | true | Can be `any` or `all`.
+clauses | true | Specifies something. Minimum 1 clause. [details](#data/criteria/clause)
+
+### data/criteria/clause
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+source | true | Path to the contact attribute.
+operator | true | Operator used to compare the value and the contact attribute retrieved using the source path. Can be `eq`, `neq`, `gt`, `gte`, `lt`, `lte` or `in`.
+value | true | Value used for comparison.
+
+For each type of question the option object will change and it may be that more attributes are added to the option.
+
+Types:
+#### availability
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+options | true | Array of possible options. Minimum of 2 options.
+
+#### multi-choice
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+options | true | Array of possible options. Minimum of 2 options.
+type | true | Type of questions. Allowed values `availability`, `multiChoice`, `payment`.
+
+#### multi-select
+Attribute | Required? | Description
+--------- | --------- | -----------
+type | true | Type of questions. Allowed values `multiSelect`.
+options | true | Array of possible options. Minimum of 1 options.
+choices | true | Array of possible choices. Minimum of 1 choice. [details](#choice-object)
+
+#### pdf
+Attribute | Required? | Description
+--------- | --------- | -----------
+options | true | Array of possible options. Must be 2 options.
+url | true | String containing the url to the pdf.
+type | true | Type of questions. Allowed values `pdf`.
+
+#### scale
+Attribute | Required? | Description
+--------- | --------- | -----------
+options | true | Array of possible options. Must be 5 options.
+type | true | Type of questions. Allowed values `scale`.
+
+#### text
+Attribute | Required? | Description
+--------- | --------- | -----------
+options | true | Array of possible options. Must be 2 options.
+multiline | false | Defines if the text input is multiline. Default value is `false`.
+max | false | Max size of the input string. Default `256`.
+keyboard | false | Type of input. Can be `text`, `email`, `number`. Default value is `text`.
+placeholder | false | Input placeholder. Default is an empty string.
+type | true | Type of questions. Allowed values `text`.
+
+#### verification
+Attribute | Required? | Description
+--------- | --------- | -----------
+options | true | Array of possible options. Minimum of 1 options and maximum of 2 options.
+type | true | Type of questions. Allowed values `verification`.
+
+#### youtube
+Attribute | Required? | Description
+--------- | --------- | -----------
+options | true | Array of possible options. Minimum of 1 options and maximum of 2 options.
+url | true | String containing the url to the youtube video.
+type | true | Type of questions. Allowed values `youtube`.
+
+### Choice Object
+
+The `icon` or `text` is required.
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+text | false | Description text of the option. 128 characters max.
+icon | false | Icon that will appear on the app. Can be `face-neutral`, `face-happy`, `face-sad`, `face-happiest`, `face-saddest`, `yes`, `no` or `questionmark`.
+tag | false | Tag of the option.
+success | false | Makes this option a success if `true`. By default is set to `false`.
+value | false | Value of the option. Must be a string or a number.
+
+### Option Object
+
+The `icon` or `text` is required.
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+text | false | Description text of the option. 128 characters max.
+icon | false | Icon that will appear on the app. Can be `face-neutral`, `face-happy`, `face-sad`, `face-happiest`, `face-saddest`, `yes`, `no` or `questionmark`.
+tag | false | Tag of the option.
+success | false | Makes this option a success if `true`. By default is set to `false`.
+value | false | Value of the option. Must be a string or a number.
+action | false | Action executed if the option is selected. [details](#action-object)
+
+### Action Object
+
+The action object is used to define the order of questions of a survey.
+When an option of a question is selected, if it's action equals to `question` then next question will be called and if it's action type equals to `end`, the survey will finish.
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+type | false | Type of action that will be executed. Can be one out of `question`, `pdf`, `end` or `edit`.
+questionId | false | Identifier of the next question.
 
 ### meta
 

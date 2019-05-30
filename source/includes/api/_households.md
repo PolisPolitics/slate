@@ -4,10 +4,45 @@
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Identifier of this record
-securityGroupId | true | Identifier of the associated security group
-customerId | true | Identifier of the associated customer
-data | true | Household data
+id | true | Identifier of this record.
+securityGroupId | true | Identifier of the associated security group.
+customerId | true | Identifier of the associated customer.
+data | true | Household data. Should be either [addressId](#addressId) OR [fullAddress](#fullAddress).
+
+### addressId
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+unitNum | true | The unit number.
+addressId | true | Identifier of a address.
+
+### fullAddress
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+address | true | [Address](#address) with an identifier.
+
+### address
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+address | true | Full address.
+streetName | true | Name of the street.
+city | true | Name of the city.
+country | false | Name of the country.
+county | false | Name of the county.
+neighborhood | false | Name of the neighborhood.
+state | false | Name of the state.
+postalCode | false | Name of the postalCode.
+coords | false | Name of the coords.
+
+### data/coords
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+lat | true | Latitude.
+lng | true | Longitude.
+confidence | true | GPS Accuracy.
 
 ### meta
 

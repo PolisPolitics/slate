@@ -4,23 +4,23 @@
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Identifier of this record
-securityGroupId | true | Identifier of the associated securitygroup
-customerId | true | Identifier of the associated customer
-data | true | Organization data
+id | true | Identifier of this record.
+securityGroupId | true | Identifier of the associated security group.
+customerId | true | Identifier of the associated customer.
+data | true | Organization data.
 
 ### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-name | true | Name of the organization
-description | false | Description text of the organization
-discoverable | true | Flag indicating whether the organization is public. Default `false`
-editOldTurfs | false | Flag indicating whether the old turfs belonging to this organization are editable. Default `true`
-viewUnassignedData | false | Enables canvassers to view unassigned data. Default true
-parentId | false | Id of the `parent` Organization
-token | false | Token used to join an organization
-requireSignUpConfirmation | false | Joining organization by link, if `false`, doesn't need to be approved by a manager. Default `true`
+name | true | Name of the organization.
+description | false | Description text of the organization.
+discoverable | true | Flag indicating whether the organization is public. Default `false`.
+editOldTurfs | false | Flag indicating whether the old turfs belonging to this organization are editable. Default `true`.
+viewUnassignedData | false | Enables canvassers to view unassigned data. Default `true`.
+parentId | false | Id of the `parent` Organization.
+token | false | Token used to join an organization.
+requireSignUpConfirmation | false | Joining organization by link, if `false`, doesn't need to be approved by a manager. Default `true`.
 
 ### meta
 

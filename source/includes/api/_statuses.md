@@ -4,23 +4,39 @@
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-id | true | Identifier of this record
-securityGroupId | true | Identifier of the associated securitygroup
-customerId | true | Identifier of the associated customer
-data | true | Status data
+id | true | Identifier of this record.
+securityGroupId | true | Identifier of the associated security group.
+customerId | true | Identifier of the associated customer.
+data | true | Status data.
 
 ### data
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-defaultStatus | false | Boolean that determines if this is a default status. Defaults value is `false`
-defaultStatusId | false | Identifier of the default status
-name | true | Name of the status-group
-icon | true | Name of the icon to be displayed
-iconColor | true | Hex code for the icon color
-pinColor | true | Hex code for the pin color
-statusGroupId | true | Identifier of the status-group that a status belongs to
-contactState | true | Todo: description
+defaultStatus | false | Boolean that determines if this is a default status. Defaults value is `false`.
+defaultStatusId | false | Identifier of the default status.
+name | true | Name of the status-group.
+icon | true | Name of the icon to be displayed. [details](#icon-property-naming-rules)
+iconColor | true | Hex code for the icon color.
+pinColor | true | Hex code for the pin color.
+statusGroupId | true | Identifier of the status-group that a status belongs to.
+contactState | true | Compatibility attribute that maps a status to the state property of a contact instance.
+
+### icon property naming rules
+
+The icon property determines the displayed icon for a status.
+We support all Free and Pro [Font Awesome's](https://fontawesome.com/icons?d=gallery) icons.
+
+The following naming rules must be applied from Font Awesome's icon names to status icon property values:
+
+1. status icon property values must start with the constant `fa`
+2. Convert Font Awesome's icon name from dash-case to PascalCase
+3. status icon property values must end with `:icon-style` where `icon-style` stands for one of the four Font Awesome's packages. Possible values: (`solid`, `regular`, `light` or `brands`)
+
+> icon naming example
+
+* Font Awesome's book-open icon from Light Style package.
+* status' icon value: `'faBookOpen:light'
 
 ### meta
 
