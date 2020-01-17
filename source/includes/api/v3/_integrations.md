@@ -31,8 +31,8 @@ clientId | false | Identifier for 3rd parties using Polis's API.
 > Example Request
 
 ```http
-POST /integrations/credentials HTTP/1.1
-Host: api2.polisapp.com
+POST /v1/integrations/credentials HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -52,7 +52,7 @@ HTTP 201 Created
 
 ### HTTP Request
 
-`POST /integrations/credentials`
+`POST https://api.polisapp.com/v1/integrations/credentials`
 
 ### Query Parameters
 
@@ -66,8 +66,8 @@ data | true | The data for the new credentials. Should contain `clientId`, `cust
 > Example Request
 
 ```http
-DELETE /integrations/credentials HTTP/1.1
-Host: api2.polisapp.com
+DELETE /v1/integrations/credentials HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -87,7 +87,7 @@ HTTP 200 Success
 
 ### HTTP Request
 
-`DELETE /integrations/credentials`
+`DELETE https://api.polisapp.com/v1/integrations/credentials`
 
 ### Query Parameters
 

@@ -75,7 +75,7 @@ publicInfo | false | Array with available public info. Can have `email`, `phone`
 
 ```
 http
-POST /users HTTP/1.1
+POST /v1/users HTTP/1.1
 Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -143,7 +143,7 @@ Creates a new user.
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/users`
+`POST https://api.polisapp.com/v1/users`
 
 ## Update a user
 

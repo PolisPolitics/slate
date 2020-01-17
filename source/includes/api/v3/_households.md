@@ -76,8 +76,8 @@ confidence | true | GPS Accuracy.
 > Example Request
 
 ```http
-GET /households?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
-Host: api2.polisapp.com
+GET /v1/households?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -130,7 +130,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /households`
+`GET https://api.polisapp.com/v1/households`
 
 ### Query Parameters
 
@@ -147,8 +147,8 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 > Example Request
 
 ```http
-GET /households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
-Host: api2.polisapp.com
+GET /v1/households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -178,7 +178,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /households/{id}`
+`GET https://api.polisapp.com/v1/households/{id}`
 
 ### Query Parameters
 
@@ -192,8 +192,8 @@ id | true | The id of the household to be retrieved.
 > Example Request
 
 ```http
-POST /households HTTP/1.1
-Host: api2.polisapp.com
+POST /v1/households HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -245,7 +245,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST /households`
+`POST /v1/households`
 
 ### Query Parameters
 
@@ -260,8 +260,8 @@ data | true | The data of household to be created
 > Example Request
 
 ```http
-PATCH /households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
-Host: api2.polisapp.com
+PATCH /v1/households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -306,7 +306,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH /households/{id}`
+`PATCH /v1/households/{id}`
 
 ### Query Parameters
 
@@ -321,8 +321,8 @@ data | true | The patch data
 > Example Request
 
 ```http
-DELETE /households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
-Host: api2.polisapp.com
+DELETE /v1/households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -330,7 +330,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE /households/{id}`
+`DELETE /v1/households/{id}`
 
 ### Query Parameters
 

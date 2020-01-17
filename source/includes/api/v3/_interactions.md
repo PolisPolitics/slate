@@ -104,8 +104,8 @@ confidence | false | Quantitative accuracy of the location coordinates.
 > Example Request
 
 ```http
-GET /interactions?filter%5B%2Fdata%2FcampaignId%5D=61fbfbaa-5de8-4d17-ac2b-c47f2376265a&skip=0&limit=9007199254740991&sort=%2Fdata%2Fid&sort=ASC HTTP/1.1
-Host: api2.polisapp.com
+GET /v2/interactions?filter%5B%2Fdata%2FcampaignId%5D=61fbfbaa-5de8-4d17-ac2b-c47f2376265a&skip=0&limit=9007199254740991&sort=%2Fdata%2Fid&sort=ASC HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -216,7 +216,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /interactions`
+`GET https://api.polisapp.com/v2/interactions`
 
 ### Query Parameters
 
@@ -233,8 +233,8 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 > Example Request
 
 ```http
-GET /interactions/7da76f74-7951-423a-be41-85a2551d16e7 HTTP/1.1
-Host: api2.polisapp.com
+GET /v2/interactions/7da76f74-7951-423a-be41-85a2551d16e7 HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -293,7 +293,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /interactions/{id}`
+`GET https://api.polisapp.com/v2/interactions/{id}`
 
 ### Query Parameters
 
@@ -307,8 +307,8 @@ id | true | The id of the interaction to be retrieved.
 > Example Request
 
 ```http
-POST /interactions HTTP/1.1
-Host: api2.polisapp.com
+POST /v2/interactions HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -399,7 +399,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST /interactions`
+`POST https://api.polisapp.com/v2/interactions`
 
 ### Query Parameters
 
@@ -413,8 +413,8 @@ data | true | Data of interaction to be created
 > Example Request
 
 ```http
-PATCH /interactions/7da76f74-7951-423a-be41-85a2551d16e7 HTTP/1.1
-Host: api2.polisapp.com
+PATCH /v2/interactions/7da76f74-7951-423a-be41-85a2551d16e7 HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -493,7 +493,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH /interactions/{id}`
+`PATCH https://api.polisapp.com/v2/interactions/{id}`
 
 ### Query Parameters
 
@@ -508,8 +508,8 @@ data | true | The patch data in [JSONPatch Format](https://tools.ietf.org/html/r
 > Example Request
 
 ```http
-DELETE /interactions/7da76f74-7951-423a-be41-85a2551d16e7 HTTP/1.1
-Host: api2.polisapp.com
+DELETE /v2/interactions/7da76f74-7951-423a-be41-85a2551d16e7 HTTP/1.1
+Host: api.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -517,7 +517,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE /interactions/{id}`
+`DELETE https://api.polisapp.com/v2/interactions/{id}`
 
 ### Query Parameters
 
