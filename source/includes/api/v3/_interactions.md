@@ -105,7 +105,7 @@ confidence | false | Quantitative accuracy of the location coordinates.
 
 ```http
 GET /v2/interactions?filter%5B%2Fdata%2FcampaignId%5D=61fbfbaa-5de8-4d17-ac2b-c47f2376265a&skip=0&limit=9007199254740991&sort=%2Fdata%2Fid&sort=ASC HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -216,7 +216,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v2/interactions`
+`GET https://api.beta.polisapp.com/v2/interactions`
 
 ### Query Parameters
 
@@ -234,7 +234,7 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 
 ```http
 GET /v2/interactions/7da76f74-7951-423a-be41-85a2551d16e7 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -293,7 +293,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v2/interactions/{id}`
+`GET https://api.beta.polisapp.com/v2/interactions/{id}`
 
 ### Query Parameters
 
@@ -308,7 +308,7 @@ id | true | The id of the interaction to be retrieved.
 
 ```http
 POST /v2/interactions HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -399,7 +399,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/v2/interactions`
+`POST https://api.beta.polisapp.com/v2/interactions`
 
 ### Query Parameters
 
@@ -414,7 +414,7 @@ data | true | Data of interaction to be created
 
 ```http
 PATCH /v2/interactions/7da76f74-7951-423a-be41-85a2551d16e7 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -493,7 +493,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v2/interactions/{id}`
+`PATCH https://api.beta.polisapp.com/v2/interactions/{id}`
 
 ### Query Parameters
 
@@ -509,7 +509,7 @@ data | true | The patch data in [JSONPatch Format](https://tools.ietf.org/html/r
 
 ```http
 DELETE /v2/interactions/7da76f74-7951-423a-be41-85a2551d16e7 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -517,7 +517,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE https://api.polisapp.com/v2/interactions/{id}`
+`DELETE https://api.beta.polisapp.com/v2/interactions/{id}`
 
 ### Query Parameters
 

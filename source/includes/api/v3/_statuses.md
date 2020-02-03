@@ -77,7 +77,7 @@ The following naming rules must be applied from Font Awesome's icon names to sta
 
 ```http
 GET /v1/statuses?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -142,7 +142,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/statuses`
+`GET https://api.beta.polisapp.com/v1/statuses`
 
 ### Query Parameters
 
@@ -159,7 +159,7 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 
 ```http
 GET /v1/statuses/22c5dacc-c37b-4f6b-96f1-fbd061b5f6e3 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -195,7 +195,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/statuses/{id}`
+`GET https://api.beta.polisapp.com/v1/statuses/{id}`
 
 ### Query Parameters
 
@@ -210,7 +210,7 @@ id | true | The id of the status to be retrieved.
 
 ```http
 POST /v1/statuses HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -257,7 +257,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/v1/statuses`
+`POST https://api.beta.polisapp.com/v1/statuses`
 
 ### Query Parameters
 
@@ -274,7 +274,7 @@ securityGroupId | false | Identifier of the security group of this resource
 
 ```http
 PATCH /v1/statuses/22c5dacc-c37b-4f6b-96f1-fbd061b5f6e3 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -325,7 +325,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v1/statuses/{id}`
+`PATCH https://api.beta.polisapp.com/v1/statuses/{id}`
 
 ### Query Parameters
 
@@ -341,7 +341,7 @@ data | true | The patch data
 
 ```http
 DELETE /v1/statuses/22c5dacc-c37b-4f6b-96f1-fbd061b5f6e3 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -349,7 +349,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE https://api.polisapp.com/v1/statuses/{id}`
+`DELETE https://api.beta.polisapp.com/v1/statuses/{id}`
 
 ### Query Parameters
 

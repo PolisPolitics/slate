@@ -369,7 +369,7 @@ questionId | false | Identifier of the next question.
 
 ```http
 GET /v1/surveys?filter%5B%2Fdata%2Fdiscoverable%5D=false&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -783,7 +783,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/surveys`
+`GET https://api.beta.polisapp.com/v1/surveys`
 
 ### Query Parameters
 
@@ -801,7 +801,7 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 
 ```http
 GET /v1/surveys/76a86650-5524-4634-bbad-ad52f5237f7d HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -1011,7 +1011,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/surveys/{id}`
+`GET https://api.beta.polisapp.com/v1/surveys/{id}`
 
 ### Query Parameters
 
@@ -1026,7 +1026,7 @@ id | true | The id of the survey to be retrieved.
 
 ```http
 POST /v1/surveys HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -1424,7 +1424,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/v1/surveys`
+`POST https://api.beta.polisapp.com/v1/surveys`
 
 ### Query Parameters
 
@@ -1439,7 +1439,7 @@ data | true | The data of the survey to be created
 
 ```http
 PATCH /v1/surveys/a1a61b83-0697-4354-a64b-59a9f64cd5d2 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -1665,7 +1665,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v1/surveys/{id}`
+`PATCH https://api.beta.polisapp.com/v1/surveys/{id}`
 
 ### Query Parameters
 
@@ -1680,7 +1680,7 @@ id | true | The id of the survey to be updated.
 
 ```http
 DELETE /v1/surveys/76a86650-5524-4634-bbad-ad52f5237f7d HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -1688,7 +1688,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE https://api.polisapp.com/v1/surveys/{id}`
+`DELETE https://api.beta.polisapp.com/v1/surveys/{id}`
 
 ### Query Parameters
 

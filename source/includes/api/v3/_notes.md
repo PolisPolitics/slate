@@ -50,7 +50,7 @@ text | true | Note text.
 
 ```http
 GET /notes?filter%5B%2Fdata%2FcontactId%5D=ad437213-1ad1-4f01-8662-463b066a4188&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
-Host: api2.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -121,7 +121,7 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 
 ```http
 GET /notes/a0da6886-1e0e-455a-a647-54444d1d8177 HTTP/1.1
-Host: api2.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -161,7 +161,7 @@ id | true | The id of the note to be retrieved.
 
 ```http
 POST /notes HTTP/1.1
-Host: api2.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -212,7 +212,7 @@ data | true | The data of the new note to be created.
 
 ```http
 PATCH /notes/3a009b0b-f9da-4358-8908-95cd71b19870 HTTP/1.1
-Host: api2.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: 1d4-cam1EaO0GUAtNnDDfangPQvOeRU
@@ -273,7 +273,7 @@ data | true | The patch data in [JSONPatch Format](https://tools.ietf.org/html/r
 
 ```http
 DELETE /notes/a0da6886-1e0e-455a-a647-54444d1d8177 HTTP/1.1
-Host: api2.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: 1d3-B8XNOdGew5E1MYUhULxvvPls7IY

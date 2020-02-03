@@ -76,7 +76,7 @@ publicInfo | false | Array with available public info. Can have `email`, `phone`
 ```
 http
 POST /v1/users HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 
@@ -143,7 +143,7 @@ Creates a new user.
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/v1/users`
+`POST https://api.beta.polisapp.com/v1/users`
 
 ## Update a user
 
@@ -151,7 +151,7 @@ Creates a new user.
 
 ```http
 PATCH /v1/users/c153c65c-f51b-4caa-b6ca-f66d03583419 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ETag: {etag_value}
@@ -213,5 +213,5 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v1/users/{userId}`
+`PATCH https://api.beta.polisapp.com/v1/users/{userId}`
 

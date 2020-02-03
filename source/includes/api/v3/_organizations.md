@@ -60,7 +60,7 @@ requireSignUpConfirmation | false | Joining organization by link, if `false`, do
 
 ```http
 GET /v1/organizations?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -121,7 +121,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/organizations`
+`GET https://api.beta.polisapp.com/v1/organizations`
 
 ### Query Parameters
 
@@ -139,7 +139,7 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 
 ```http
 GET /v1/organizations/a930ds08-f426-488a-bd1b-0ca3fe3c2cc7 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -173,7 +173,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/organizations/{id}`
+`GET https://api.beta.polisapp.com/v1/organizations/{id}`
 
 ### Query Parameters
 
