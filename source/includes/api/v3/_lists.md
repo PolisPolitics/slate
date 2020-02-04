@@ -627,6 +627,7 @@ Authorization: Bearer {access_token}
 ```
 
 > Example Response
+
 ```json
 {
     "id": "53533494-4f01-45d7-8dbc-933b816d8a53",
@@ -710,6 +711,7 @@ Authorization: Bearer {access_token}
     "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e",
     "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28"
 }
+
 ```
 
 ### HTTP Request
