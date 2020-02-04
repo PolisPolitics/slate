@@ -76,7 +76,7 @@ confidence | true | GPS Accuracy.
 > Example Request
 
 ```http
-GET /v1/households?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
+GET /v2/households?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -130,7 +130,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.beta.polisapp.com/v1/households`
+`GET https://api.beta.polisapp.com/v2/households`
 
 ### Query Parameters
 
@@ -147,7 +147,7 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 > Example Request
 
 ```http
-GET /v1/households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
+GET /v2/households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -178,7 +178,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.beta.polisapp.com/v1/households/{id}`
+`GET https://api.beta.polisapp.com/v2/households/{id}`
 
 ### Query Parameters
 
@@ -192,7 +192,7 @@ id | true | The id of the household to be retrieved.
 > Example Request
 
 ```http
-POST /v1/households HTTP/1.1
+POST /v2/households HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -245,7 +245,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST /v1/households`
+`POST /v2/households`
 
 ### Query Parameters
 
@@ -260,7 +260,7 @@ data | true | The data of household to be created
 > Example Request
 
 ```http
-PATCH /v1/households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
+PATCH /v2/households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -306,7 +306,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH /v1/households/{id}`
+`PATCH /v2/households/{id}`
 
 ### Query Parameters
 
@@ -321,7 +321,7 @@ data | true | The patch data
 > Example Request
 
 ```http
-DELETE /v1/households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
+DELETE /v2/households/1b6e3e26-511c-48c5-ab38-1317072f7276 HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -330,11 +330,157 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE /v1/households/{id}`
+`DELETE /v2/households/{id}`
 
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
 id | true | The id of the household to be deleted.
+
+
+## Create Many Households
+
+> Example Request
+
+```http
+POST /v2/households/bulk HTTP/1.1
+Host: api.beta.polisapp.com
+Contact-Type: application/json
+Authorization: Bearar {access_token}
+{
+  "data": [
+    {
+      "data": {
+        "unitNum": "Apt. 2L",
+        "address": {
+          "data": {
+            "number": "1",
+            "streetName": "Daphney Knoll",
+            "city": "Rempelfurt",
+            "coords": {
+              "lat": 42.3795514,
+              "lng": -71.2525621
+            },
+            "country": "",
+            "county": null,
+            "neighborhood": null,
+            "state": "Massachusetts",
+            "postalCode": "69864-4637"
+          }
+        },
+        "formattedAddress": "1 Daphney Knoll #Apt. 2L Rempelfurt  69864-4637"
+      },
+      "customerId": "36ab287b-567d-4fea-a001-297991db46cb"
+    },
+    
+    {
+      "data": {
+        "unitNum": "Apt. 1",
+        "address": {
+          "data": {
+            "number": "1",
+            "streetName": "Mathilde Unions",
+            "city": "North Pinkietown",
+            "coords": {
+              "lat": 42.3795514,
+              "lng": -71.2525621
+            },
+            "country": "",
+            "county": null,
+            "neighborhood": null,
+            "state": "Maryland",
+            "postalCode": "48828"
+          }
+        },
+        "formattedAddress": "1 Mathilde Unions #Apt. 1 North Pinkietown  48828"
+      },
+      "customerId": "36ab287b-567d-4fea-a001-297991db46cb"
+    }
+  ]
+}
+
+```
+
+> Example Response
+
+```json
+{
+  "data": [
+     {
+       "id": "11289ba8-3a58-468f-afe4-f048971a7a10",
+       "data": {
+         "address": {
+           "id": "7596674d-3aa5-49d3-a9d1-b7ef81e4a9b3",
+           "data": {
+             "city": "Rempelfurt",
+             "state": "Massachusetts",
+             "coords": {
+               "lat": 42.3795514,
+               "lng": -71.2525621
+             },
+             "number": "1",
+             "country": "",
+             "postalCode": "69864-4637",
+             "streetName": "Daphney Knoll"
+           }
+         },
+         "unitNum": "Apt. 2L",
+         "formattedAddress": "1 Daphney Knoll #Apt. 2L Rempelfurt  69864-4637"
+       },
+       "meta": {
+         "etag": "21e-FmBn+WqCu6/TxglSKS0qQWwO4zM",
+         "created": "2020-02-04T14:08:46.514Z",
+         "modified": "2020-02-04T14:08:46.514Z",
+         "resource": "households",
+         "createdBy": "54b43387-1235-4fca-b37c-deecee83c80e",
+         "isDeleted": false,
+         "modifiedBy": "54b43387-1235-4fca-b37c-deecee83c80e"
+       },
+       "customerId": "36ab287b-567d-4fea-a001-297991db46cb",
+       "securityGroupId": "cf344bd5-1ab9-4e50-8818-741fc1c0eeb2"
+     },
+     {
+       "id": "c2722281-dbac-421e-b465-9000e5216259",
+       "data": {
+         "address": {
+           "id": "1c32714e-9190-40b5-a44a-b8309f187f41",
+           "data": {
+             "city": "North Pinkietown",
+             "state": "Maryland",
+             "coords": {
+               "lat": 42.3795514,
+               "lng": -71.2525621
+             },
+             "number": "1",
+             "country": "",
+             "postalCode": "48828",
+             "streetName": "Mathilde Unions"
+           }
+         },
+         "unitNum": "Apt. 1",
+         "formattedAddress": "1 Mathilde Unions #Apt. 1 North Pinkietown  48828"
+       },
+       "meta": {
+         "etag": "21f-gDxPlK+jBKBa64RyIbM2quMRX6M",
+         "created": "2020-02-04T14:08:46.515Z",
+         "modified": "2020-02-04T14:08:46.515Z",
+         "resource": "households",
+         "createdBy": "54b43387-1235-4fca-b37c-deecee83c80e",
+         "isDeleted": false,
+         "modifiedBy": "54b43387-1235-4fca-b37c-deecee83c80e"
+       },
+       "customerId": "36ab287b-567d-4fea-a001-297991db46cb",
+       "securityGroupId": "cf344bd5-1ab9-4e50-8818-741fc1c0eeb2"
+     }
+  ],
+  "meta": {}
+}
+```
+
+### HTTP Request
+
+`POST https://api.beta.polisapp.com/v2/households/bulk`
+
+
 

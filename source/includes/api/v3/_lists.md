@@ -533,7 +533,7 @@ listId | true | The id of a list.
 contactId | true | The id of a contact.
 householdId | true | The id of a household.
 
-## Create Multiple Contact Household List Records
+## Create Many Contact Household List Records
 
 Note: This request requires that contacts and households to be already associated with each other.
 

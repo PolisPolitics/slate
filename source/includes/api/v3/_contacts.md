@@ -1242,8 +1242,9 @@ Authorization: Bearer {access_token}
 
 ## Transitioning from v1 bulk insert to equivalent endpoints in v2 version
 
-In the new system the Contacts entity is split into contacts and households so v1/contacts/bulk  endpoint translates
+In the new system the Contacts entity is split into contacts and households so v1/contacts/bulk  endpoint translates to the following
+operations in order
 
-- v2/households/bulk - Add link
-- v2/contacts/bulk - Add link
-- v1/lists/contact-households - Add link
+- Create Many Households endpoint under [v2 households](#households)
+- Create Many Contacts endpoint under [v2 contacts](#contacts)
+- Create Many Contact Household lists under [v1 lists](#lists)
