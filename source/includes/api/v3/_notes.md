@@ -49,7 +49,7 @@ text | true | Note text.
 > Example Request
 
 ```http
-GET /notes?filter%5B%2Fdata%2FcontactId%5D=ad437213-1ad1-4f01-8662-463b066a4188&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
+GET /v1/notes?filter%5B%2Fdata%2FcontactId%5D=ad437213-1ad1-4f01-8662-463b066a4188&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -103,7 +103,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /notes`
+`GET /v1/notes`
 
 ### Query Parameters
 
@@ -120,7 +120,7 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 > Example Request
 
 ```http
-GET /notes/a0da6886-1e0e-455a-a647-54444d1d8177 HTTP/1.1
+GET /v1/notes/a0da6886-1e0e-455a-a647-54444d1d8177 HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -146,7 +146,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /notes/{id}`
+`GET /v1/notes/{id}`
 
 ### Query Parameters
 
@@ -160,7 +160,7 @@ id | true | The id of the note to be retrieved.
 > Example Request
 
 ```http
-POST /notes HTTP/1.1
+POST /v1/notes HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -197,7 +197,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST /notes`
+`POST /v1/notes`
 
 ### Query Parameters
 
@@ -211,7 +211,7 @@ data | true | The data of the new note to be created.
 > Example Request
 
 ```http
-PATCH /notes/3a009b0b-f9da-4358-8908-95cd71b19870 HTTP/1.1
+PATCH /v1/notes/3a009b0b-f9da-4358-8908-95cd71b19870 HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -257,7 +257,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH /notes/{id}`
+`PATCH /v1/notes/{id}`
 
 ### Query Parameters
 
@@ -272,7 +272,7 @@ data | true | The patch data in [JSONPatch Format](https://tools.ietf.org/html/r
 > Example Request
 
 ```http
-DELETE /notes/a0da6886-1e0e-455a-a647-54444d1d8177 HTTP/1.1
+DELETE /v1/notes/a0da6886-1e0e-455a-a647-54444d1d8177 HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -287,7 +287,7 @@ HTTP 200 Success
 
 ### HTTP Request
 
-`DELETE /notes/{id}`
+`DELETE /v1/notes/{id}`
 
 ### Query Parameters
 

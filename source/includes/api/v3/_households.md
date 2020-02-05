@@ -245,7 +245,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST /v2/households`
+`POST https://api.beta.polisapp.com/v2/households`
 
 ### Query Parameters
 
@@ -306,7 +306,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH /v2/households/{id}`
+`PATCH https://api.beta.polisapp.com/v2/households/{id}`
 
 ### Query Parameters
 
@@ -330,7 +330,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE /v2/households/{id}`
+`DELETE https://api.beta.polisapp.com/v2/households/{id}`
 
 ### Query Parameters
 
