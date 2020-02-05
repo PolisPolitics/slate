@@ -368,8 +368,8 @@ questionId | false | Identifier of the next question.
 > Example Request
 
 ```http
-GET /surveys?filter%5B%2Fdata%2Fdiscoverable%5D=false&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
-Host: api2.polisapp.com
+GET /v1/surveys?filter%5B%2Fdata%2Fdiscoverable%5D=false&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -783,7 +783,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /surveys`
+`GET https://api.beta.polisapp.com/v1/surveys`
 
 ### Query Parameters
 
@@ -800,8 +800,8 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 > Example Request
 
 ```http
-GET /surveys/76a86650-5524-4634-bbad-ad52f5237f7d HTTP/1.1
-Host: api2.polisapp.com
+GET /v1/surveys/76a86650-5524-4634-bbad-ad52f5237f7d HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -1011,7 +1011,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /surveys/{id}`
+`GET https://api.beta.polisapp.com/v1/surveys/{id}`
 
 ### Query Parameters
 
@@ -1025,8 +1025,8 @@ id | true | The id of the survey to be retrieved.
 > Example Request
 
 ```http
-POST /surveys HTTP/1.1
-Host: api2.polisapp.com
+POST /v1/surveys HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -1424,7 +1424,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST /surveys`
+`POST https://api.beta.polisapp.com/v1/surveys`
 
 ### Query Parameters
 
@@ -1438,8 +1438,8 @@ data | true | The data of the survey to be created
 > Example Request
 
 ```http
-PATCH /surveys/a1a61b83-0697-4354-a64b-59a9f64cd5d2 HTTP/1.1
-Host: api2.polisapp.com
+PATCH /v1/surveys/a1a61b83-0697-4354-a64b-59a9f64cd5d2 HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -1665,7 +1665,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH /surveys/{id}`
+`PATCH https://api.beta.polisapp.com/v1/surveys/{id}`
 
 ### Query Parameters
 
@@ -1679,8 +1679,8 @@ id | true | The id of the survey to be updated.
 > Example Request
 
 ```http
-DELETE /surveys/76a86650-5524-4634-bbad-ad52f5237f7d HTTP/1.1
-Host: api2.polisapp.com
+DELETE /v1/surveys/76a86650-5524-4634-bbad-ad52f5237f7d HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -1688,7 +1688,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE /surveys/{id}`
+`DELETE https://api.beta.polisapp.com/v1/surveys/{id}`
 
 ### Query Parameters
 

@@ -53,8 +53,8 @@ integrations | false | Array of the integrations associated with this list.
 > Example Request
 
 ```http
-GET /lists?filter%5B%2Fdata%2ForganizationId%5D=309f8d1e-f426-488a-bd1b-0ca3fe3c2cc7&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
-Host: api2.polisapp.com
+GET /v1/lists?filter%5B%2Fdata%2ForganizationId%5D=309f8d1e-f426-488a-bd1b-0ca3fe3c2cc7&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -107,7 +107,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /lists`
+`GET https://api.beta.polisapp.com/v1/lists`
 
 ### Query Parameters
 
@@ -123,8 +123,8 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 > Example Request
 
 ```http
-GET /lists/588b44db-3444-4732-92db-158db44202eb HTTP/1.1
-Host: api2.polisapp.com
+GET /v1/lists/588b44db-3444-4732-92db-158db44202eb HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -154,7 +154,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /lists/{id}`
+`GET https://api.beta.polisapp.com/v1/lists/{id}`
 
 ### Query Parameters
 
@@ -168,8 +168,8 @@ id | true | The id of the list.
 > Example Request
 
 ```http
-GET /lists/588b44db-3444-4732-92db-158db44202eb/contact-households HTTP/1.1
-Host: api2.polisapp.com
+GET /v1/lists/588b44db-3444-4732-92db-158db44202eb/contact-households HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -408,7 +408,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /lists/{id}/contact-households`
+`GET https://api.beta.polisapp.com/v1/lists/{id}/contact-households`
 
 ### Query Parameters
 
@@ -425,8 +425,8 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['/data/profile/name/angli
 > Example Request
 
 ```http
-POST /lists HTTP/1.1
-Host: api2.polisapp.com
+POST /v1/lists HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -462,7 +462,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST /lists`
+`POST https://api.beta.polisapp.com/v1/lists`
 
 ### Query Parameters
 
@@ -477,8 +477,8 @@ securityGroupId | false | The identifier of the security group associated with
 > Example Request
 
 ```http
-DELETE /lists/588b44db-3444-4732-92db-158db44202eb/contacts/865ab014-ebbd-4246-b13d-ac3fd07475a0/households/a63a4dd6-ade7-4d23-b2f6-2a38dcc17e06 HTTP/1.1
-Host: api2.polisapp.com
+DELETE /v1/lists/588b44db-3444-4732-92db-158db44202eb/contacts/865ab014-ebbd-4246-b13d-ac3fd07475a0/households/a63a4dd6-ade7-4d23-b2f6-2a38dcc17e06 HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -486,7 +486,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE /lists/{listId}/contacts/{contactId}/households/{householdId}`
+`DELETE https://api.beta.polisapp.com/v1/lists/{listId}/contacts/{contactId}/households/{householdId}`
 
 ### Query Parameters
 
@@ -502,8 +502,8 @@ householdId | true | The identifier of a household.
 > Example Request
 
 ```http
-PUT /lists/588b44db-3444-4732-92db-158db44202eb/contacts/865ab014-ebbd-4246-b13d-ac3fd07475a0/households/a63a4dd6-ade7-4d23-b2f6-2a38dcc17e06 HTTP/1.1
-Host: api2.polisapp.com
+PUT /v1/lists/588b44db-3444-4732-92db-158db44202eb/contacts/865ab014-ebbd-4246-b13d-ac3fd07475a0/households/a63a4dd6-ade7-4d23-b2f6-2a38dcc17e06 HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -523,7 +523,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`PUT /lists/{listId}/contacts/{contactId}/households/{householdId}`
+`PUT https://api.beta.polisapp.com/v1/lists/{listId}/contacts/{contactId}/households/{householdId}`
 
 ### Query Parameters
 
@@ -533,3 +533,187 @@ listId | true | The id of a list.
 contactId | true | The id of a contact.
 householdId | true | The id of a household.
 
+## Create Many Contact Household List Records
+
+Note: This request requires that contacts and households to be already associated with each other.
+
+> Example Request
+
+```http
+POST /v1/lists/50681120-1cad-42cf-be16-0f670221bb57/contact-households
+Host: api.beta.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+{
+   "data":[
+      {
+         "data":{
+            "contactId":"114a5fa4-1912-4013-93d4-93bdd7465311",
+            "householdId":"8d9060a4-f8fd-44c0-9c91-80b3dc14fd39"
+         }
+      },
+      {
+         "data":{
+            "contactId":"a3ccca0e-8893-4925-96e4-ad5e4affe50f",
+            "householdId":"e27523e4-7b86-4275-8544-bacb965ef597"
+         }
+      }
+   ]
+}
+```
+
+> Example Response
+
+```json
+{
+    "data": [
+        {
+            "id": "3221f5c3-3b8a-4328-b433-3e345bef2285",
+            "data": {
+                "listId": "50681120-1cad-42cf-be16-0f670221bb57",
+                "contactHouseholdId": "53533494-4f01-45d7-8dbc-933b816d8a53"
+            },
+            "meta": {
+                "etag": "20b-tLj4EnGcQCqHAt9fM/T9jePkvps",
+                "created": "2020-02-03T04:03:22.376Z",
+                "modified": "2020-02-03T04:03:22.376Z",
+                "resource": "contact-household-lists",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        },
+        {
+            "id": "61cbccf2-81b2-481e-a436-c4851bbb14e6",
+            "data": {
+                "listId": "50681120-1cad-42cf-be16-0f670221bb57",
+                "contactHouseholdId": "fe3c4c14-430f-44ba-9c2e-ce02c24789ec"
+            },
+            "meta": {
+                "etag": "20b-tRClWVY+FqZzWo19qooyxGeIkZc",
+                "created": "2020-02-03T04:03:22.376Z",
+                "modified": "2020-02-03T04:03:22.376Z",
+                "resource": "contact-household-lists",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        }
+    ],
+    "meta": {}
+}
+```
+
+### HTTP Request
+
+`POST https://api.beta.polisapp.com/v1/lists/{listId}/contact-households`
+
+## Fetch Contact Household with listId and v1-contactId
+
+This endpoint allows fetching of v2 contact and v2 household document associated with a v1 contact document
+
+> Example Request
+
+
+```http
+GET /v1/lists/50681120-1cad-42cf-be16-0f670221bb57/contact-households/3221f5c3-3b8a-4328-b433-3e345bef2285 HTTP/1.1
+Host: api.beta.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+```
+
+> Example Response
+
+```json
+{
+    "id": "53533494-4f01-45d7-8dbc-933b816d8a53",
+    "data": {
+        "contact": {
+            "id": "a3ccca0e-8893-4925-96e4-ad5e4affe50f",
+            "data": {
+                "fields": {},
+                "profile": {
+                    "name": {
+                        "anglican": {
+                            "given": "John",
+                            "title": "Mr",
+                            "suffix": "",
+                            "surname": "Doe",
+                            "middlename": ""
+                        }
+                    },
+                    "phones": [],
+                    "languages": []
+                },
+                "primaryHouseholdId": "e27523e4-7b86-4275-8544-bacb965ef597"
+            },
+            "meta": {
+                "etag": "25d-nSmaJKLqhhigsFNtz/W149xWkMY",
+                "created": "2020-02-03T03:43:26.549Z",
+                "modified": "2020-02-03T03:43:26.549Z",
+                "resource": "contacts",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        },
+        "household": {
+            "id": "e27523e4-7b86-4275-8544-bacb965ef597",
+            "data": {
+                "unitNum": "12",
+                "formattedAddress": "10 Ware Street #12 Cambridge Middlesex County USA 02138",
+                "address": {
+                    "id": "aae38c5a-dd0a-4ebf-b042-06bc2ac4a79d",
+                    "data": {
+                        "city": "Cambridge",
+                        "coords": {
+                            "lat": 42.3724115,
+                            "lng": -71.1126828
+                        },
+                        "number": "10",
+                        "postalCode": "02138",
+                        "streetName": "Ware Street",
+                        "country": "USA",
+                        "state": "MA",
+                        "neighborhood": "Mid-Cambridge",
+                        "county": "Middlesex County"
+                    }
+                }
+            },
+            "meta": {
+                "etag": "221-SprXLNrXrVTpCoCDAE83xHXwrbc",
+                "created": "2020-02-03T03:43:26.230Z",
+                "modified": "2020-02-03T03:43:26.230Z",
+                "resource": "households",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        }
+    },
+    "meta": {
+        "etag": "202-d1jl1o5K9k2EdSMGwm+DGFNXQVg",
+        "created": "2020-02-03T03:43:26.700Z",
+        "modified": "2020-02-03T03:43:26.700Z",
+        "resource": "contact-households",
+        "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+        "isDeleted": false,
+        "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+    },
+    "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e",
+    "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28"
+}
+
+```
+
+### HTTP Request
+
+`GET https://api.beta.polisapp.com/v1/lists/{id}/contact-households/{v1ContactId}`

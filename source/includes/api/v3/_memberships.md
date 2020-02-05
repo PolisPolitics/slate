@@ -94,7 +94,7 @@ dailySummary | false | If `true` the membership will receive a daily summary abo
 ```
 http
 POST /v1/memberships HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 
@@ -145,7 +145,7 @@ Check Users, Roles and Organizations documentation.
 
 ### HTTP Request
 
-`POST https://api.polisapp.com/v1/memberships`
+`POST https://api.beta.polisapp.com/v1/memberships`
 
 ## Retrieve a membership
 
@@ -153,7 +153,7 @@ Check Users, Roles and Organizations documentation.
 
 ```http
 GET /v1/memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Authorization: Bearer {access_token}
 ```
 
@@ -221,7 +221,7 @@ Obtains a single membership object by ID.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/memberships/{id}`
+`GET https://api.beta.polisapp.com/v1/memberships/{id}`
 
 ### Query Parameters
 
@@ -242,7 +242,7 @@ Refer to [Membership Object](#the-membership-object) for all fields that are ava
 
 ```http
 PATCH /v1/memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ETag: {etag_value}
@@ -292,7 +292,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v1/memberships/{id}`
+`PATCH https://api.beta.polisapp.com/v1/memberships/{id}`
 
 ### Query Parameters
 
@@ -307,7 +307,7 @@ id | true | Unique identifier of the membership.
 
 ```http
 PATCH /v1/memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ETag: {etag_value}
@@ -355,7 +355,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH https://api.polisapp.com/v1/memberships/{id}`
+`PATCH https://api.beta.polisapp.com/v1/memberships/{id}`
 
 ### Query Parameters
 
@@ -369,13 +369,13 @@ id | true | Unique identifier of the membership.
 
 ```http
 DELETE /v1/memberships/c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Authorization: Bearer {access_token}
 ETag: {etag_value}
 ```
 
 ### HTTP Request
-`DELETE https://api.polisapp.com/v1/memberships/{id}`
+`DELETE https://api.beta.polisapp.com/v1/memberships/{id}`
 
 ### Query Parameters
 
@@ -390,7 +390,7 @@ id | true | Unique identifier of the membership.
 
 ```http
 GET /v1/memberships?filter=%2Fdata%2FuserId%20eq%20%2208f35132-7b4f-44d9-b212-6e5fad31aad3%22%20and%20%2Fdata%2Fstatus%20eq%20%22active%22&limit=9007199254740991&skip=0&sort=%5B%22id%22%2C%22ASC%22%5D HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Authorization: Bearer {access_token}
 ```
 
@@ -455,7 +455,7 @@ Authorization: Bearer {access_token}
 ```
 
 ### HTTP Request
-`GET https://api.polisapp.com/v1/memberships?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+`GET https://api.beta.polisapp.com/v1/memberships?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
 ### Query Parameters
 
@@ -475,7 +475,7 @@ Filter Example: `/data/userId eq "08f35132-7b4f-44d9-b212-6e5fad31aad3" and /dat
 
 ```http
 POST /v1/memberships/password-reset HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -499,7 +499,7 @@ Allows a manager to reset the password of canvasser users in their org
 or any user in their descendant orgs.
 
 ### HTTP Request
-`POST https://api.polisapp.com/v1/memberships/password-reset`
+`POST https://api.beta.polisapp.com/v1/memberships/password-reset`
 
 ### Body Parameters
 

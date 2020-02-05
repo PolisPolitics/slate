@@ -51,7 +51,7 @@ contactState | true | Compatibility attribute that maps a status-group to an old
 
 ```https
 GET /v1/status-groups/3239be67-199f-4cef-a30b-faea8ea48785 HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Authorization: Bearer {access_token}
 ```
 
@@ -84,7 +84,7 @@ Obtains a single status-group object by it's id.
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/status-groups/{id}`
+`GET https://api.beta.polisapp.com/v1/status-groups/{id}`
 
 ### Query Parameters
 
@@ -100,7 +100,7 @@ Retrieves a list of existing status-groups
 
 ```http
 GET /v1/status-groups?limit=100&skip=0&sort=["id","ASC"] HTTP/1.1
-Host: api.polisapp.com
+Host: api.beta.polisapp.com
 Authorization: Bearer {access_token}
 ```
 
@@ -316,7 +316,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.polisapp.com/v1/status-groups?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
+`GET https://api.beta.polisapp.com/v1/status-groups?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
 ### Query Parameters
 

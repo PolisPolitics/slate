@@ -139,8 +139,8 @@ permissions | false | Array of permissions allowed to that role.
 > Example Request
 
 ```http
-GET /roles?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
-Host: api2.polisapp.com
+GET /v1/roles?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -458,7 +458,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /roles`
+`GET https://api.beta.polisapp.com/v1/roles`
 
 ### Query Parameters
 
@@ -475,8 +475,8 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 > Example Request
 
 ```http
-GET /roles/d16c892e-91b8-4d8b-ae03-deb9890f71e1 HTTP/1.1
-Host: api2.polisapp.com
+GET /v1/roles/d16c892e-91b8-4d8b-ae03-deb9890f71e1 HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -595,7 +595,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /roles/{id}`
+`GET https://api.beta.polisapp.com/v1/roles/{id}`
 
 ### Query Parameters
 

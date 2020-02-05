@@ -151,8 +151,8 @@ primary | false | Flag indicating whether this email is primary. Default `false`
 > Example Request
 
 ```http
-GET /v3/contacts?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
-Host: api2.polisapp.com
+GET /v2/contacts?filter%5B%2FcustomerId%5D=286d1af1-c2c5-4069-a19d-3987fdacc0d6&skip=0&limit=9007199254740991&sort=id&sort=ASC HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -303,7 +303,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /v3/contacts`
+`GET https://api.beta.polisapp.com/v2/contacts`
 
 ### Query Parameters
 
@@ -320,8 +320,8 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 > Example Request
 
 ```http
-GET /v3/contacts/b7a9a3e2-e419-4c0a-9d03-4c8f280b2967 HTTP/1.1
-Host: api2.polisapp.com
+GET /v2/contacts/b7a9a3e2-e419-4c0a-9d03-4c8f280b2967 HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -403,7 +403,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /v3/contacts/{id}`
+`GET https://api.beta.polisapp.com/v2/contacts/{id}`
 
 ### Query Parameters
 
@@ -417,8 +417,8 @@ id | true | The id of the contact to be retrieved.
 > Example Request
 
 ```http
-GET /v3/contacts/e5554be7-0b3c-45cf-9c78-266dc45e2878/households/ HTTP/1.1
-Host: api2.polisapp.com
+GET /v2/contacts/e5554be7-0b3c-45cf-9c78-266dc45e2878/households/ HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -505,7 +505,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET /v3/contacts/{contactId}/households/`
+`GET https://api.beta.polisapp.com/v2/contacts/{contactId}/households/`
 
 ### Query Parameters
 
@@ -523,8 +523,8 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 > Example Request
 
 ```http
-POST /v3/contacts HTTP/1.1
-Host: api2.polisapp.com
+POST /v2/contacts HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -642,7 +642,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST /v3/contacts`
+`POST https://api.beta.polisapp.com/v2/contacts`
 
 ### Query Parameters
 
@@ -656,8 +656,8 @@ customerId | false | The id of the customer to which this resource belongs
 > Example Request
 
 ```http
-POST /v3/contacts/bulk HTTP/1.1
-Host: api2.polisapp.com
+POST /v2/contacts/bulk HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -816,7 +816,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`POST /v3/contacts/bulk`
+`POST https://api.beta.polisapp.com/v2/contacts/bulk`
 
 
 ## Update many contacts
@@ -824,8 +824,8 @@ Authorization: Bearer {access_token}
 > Example Request
 
 ```http
-PATCH /v3/contacts/bulk HTTP/1.1
-Host: api2.polisapp.com
+PATCH /v2/contacts/bulk HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -957,7 +957,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`PATCH /v3/contacts/bulk`
+`PATCH https://api.beta.polisapp.com/v2/contacts/bulk`
 
 
 ## Update a contact
@@ -965,8 +965,8 @@ etag: etag_value
 > Example Request
 
 ```http
-PATCH /v3/contacts/{id} HTTP/1.1
-Host: api2.polisapp.com
+PATCH /v2/contacts/{id} HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -1063,7 +1063,7 @@ You can only patch attributes inside <b>data</b> key.
 
 ### HTTP Request
 
-`PATCH /v3/contacts/{id}`
+`PATCH https://api.beta.polisapp.com/v2/contacts/{id}`
 
 ### Query Parameters
 
@@ -1074,13 +1074,13 @@ etag | true	| Current eTag value of the contact.
 data | true	| Patch request following RFC 6902.
 
 
-## Deletea contact
+## Delete a contact
 
 > Example Request
 
 ```http
-DELETE /v3/contacts/{id} HTTP/1.1
-Host: api2.polisapp.com
+DELETE /v2/contacts/{id} HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -1088,7 +1088,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE /v3/contacts/{id}`
+`DELETE https://api.beta.polisapp.com/v2/contacts/{id}`
 
 ### Query Parameters
 
@@ -1102,8 +1102,8 @@ id | true | The id for the v3/contacts item.
 > Example Request
 
 ```http
-DELETE /v3/contacts/{contactId}/households/{householdId} HTTP/1.1
-Host: api2.polisapp.com
+DELETE /v2/contacts/{contactId}/households/{householdId} HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 etag: etag_value
@@ -1111,7 +1111,7 @@ etag: etag_value
 
 ### HTTP Request
 
-`DELETE /v3/contacts/{contactId}/households/{householdId}`
+`DELETE https://api.beta.polisapp.com/v2/contacts/{contactId}/households/{householdId}`
 
 ### Query Parameters
 
@@ -1126,8 +1126,8 @@ householdId | true | The id of the household
 > Example Request
 
 ```http
-PUT /v3/contacts/9c453ba8-106c-4fa5-ac49-e056aca7529b/households/904a4f4b-6c74-42a5-9437-15bd9728ffb9 HTTP/1.1
-Host: api2.polisapp.com
+PUT /v2/contacts/9c453ba8-106c-4fa5-ac49-e056aca7529b/households/904a4f4b-6c74-42a5-9437-15bd9728ffb9 HTTP/1.1
+Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -1157,7 +1157,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`PUT /v3/contacts/{contactId}/households/{householdId}`
+`PUT https://api.beta.polisapp.com/v2/contacts/{contactId}/households/{householdId}`
 
 ### Query Parameters
 
@@ -1166,3 +1166,85 @@ Parameter | Required | Description
 contactId | true | The id of the contact
 householdId | true | The id of the household
 
+## Create multiple contact household records
+> Example Request
+
+```http
+PUT /v2/contacts/households/bulk HTTP/1.1
+Host: api.beta.polisapp.com
+Content-Type: application/json
+Authorization: Bearer {access_token}
+{
+   "data":[
+      {
+         "data":{
+            "contactId":"c9896d3b-bbde-4474-afc8-f20a61944e8e",
+            "householdId":"1c5a7b68-ffc1-4393-a039-475081e23a92"
+         }
+      },
+      {
+         "data":{
+            "contactId":"2d0aa76a-03ea-4ccf-8ba7-a85c0ca864ee",
+            "householdId":"22d53f8d-d2fd-4045-9ee7-8407142ee042"
+         }
+      }
+   ]
+}
+
+```
+
+> Example Response
+
+```json
+{
+    "data": [
+        {
+            "id": "3193fc04-a5e0-4f6f-a074-fee640f57380",
+            "data": {
+                "contactId": "c9896d3b-bbde-4474-afc8-f20a61944e8e",
+                "householdId": "1c5a7b68-ffc1-4393-a039-475081e23a92"
+            },
+            "meta": {
+                "etag": "202-5w9W7AqBTNyYp/XsAtiPvtpQNzU",
+                "created": "2020-02-03T22:23:28.612Z",
+                "modified": "2020-02-03T22:23:28.612Z",
+                "resource": "contact-households",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        },
+        {
+            "id": "4f1c230f-559f-44fd-9e94-1b72928149f2",
+            "data": {
+                "contactId": "2d0aa76a-03ea-4ccf-8ba7-a85c0ca864ee",
+                "householdId": "22d53f8d-d2fd-4045-9ee7-8407142ee042"
+            },
+            "meta": {
+                "etag": "202-EjpqdsOBhp+GsgZBWVINCXwnTlw",
+                "created": "2020-02-03T22:23:28.612Z",
+                "modified": "2020-02-03T22:23:28.612Z",
+                "resource": "contact-households",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        }
+    ],
+    "meta": {}
+}
+```
+
+
+## Transitioning from v1 bulk insert to equivalent endpoints in v2 version
+
+In the new system the Contacts entity is split into contacts and households so v1/contacts/bulk  endpoint translates to the following
+operations in order
+
+- Create Many Households endpoint under [v2 households](#households)
+- Create Many Contacts endpoint under [v2 contacts](#contacts)
+- Create Many Contact Household lists under [v1 lists](#lists)
