@@ -305,6 +305,8 @@ Authorization: Bearer {access_token}
 
 `GET https://api.beta.polisapp.com/v2/contacts`
 
+NOTE: This endpoint's filter query parameter ONLY supports `eq`. All other filter operations are not supported.
+
 ### Query Parameters
 
 Parameter | Required | Description
