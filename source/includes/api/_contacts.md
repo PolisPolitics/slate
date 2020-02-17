@@ -797,6 +797,8 @@ Retrieves a list of contacts filtered by a criteria
 ### HTTP Request
 `GET https://api.polisapp.com/v1/contacts?filter={filter}&limit={limit}&skip={skip}&sort={sort}`
 
+NOTE: This endpoint's filter query parameter ONLY supports `eq`. All other filter operations are not supported.
+
 ### Query Parameters
 
 Parameter | Required | Description
