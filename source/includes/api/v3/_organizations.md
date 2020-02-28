@@ -56,6 +56,8 @@ requireSignUpConfirmation | false | Joining organization by link, if `false`, do
 
 ## Get many organizations
 
+Note: This endpoint currently returns a 404 not found error and will be fixed before 03-16-2020.
+
 > Example Request
 
 ```http
