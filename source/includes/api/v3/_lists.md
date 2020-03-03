@@ -50,6 +50,8 @@ integrations | false | Array of the integrations associated with this list.
 
 ## Get many lists
 
+Note:This endpoint is currently returns 500 status code . This will be fixed before 03-16-2020
+
 > Example Request
 
 ```http
@@ -113,7 +115,7 @@ Authorization: Bearer {access_token}
 
 Parameter | Required | Description
 --------- | -------- | -----------
-filter | false | Query to filter data. <br/> e.g. '"/data/customerId": "c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b"'
+filter | false | Query to filter data. <br/> e.g. '"/customerId": "c10cbd70-5a2f-440d-9e0d-7b9ea23daf3b"'
 limit | true | Limits number of result-rows. Should be a positive integer. Useful for pagination.
 skip | true | Offset data by given number. Useful for pagination.
 sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']

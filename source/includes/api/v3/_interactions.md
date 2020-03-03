@@ -410,6 +410,8 @@ data | true | Data of interaction to be created
 
 ## Patch an item from interactions
 
+Note: This endpoint currently returns a 500 status code , and will be fixed before 03-16-2020.
+
 > Example Request
 
 ```http

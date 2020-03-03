@@ -1,5 +1,7 @@
 # Notes
 
+Note: All endpoints under this section are currently returning 404 not found.
+
 ## The Note object
 
 Attribute | Required? | Description

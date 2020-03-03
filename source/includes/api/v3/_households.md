@@ -136,7 +136,7 @@ Authorization: Bearer {access_token}
 
 Parameter | Required | Description
 --------- | -------- | -----------
-filter | false | Query to filter data. `/data/customerId eq "eb4dfe83-f1fd-46dd-a69d-b7cf7b566319"`
+filter | false | Query to filter data. `/customerId eq "eb4dfe83-f1fd-46dd-a69d-b7cf7b566319"`
 limit | true | Limits number of result-rows. Should be a positive integer. Useful for pagination.
 skip | true | Offset data by given number. Useful for pagination.
 sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
