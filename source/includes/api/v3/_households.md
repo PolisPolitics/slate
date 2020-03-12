@@ -142,6 +142,15 @@ skip | true | Offset data by given number. Useful for pagination.
 sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 
 
+### Allowed attributes
+
+List of attributes that are allowed to be used in a filter query.
+
+* `/customerId`
+* `/data/unitNum`
+* `/data/addressId`
+
+
 ## Get a household
 
 > Example Request

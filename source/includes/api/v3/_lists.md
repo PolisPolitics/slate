@@ -120,6 +120,14 @@ limit | true | Limits number of result-rows. Should be a positive integer. Usefu
 skip | true | Offset data by given number. Useful for pagination.
 sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 
+### Allowed attributes
+
+List of attributes that are allowed to be used in a filter query.
+
+* `/customerId`
+* `/data/organizationId`
+* `/data/name`
+
 ## Get a list
 
 > Example Request

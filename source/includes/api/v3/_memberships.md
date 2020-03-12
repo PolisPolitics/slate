@@ -468,6 +468,16 @@ sort | true | Sort column. Ex.: `["id","ASC"]`
 
 Filter Example: `/data/userId eq "08f35132-7b4f-44d9-b212-6e5fad31aad3" and /data/status eq "active"`
 
+### Allowed attributes
+
+List of attributes that are allowed to be used in a filter query.
+
+* `/data/status`,
+* `/data/roleId`,
+* `/customerId`,
+* `/data/userId`,
+* `/data/organizationId`,
+
 
 ## Reset a member password
 
