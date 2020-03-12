@@ -1167,7 +1167,7 @@ contactId | true | The id of the contact
 householdId | true | The id of the household
 
 ## Create multiple contact household records
-Note: This endpoint currently returns a 404 Not found and will be fixed before 03-16-2020.
+
 > Example Request
 
 ```http

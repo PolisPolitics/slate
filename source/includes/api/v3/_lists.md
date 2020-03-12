@@ -50,7 +50,6 @@ integrations | false | Array of the integrations associated with this list.
 
 ## Get many lists
 
-Note:This endpoint is currently returns 500 status code . This will be fixed before 03-16-2020
 
 > Example Request
 
