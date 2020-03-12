@@ -56,7 +56,6 @@ requireSignUpConfirmation | false | Joining organization by link, if `false`, do
 
 ## Get many organizations
 
-Note: This endpoint currently returns a 404 not found error and will be fixed before 03-16-2020.
 
 > Example Request
 
@@ -133,6 +132,12 @@ filter | false | Query to filter data. e.g. `/customerId eq "f51b86dd-aaba-485e-
 limit | true | Limits number of result-rows. Should be a positive integer. Useful for pagination.
 skip | true | Offset data by given number. Useful for pagination.
 sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
+
+### Allowed attributes
+
+List of attributes that are allowed to be used in a filter query.
+
+* `/customerId`
 
 
 ## Get a organization

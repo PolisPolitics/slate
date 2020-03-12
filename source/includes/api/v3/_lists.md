@@ -50,7 +50,6 @@ integrations | false | Array of the integrations associated with this list.
 
 ## Get many lists
 
-Note:This endpoint is currently returns 500 status code . This will be fixed before 03-16-2020
 
 > Example Request
 
@@ -119,6 +118,14 @@ filter | false | Query to filter data. <br/> e.g. '"/customerId": "c10cbd70-5a2f
 limit | true | Limits number of result-rows. Should be a positive integer. Useful for pagination.
 skip | true | Offset data by given number. Useful for pagination.
 sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
+
+### Allowed attributes
+
+List of attributes that are allowed to be used in a filter query.
+
+* `/customerId`
+* `/data/organizationId`
+* `/data/name`
 
 ## Get a list
 
