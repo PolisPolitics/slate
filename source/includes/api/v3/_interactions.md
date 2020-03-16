@@ -26,6 +26,7 @@ unavailableReason | false | Reason specifying why the contact was unavailable.
 distance | false | Distance between canvasser's location and household location in miles. For fraud detection.
 statusId | false | Identifier of the status of this interaction.
 walklistId | false | Identifier of the walklist route under which the contact was reserved.
+turfId | false | Identifier of the turf under which the contact resides
 
 ### data/survey
 
@@ -433,12 +434,12 @@ etag: etag_value
 	"data": [
 		{
 			"op": "replace",
-			"path": "/data/successful",
+			"path": "/successful",
 			"value": false
 		},
 		{
 			"op": "replace",
-			"path": "/data/unavailable",
+			"path": "/unavailable",
 			"value": false
 		}
 	]
