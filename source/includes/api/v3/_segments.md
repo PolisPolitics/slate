@@ -304,8 +304,6 @@ Filter Example: `/data/organizationId eq "eb4dfe83-f1fd-46dd-a69d-b7cf7b566319" 
 
 ## Swap precedences
 
-Note: This endpoint currently returns a 404 not found response.
-
 Swap precedences of two segments.
 
 > Example Request
