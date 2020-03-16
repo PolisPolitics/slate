@@ -68,81 +68,13 @@ source | true | Path to the contact attribute.
 operator | true | Operator used to compare the value and the contact attribute retrieved using the source path. Can be `eq`, `neq`, `gt`, `gte`, `lt`, `lte` or `in`.
 value | true | Value used for comparison.
 
+### Note
+
+The segment is created and deleted together with its respective survey.
+
 ### meta
 
 [See documentation](#metadata-object).
-
-## Create a segment
-
-> Default Segment Example Request
-
-```
-http
-POST /v1/segments HTTP/1.1
-Host: api.beta.polisapp.com
-Content-Type: application/json
-Authorization: Bearer {access_token}
-
-{
-  "data": {
-    "campaignId": "d012c895-4318-4725-9012-b1099e96643d",
-    "name": "Default Target",
-    "surveyId": "e2f61e8e-129d-445f-a252-cd267cbce21f",
-    "criteria": {
-      "filter": "any",
-      "clauses": [
-        {
-          "source": "1",
-          "operator": "eq",
-          "value": "1"
-        }
-      ]
-    }
-  }
-}
-
-```
-
-> Example Response
-
-```json
-{
-  "id": "98ad256a-8146-4ddf-a321-ad5bb5bc1c18",
-  "data": {
-    "name": "Default Target",
-    "criteria": {
-      "filter": "any",
-      "clauses": [
-        {
-          "value": "1",
-          "source": "1",
-          "operator": "eq"
-        }
-      ]
-    },
-    "surveyId": "e2f61e8e-129d-445f-a252-cd267cbce21f",
-    "campaignId": "d012c895-4318-4725-9012-b1099e96643d",
-    "precedence": 1
-  },
-  "meta": {
-    "etag": "270-j9FphttYgF6WfzgVSFCZ7954joU",
-    "created": "2018-09-20T16:57:34.280Z",
-    "modified": "2018-09-20T16:57:34.280Z",
-    "resource": "segments",
-    "createdBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851",
-    "isDeleted": false,
-    "modifiedBy": "13b6fc16-b84f-42a0-ad84-1135e12e0851"
-  },
-  "customerId": "f51b86dd-aaba-485e-b14d-65cbea28b8e4",
-  "securityGroupId": "af2fba23-5fb4-4d14-b406-0aac501f00c8"
-}
-```
-
-Creates a new segment.
-
-### HTTP Request
-
-`POST https://api.beta.polisapp.com/v1/segments`
 
 ## Retrieve a segment
 
@@ -276,29 +208,7 @@ Parameter | Required | Description
 --------- | -------- | -----------
 id | true | Unique identifier of the segment.
 
-## Delete a segment
-
-> Example Request
-
-```http
-DELETE https://api.beta.polisapp.com/v1/segments/f2636525-36d7-439c-924d-a2aaf3848716
-Host: api.beta.polisapp.com
-Authorization: Bearer {access_token}
-ETag: {etag_value}
-```
-
-### HTTP Request
-`DELETE https://api.beta.polisapp.com/v1/segments/{id}`
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-id | true | Unique identifier of the segement.
-
-
 ## Get many segments
-
 
 > Example Request
 
@@ -393,8 +303,6 @@ sort | true | Sort column. Ex.: `["id","ASC"]`
 Filter Example: `/data/organizationId eq "eb4dfe83-f1fd-46dd-a69d-b7cf7b566319" and /data/status eq "complete"`
 
 ## Swap precedences
-
-Note: This endpoint currently returns a 404 not found response.
 
 Swap precedences of two segments.
 
