@@ -126,6 +126,9 @@ GET /v2/notes/a0da6886-1e0e-455a-a647-54444d1d8177 HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
+```
+> Example Response
+```json
 {
 	"id": "a0da6886-1e0e-455a-a647-54444d1d8177",
 	"data": {
@@ -145,6 +148,7 @@ Authorization: Bearer {access_token}
 	"securityGroupId": "d3d173ca-d182-454f-a5fd-c6b873e02204"
 }
 ```
+
 
 ### HTTP Request
 
