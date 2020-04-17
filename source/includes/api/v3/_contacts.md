@@ -417,7 +417,7 @@ id | true | The id of the contact to be retrieved.
 > Example Request
 
 ```http
-GET /v2/contacts/e5554be7-0b3c-45cf-9c78-266dc45e2878/households/ HTTP/1.1
+GET /v2/contacts/e5554be7-0b3c-45cf-9c78-266dc45e2878/households HTTP/1.1
 Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
@@ -505,7 +505,7 @@ Authorization: Bearer {access_token}
 
 ### HTTP Request
 
-`GET https://api.beta.polisapp.com/v2/contacts/{contactId}/households/`
+`GET https://api.beta.polisapp.com/v2/contacts/{contactId}/households`
 
 ### Query Parameters
 
