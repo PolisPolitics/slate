@@ -15,12 +15,15 @@ Attribute | Required? | Description
 --------- | --------- | -----------
 unitNum | true | The unit number.
 addressId | true | Identifier of a address.
+externalId | false | A string representing an external identifier, see example has to how pass this value while creating a new object
 
 ### fullAddress
 
 Attribute | Required? | Description
 --------- | --------- | -----------
+unitNum | true | The unit number.
 address | true | [Address](#address) with an identifier.
+externalId | false | A string representing an external identifier, see example has to how pass this value while creating a new object
 
 ### address
 
@@ -149,6 +152,7 @@ List of attributes that are allowed to be used in a filter query.
 * `/customerId`
 * `/data/unitNum`
 * `/data/addressId`
+* `/data/externalId`
 
 
 ## Get a household
@@ -198,6 +202,13 @@ id | true | The id of the household to be retrieved.
 
 ## Create a household
 
+This endpoint takes an optional params attribute along with data in the body , inside which an externalId can be
+specified.
+
+**Note**: If there is a conflict with an existing document , this endpoint will return the original
+document . If you need to add the externalId to an existing household then ,use the Update household endpoint
+to patch the `/externalId` attribute.
+
 > Example Request
 
 ```http
@@ -225,7 +236,10 @@ Authorization: Bearer {access_token}
 			}
 		}
 	},
-	"customerId": "b1b101cf-646c-4ad2-86e7-9683209b1633"
+	"customerId": "b1b101cf-646c-4ad2-86e7-9683209b1633",
+	"params" : {
+	    "externalId": "12312332"
+	}
 }
 ```
 
@@ -236,7 +250,8 @@ Authorization: Bearer {access_token}
 	"id": "1b6e3e26-511c-48c5-ab38-1317072f7276",
 	"data": {
 		"unitNum": "Apt. 2",
-		"addressId": "d58ff153-ddd4-4b91-9f80-07de095b1b19"
+		"addressId": "d58ff153-ddd4-4b91-9f80-07de095b1b19",
+		"externalId": "12312332"
 	},
 	"meta": {
 		"etag": "",
@@ -350,6 +365,9 @@ id | true | The id of the household to be deleted.
 
 ## Create Many Households
 
+Each element can take an optional params attribute like the create household endpoint, inside which an externalId
+can be specfied.
+
 > Example Request
 
 ```http
@@ -380,7 +398,10 @@ Authorization: Bearar {access_token}
         },
         "formattedAddress": "1 Daphney Knoll #Apt. 2L Rempelfurt  69864-4637"
       },
-      "customerId": "36ab287b-567d-4fea-a001-297991db46cb"
+      "customerId": "36ab287b-567d-4fea-a001-297991db46cb",
+      "params": {
+        "externalId" : "12314211"
+      }
     },
     
     {
@@ -435,7 +456,8 @@ Authorization: Bearar {access_token}
            }
          },
          "unitNum": "Apt. 2L",
-         "formattedAddress": "1 Daphney Knoll #Apt. 2L Rempelfurt  69864-4637"
+         "formattedAddress": "1 Daphney Knoll #Apt. 2L Rempelfurt  69864-4637",
+         "externalId": "12314211"
        },
        "meta": {
          "etag": "21e-FmBn+WqCu6/TxglSKS0qQWwO4zM",
@@ -447,7 +469,10 @@ Authorization: Bearar {access_token}
          "modifiedBy": "54b43387-1235-4fca-b37c-deecee83c80e"
        },
        "customerId": "36ab287b-567d-4fea-a001-297991db46cb",
-       "securityGroupId": "cf344bd5-1ab9-4e50-8818-741fc1c0eeb2"
+       "securityGroupId": "cf344bd5-1ab9-4e50-8818-741fc1c0eeb2",
+       "params": {
+         "externalId": "12314211"
+       }
      },
      {
        "id": "c2722281-dbac-421e-b465-9000e5216259",
