@@ -729,6 +729,8 @@ Attribute | Required? | Description
 reserved | true | Boolean indicating if this contact is reserved for some route.
 walklistId | false | Route identifier this contact is reserved to.
 
+### meta
+
 [See documentation](#metadata-object).
 
 ## Get contact household campaign record
