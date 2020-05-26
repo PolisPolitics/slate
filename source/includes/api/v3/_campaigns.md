@@ -629,3 +629,196 @@ skip | true | Data offset index. Useful for pagination.
 sort | true | Sort column. Ex.: `["id","ASC"]`
 
 Filter Example: `/data/organizationId eq "eb4dfe83-f1fd-46dd-a69d-b7cf7b566319" and /data/status eq "complete"`
+
+
+## Get contact household campaign record
+
+Get the contact household campaign document associated with a contact ,household and a campaign. This document has 
+the status information related to the contact household in a campaign. This information is equivalent to the contact's
+status if you used the v1 contact endpoints.
+> Example Request
+
+```http
+GET /v1/campaigns/c92162c6-f604-4caf-a964-d668d8bf67c8/contacts/cc20ab46-6233-491d-82ac-94c7ba6a8997/households/e50be735-cfe3-49db-8fca-e03f630d4a7e/status HTTP/1.1
+Host: api.beta.polisapp.com
+Authorization: Bearer {access_token}
+``` 
+
+> Example Response
+
+```json
+{
+    "id": "00001820-1329-490c-b07c-2071c29329de",
+    "data": {
+        "contacted": false,
+        "campaignId": "c92162c6-f604-4caf-a964-d668d8bf67c8",
+        "successful": false,
+        "reservation": {
+            "reserved": false
+        },
+        "availability": {
+            "available": false,
+            "unavailableReason": null
+        },
+        "contactHouseholdId": "b66e4452-5fcd-4b79-bb1c-068ed7353192",
+        "state": "not-contacted-normal",
+        "statusId": "54aa7cef-877a-44ec-b2c5-442b43f5d758"
+    },
+    "meta": {
+        "etag": "295-1n/IqPXKKnZp0KmvaPoq7YWAIUI",
+        "created": "2019-09-05T20:54:33.580Z",
+        "modified": "2019-09-05T20:54:33.580Z",
+        "resource": "contact-household-campaigns",
+        "createdBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa",
+        "isDeleted": false,
+        "modifiedBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa"
+    },
+    "customerId": "bd4b51e6-804c-497d-8f60-cf7b12c56e06",
+    "securityGroupId": "2e61dbbc-02f2-4084-b36e-c3d1d39ed495"
+}
+```
+### HTTP Request
+
+`GET https://api.beta.polisapp.com/v1/campaigns/{campaignId}/contacts/{contactId}/households/{householdId}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+campaignId | true | The identifier of a campaign.
+contactId | true | The identifier of a contact.
+householdId | true | The identifier of a household.
+
+## Update a contact household campaign record
+
+> Example Request
+
+```http
+PATCH /v1/campaigns/c92162c6-f604-4caf-a964-d668d8bf67c8/contacts/cc20ab46-6233-491d-82ac-94c7ba6a8997/households/e50be735-cfe3-49db-8fca-e03f630d4a7e/status HTTP/1.1
+Host: api.beta.polisapp.com
+Authorization: Bearer {access_token}
+etag {etag value}
+{
+    "data": [
+        {
+        	 "op": "replace", "path": "/statusId", "value": "53a18d44-54f0-400e-b9cd-dd0bd32ae904" 
+        },
+        {
+        	"op": "replace", "path" : "/state", "value": "contacted-unavailable-not-home"
+        },
+        {
+        	"op": "replace", "path" : "/contacted", "value": true
+        }
+    ]
+}
+```
+
+> Example Response
+
+```json
+{
+    "id": "00001820-1329-490c-b07c-2071c29329de",
+    "data": {
+        "state": "contacted-unavailable-not-home",
+        "statusId": "53a18d44-54f0-400e-b9cd-dd0bd32ae904",
+        "contacted": true,
+        "campaignId": "c92162c6-f604-4caf-a964-d668d8bf67c8",
+        "successful": false,
+        "reservation": {
+            "reserved": false
+        },
+        "availability": {
+            "available": false,
+            "unavailableReason": null
+        },
+        "contactHouseholdId": "b66e4452-5fcd-4b79-bb1c-068ed7353192"
+    },
+    "meta": {
+        "created": "2019-09-05T20:54:33.580Z",
+        "modified": "2020-05-26T21:07:31.802Z",
+        "resource": "contact-household-campaigns",
+        "createdBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa",
+        "isDeleted": false,
+        "modifiedBy": "ccce05b9-ddad-44e0-bc4e-7e9fe37edb4a",
+        "etag": "2e5-DCRtzEum5wZhZGFCH6Spy7M8nUE"
+    },
+    "customerId": "bd4b51e6-804c-497d-8f60-cf7b12c56e06",
+    "securityGroupId": "2e61dbbc-02f2-4084-b36e-c3d1d39ed495"
+}
+```
+
+### HTTP Request
+
+`PATCH https://api.beta.polisapp.com/v1/campaigns/{campaignId}/contacts/{contactId}/households/{householdId}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+campaignId | true | The identifier of a campaign.
+contactId | true | The identifier of a contact.
+householdId | true | The identifier of a household.
+
+## Update or create new contact household campaign record
+
+> Example Request
+
+```http
+PUT /v1/campaigns/c92162c6-f604-4caf-a964-d668d8bf67c8/contacts/cc20ab46-6233-491d-82ac-94c7ba6a8997/households/e50be735-cfe3-49db-8fca-e03f630d4a7e/status HTTP/1.1
+Host: api.beta.polisapp.com
+Authorization: Bearer {access_token}
+{
+    "data": {
+    	"availability": {
+    		"available": false,
+    		"unavailableReason": "Not Home"
+    	}
+    }
+        
+}
+```
+
+> Example Response
+
+```json
+{
+    "id": "00001820-1329-490c-b07c-2071c29329de",
+    "data": {
+        "contacted": false,
+        "campaignId": "c92162c6-f604-4caf-a964-d668d8bf67c8",
+        "successful": false,
+        "reservation": {
+            "reserved": false,
+            "walklistId": null
+        },
+        "availability": {
+            "available": false,
+            "unavailableReason": "Not Home"
+        },
+        "contactHouseholdId": "b66e4452-5fcd-4b79-bb1c-068ed7353192"
+    },
+    "meta": {
+        "created": "2019-09-05T20:54:33.580Z",
+        "modified": "2020-05-26T22:05:03.442Z",
+        "resource": "contact-household-campaigns",
+        "createdBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa",
+        "isDeleted": false,
+        "modifiedBy": "ccce05b9-ddad-44e0-bc4e-7e9fe37edb4a",
+        "etag": "2a3-NWxUWrbVIRmWaHKOPWIcYA5G0jg"
+    },
+    "customerId": "bd4b51e6-804c-497d-8f60-cf7b12c56e06",
+    "securityGroupId": "2e61dbbc-02f2-4084-b36e-c3d1d39ed495"
+}
+```
+
+### HTTP Request
+
+`PUT https://api.beta.polisapp.com/v1/campaigns/{campaignId}/contacts/{contactId}/households/{householdId}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+campaignId | true | The identifier of a campaign.
+contactId | true | The identifier of a contact.
+householdId | true | The identifier of a household.
