@@ -629,3 +629,301 @@ skip | true | Data offset index. Useful for pagination.
 sort | true | Sort column. Ex.: `["id","ASC"]`
 
 Filter Example: `/data/organizationId eq "eb4dfe83-f1fd-46dd-a69d-b7cf7b566319" and /data/status eq "complete"`
+
+
+## The Contact Household Campaign document
+
+```json
+{
+    "id": "00001820-1329-490c-b07c-2071c29329de",
+    "data": {
+        "contacted": false,
+        "campaignId": "c92162c6-f604-4caf-a964-d668d8bf67c8",
+        "successful": false,
+        "reservation": {
+            "reserved": false
+        },
+        "availability": {
+            "available": false,
+            "unavailableReason": null
+        },
+        "contactHouseholdId": "b66e4452-5fcd-4b79-bb1c-068ed7353192",
+        "state": "not-contacted-normal",
+        "statusId": "54aa7cef-877a-44ec-b2c5-442b43f5d758"
+    },
+    "meta": {
+        "etag": "295-1n/IqPXKKnZp0KmvaPoq7YWAIUI",
+        "created": "2019-09-05T20:54:33.580Z",
+        "modified": "2019-09-05T20:54:33.580Z",
+        "resource": "contact-household-campaigns",
+        "createdBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa",
+        "isDeleted": false,
+        "modifiedBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa"
+    },
+    "customerId": "bd4b51e6-804c-497d-8f60-cf7b12c56e06",
+    "securityGroupId": "2e61dbbc-02f2-4084-b36e-c3d1d39ed495"
+}
+```
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+id | true | Unique identifier for the object.
+customerId | true | Customer this resource belongs to.
+securityGroupId | true | Security group of this resource.
+data | true | Campaign data.
+
+### data
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+contacted | false | Flag indicating if the contact household has ever been contacted within the context of the campaign
+campaignId | true | The identifier of a campaign
+contactHouseholdId | true | The identifier of the document that represents a contact and household.While using the PUT request described below , this attribute is auto populated based on contactId and householdId in the request url
+state | false | Property that categorizes a contact by it's interaction [details](#data-state).
+statusId | false | Id of a status object. [details](#data-statusId).
+type | false | The type of list the contact household is associated with. [details](#data-type).
+availability | false | Availablity information [details](#data-availability)
+reservation | false | Route reservation [details](#data-reservation)
+
+
+### data/type
+
+Allowed values:
+
+* `'do-not-knock'`
+* `'high-priority'`
+* `'normal'`
+
+### data/state
+
+Allowed values:
+
+* `'appointment'`
+* `'not-contacted-high-priority'`
+* `'not-contacted-do-not-knock'`
+* `'not-contacted-normal'`
+* `'contacted-available-successful'`
+* `'contacted-available-not-successful'`
+* `'contacted-unavailable-not-home'`
+* `'contacted-unavailable-other'`
+* `'come-back'`
+* `'unknown'`
+
+### data/statusId
+
+The statusId property must point to the id property of a status object.
+This status' `contactState` property must have the same value of the contact's `state` property, otherwise it's id will not be a valid statusId for the contact object.
+
+
+### data/availability
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+available | false | Flag indicating whether the contact at the household was available or not
+unavailableReason | false | Populated if the contact was unavailable
+
+### data/reservation
+
+Attribute | Required? | Description
+--------- | --------- | -----------
+reserved | true | Boolean indicating if this contact is reserved for some route.
+walklistId | false | Route identifier this contact is reserved to.
+
+### meta
+
+[See documentation](#metadata-object).
+
+## Get contact household campaign record
+
+
+> Example Request
+
+```http
+GET /v1/campaigns/c92162c6-f604-4caf-a964-d668d8bf67c8/contacts/cc20ab46-6233-491d-82ac-94c7ba6a8997/households/e50be735-cfe3-49db-8fca-e03f630d4a7e/status HTTP/1.1
+Host: api.beta.polisapp.com
+Authorization: Bearer {access_token}
+``` 
+
+> Example Response
+
+```json
+{
+    "id": "00001820-1329-490c-b07c-2071c29329de",
+    "data": {
+        "contacted": false,
+        "campaignId": "c92162c6-f604-4caf-a964-d668d8bf67c8",
+        "successful": false,
+        "reservation": {
+            "reserved": false
+        },
+        "availability": {
+            "available": false,
+            "unavailableReason": null
+        },
+        "contactHouseholdId": "b66e4452-5fcd-4b79-bb1c-068ed7353192",
+        "state": "not-contacted-normal",
+        "statusId": "54aa7cef-877a-44ec-b2c5-442b43f5d758"
+    },
+    "meta": {
+        "etag": "295-1n/IqPXKKnZp0KmvaPoq7YWAIUI",
+        "created": "2019-09-05T20:54:33.580Z",
+        "modified": "2019-09-05T20:54:33.580Z",
+        "resource": "contact-household-campaigns",
+        "createdBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa",
+        "isDeleted": false,
+        "modifiedBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa"
+    },
+    "customerId": "bd4b51e6-804c-497d-8f60-cf7b12c56e06",
+    "securityGroupId": "2e61dbbc-02f2-4084-b36e-c3d1d39ed495"
+}
+```
+### HTTP Request
+
+`GET https://api.beta.polisapp.com/v1/campaigns/{campaignId}/contacts/{contactId}/households/{householdId}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+campaignId | true | The identifier of a campaign.
+contactId | true | The identifier of a contact.
+householdId | true | The identifier of a household.
+
+## Update status of a contact household campaign record
+
+<aside class="notice">
+You can only patch only  <b>/data/statusId</b> key. The contacted and state will be auto populated
+</aside>
+
+[RFC 6902 - JavaScript Object Notation (JSON) Patch](https://tools.ietf.org/html/rfc6902)
+
+> Example Request
+
+```http
+PATCH /v1/campaigns/c92162c6-f604-4caf-a964-d668d8bf67c8/contacts/cc20ab46-6233-491d-82ac-94c7ba6a8997/households/e50be735-cfe3-49db-8fca-e03f630d4a7e/status HTTP/1.1
+Host: api.beta.polisapp.com
+Authorization: Bearer {access_token}
+etag {etag value}
+{
+    "data": [
+        {
+        	 "op": "replace", "path": "/statusId", "value": "53a18d44-54f0-400e-b9cd-dd0bd32ae904" 
+        }
+    ]
+}
+```
+
+> Example Response
+
+```json
+{
+    "id": "00001820-1329-490c-b07c-2071c29329de",
+    "data": {
+        "state": "contacted-unavailable-not-home",
+        "statusId": "53a18d44-54f0-400e-b9cd-dd0bd32ae904",
+        "contacted": true,
+        "campaignId": "c92162c6-f604-4caf-a964-d668d8bf67c8",
+        "successful": false,
+        "reservation": {
+            "reserved": false
+        },
+        "availability": {
+            "available": false,
+            "unavailableReason": null
+        },
+        "contactHouseholdId": "b66e4452-5fcd-4b79-bb1c-068ed7353192"
+    },
+    "meta": {
+        "created": "2019-09-05T20:54:33.580Z",
+        "modified": "2020-05-26T21:07:31.802Z",
+        "resource": "contact-household-campaigns",
+        "createdBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa",
+        "isDeleted": false,
+        "modifiedBy": "ccce05b9-ddad-44e0-bc4e-7e9fe37edb4a",
+        "etag": "2e5-DCRtzEum5wZhZGFCH6Spy7M8nUE"
+    },
+    "customerId": "bd4b51e6-804c-497d-8f60-cf7b12c56e06",
+    "securityGroupId": "2e61dbbc-02f2-4084-b36e-c3d1d39ed495"
+}
+```
+
+### HTTP Request
+
+`PATCH https://api.beta.polisapp.com/v1/campaigns/{campaignId}/contacts/{contactId}/households/{householdId}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+campaignId | true | The identifier of a campaign.
+contactId | true | The identifier of a contact.
+householdId | true | The identifier of a household.
+
+## Update or create new contact household campaign record
+
+This endpoint allows creating a new contact household campaign record or updating an existing contact household campaign record.
+
+The body of the request as shown in the example will take { "data" : { attributes inside the data object described above in the object description }
+
+> Example Request
+
+```http
+PUT /v1/campaigns/c92162c6-f604-4caf-a964-d668d8bf67c8/contacts/cc20ab46-6233-491d-82ac-94c7ba6a8997/households/e50be735-cfe3-49db-8fca-e03f630d4a7e/status HTTP/1.1
+Host: api.beta.polisapp.com
+Authorization: Bearer {access_token}
+{
+    "data": {
+    	"availability": {
+    		"available": false,
+    		"unavailableReason": "Not Home"
+    	}
+    }
+        
+}
+```
+
+> Example Response
+
+```json
+{
+    "id": "00001820-1329-490c-b07c-2071c29329de",
+    "data": {
+        "contacted": false,
+        "campaignId": "c92162c6-f604-4caf-a964-d668d8bf67c8",
+        "successful": false,
+        "reservation": {
+            "reserved": false,
+            "walklistId": null
+        },
+        "availability": {
+            "available": false,
+            "unavailableReason": "Not Home"
+        },
+        "contactHouseholdId": "b66e4452-5fcd-4b79-bb1c-068ed7353192"
+    },
+    "meta": {
+        "created": "2019-09-05T20:54:33.580Z",
+        "modified": "2020-05-26T22:05:03.442Z",
+        "resource": "contact-household-campaigns",
+        "createdBy": "f7db3e84-e0f0-4b8b-94b2-2e5675ddddaa",
+        "isDeleted": false,
+        "modifiedBy": "ccce05b9-ddad-44e0-bc4e-7e9fe37edb4a",
+        "etag": "2a3-NWxUWrbVIRmWaHKOPWIcYA5G0jg"
+    },
+    "customerId": "bd4b51e6-804c-497d-8f60-cf7b12c56e06",
+    "securityGroupId": "2e61dbbc-02f2-4084-b36e-c3d1d39ed495"
+}
+```
+
+### HTTP Request
+
+`PUT https://api.beta.polisapp.com/v1/campaigns/{campaignId}/contacts/{contactId}/households/{householdId}`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+campaignId | true | The identifier of a campaign.
+contactId | true | The identifier of a contact.
+householdId | true | The identifier of a household.
+
