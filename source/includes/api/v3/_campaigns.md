@@ -735,9 +735,7 @@ walklistId | false | Route identifier this contact is reserved to.
 
 ## Get contact household campaign record
 
-Get the contact household campaign document associated with a contact ,household and a campaign. This document has 
-the status information related to the contact household in a campaign. This information is equivalent to the contact's
-status if you used the v1 contact endpoints.
+
 > Example Request
 
 ```http
