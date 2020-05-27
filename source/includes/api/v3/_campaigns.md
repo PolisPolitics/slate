@@ -789,10 +789,10 @@ campaignId | true | The identifier of a campaign.
 contactId | true | The identifier of a contact.
 householdId | true | The identifier of a household.
 
-## Update a contact household campaign record
+## Update status of a contact household campaign record
 
 <aside class="notice">
-You can only patch attributes inside <b>data</b> key.
+You can only patch only  <b>/data/statusId</b> key. The contacted and state will be auto populated
 </aside>
 
 [RFC 6902 - JavaScript Object Notation (JSON) Patch](https://tools.ietf.org/html/rfc6902)
@@ -808,12 +808,6 @@ etag {etag value}
     "data": [
         {
         	 "op": "replace", "path": "/statusId", "value": "53a18d44-54f0-400e-b9cd-dd0bd32ae904" 
-        },
-        {
-        	"op": "replace", "path" : "/state", "value": "contacted-unavailable-not-home"
-        },
-        {
-        	"op": "replace", "path" : "/contacted", "value": true
         }
     ]
 }
