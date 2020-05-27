@@ -676,14 +676,14 @@ data | true | Campaign data.
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-contacted | false | Flag indicating if the contact household has ever been contacted
+contacted | false | Flag indicating if the contact household has ever been contacted within the context of the campaign
 campaignId | true | The identifier of a campaign
-contactHouseholdId | true | The identifier of the document that represents a contact and household.While using the PUT request described below , this attribute is auto populated based on contactId and householdId
-state | false | Property that categorizes a contact by it's interaction [details](#data/state).
-statusId | false | Id of a status object. [details](#data/statusId).
-type | false | The type of list the contact household is associated with. [details](#data/type).
-availability | false | Availablity information [details](#data/availability)
-reservation | false | Route reservation [details](#data/reservation)
+contactHouseholdId | true | The identifier of the document that represents a contact and household.While using the PUT request described below , this attribute is auto populated based on contactId and householdId in the request url
+state | false | Property that categorizes a contact by it's interaction [details](#data-state).
+statusId | false | Id of a status object. [details](#data-statusId).
+type | false | The type of list the contact household is associated with. [details](#data-type).
+availability | false | Availablity information [details](#data-availability)
+reservation | false | Route reservation [details](#data-reservation)
 
 
 ### data/type
@@ -866,6 +866,10 @@ contactId | true | The identifier of a contact.
 householdId | true | The identifier of a household.
 
 ## Update or create new contact household campaign record
+
+This endpoint allows creating a new contact household campaign record or updating an existing contact household campaign record.
+
+The body of the request as shown in the example will take { "data" : { attributes inside the data object described above in the object description }
 
 > Example Request
 
