@@ -520,6 +520,8 @@ sort | true | Sort the column in `ASC` or `DESC` e.g. ['id', 'ASC']
 
 ## Create a contact
 
+ 
+
 > Example Request
 
 ```http
@@ -528,116 +530,99 @@ Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
-	"data": {
-		"fields": {},
-		"profile": {
-			"emails": [
-				{
-					"email": "007@hotmail.com",
-					"active": true,
-					"primary": true
-				},
-				{
-					"email": "licensetokill@hotmail.com",
-					"active": true,
-					"primary": false
-				}
-			],
-			"gender": "m",
-			"phones": [
-				{
-					"phone": "777.777.7007 x72507",
-					"active": true,
-					"primary": true,
-					"phoneType": "mobile"
-				},
-				{
-					"phone": "1-960-777-7777",
-					"active": true,
-					"primary": false,
-					"phoneType": "mobile"
-				}
-			]
-		},
-		"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
-	},
-	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6"
+    "data": {
+        "fields": {},
+        "profile": {
+            "emails": [
+                {
+                    "email": "007@hotmail.com",
+                    "active": true,
+                    "primary": true
+                },
+                {
+                    "email": "licensetokill@hotmail.com",
+                    "active": true,
+                    "primary": false
+                }
+            ],
+            "gender": "m",
+            "phones": [
+                {
+                    "phone": "777.777.7007 x72507",
+                    "active": true,
+                    "primary": true,
+                    "phoneType": "mobile"
+                },
+                {
+                    "phone": "1-960-777-7777",
+                    "active": true,
+                    "primary": false,
+                    "phoneType": "mobile"
+                }
+            ]
+        },
+        "primaryHouseholdId": "1c5a7b68-ffc1-4393-a039-475081e23a92"
+    },
+    "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28"
 }
 ```
 
 > Example Response
 
 ```json
-{
-	"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
-	"data": {
-		"fields": {
-			"2438cc93-4395-4ded-99f0-0a4ac88e2577": 1,
-			"510922c1-0a7e-40e1-b329-168b88c6cf3b": "laboriosam",
-			"60a528b7-1b36-483a-9bdb-65c00b067e62": [
-				"Snake"
-			],
-			"77227e62-d098-46b3-985b-a83e19a4850d": "House",
-			"7e23f830-23a1-42dc-a33b-5617402cd880": "nemo",
-			"83439622-cf55-4f0d-a7da-046862b73761": "true",
-			"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "at",
-			"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Deceased",
-			"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
-				"Dog"
-			],
-			"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
-		},
-		"status": "pending",
-		"profile": {
-			"age": 66,
-			"name": {
-				"anglican": {
-					"given": "James",
-					"surname": "Bond"
-				}
-			},
-			"emails": [
-				{
-					"email": "007@hotmail.com",
-					"active": true,
-					"primary": true
-				},
-				{
-					"email": "licensetokill@hotmail.com",
-					"active": true,
-					"primary": false
-				}
-			],
-			"gender": "m",
-			"phones": [
-				{
-					"phone": "777.777.7007 x72507",
-					"active": true,
-					"primary": true,
-					"phoneType": "mobile"
-				},
-				{
-					"phone": "1-960-777-7777",
-					"active": true,
-					"primary": false,
-					"phoneType": "mobile"
-				}
-			]
-		},
-		"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
-	},
-	"meta": {
-		"etag": "",
-		"created": "2019-04-03T18:55:30.718Z",
-		"modified": "2019-04-03T18:55:30.718Z",
-		"resource": "contacts",
-		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
-		"isDeleted": false,
-		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
-	},
-	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
-	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
-}
+ {
+            "id": "64ced9cb-cb1f-4ad4-9c37-55d00e7e84ef",
+            "data": {
+                "fields": {},
+                "profile": {
+                    "name": {
+                        "anglican": {
+                            "given": "",
+                            "surname": ""
+                        }
+                    },
+                    "emails": [
+                        {
+                            "email": "007@hotmail.com",
+                            "active": true,
+                            "primary": true
+                        },
+                        {
+                            "email": "licensetokill@hotmail.com",
+                            "active": true,
+                            "primary": false
+                        }
+                    ],
+                    "gender": "m",
+                    "phones": [
+                        {
+                            "phone": "777.777.7007 x72507",
+                            "active": true,
+                            "primary": true,
+                            "phoneType": "mobile"
+                        },
+                        {
+                            "phone": "1-960-777-7777",
+                            "active": true,
+                            "primary": false,
+                            "phoneType": "mobile"
+                        }
+                    ]
+                },
+                "primaryHouseholdId": "1c5a7b68-ffc1-4393-a039-475081e23a92"
+            },
+            "meta": {
+                "etag": "352-v3wHQSTdNu5yx95B0mrqdf0tkJw",
+                "created": "2020-05-29T15:25:59.640Z",
+                "modified": "2020-05-29T15:25:59.640Z",
+                "resource": "contacts",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        }
 ```
 
 ### HTTP Request
@@ -651,7 +636,27 @@ Parameter | Required | Description
 data | true | The data of contact to be created
 customerId | false | The id of the customer to which this resource belongs
 
+<b>Note:</b> This endpoint returns the contact that already exists if there is a confict with an existing one. 
+ The unique constraints are on the columns listed below. If there is a contact already with the exact same values
+ for all the 6 attributes then it returns the existing contact instead of creating a new one.
+ 
+ ### data/profile/name/anglican
+ 
+ Attribute | 
+ --------- | 
+ title |
+ given |
+ middlename |
+ surname |
+ suffix |
+
+### data
+Attribute |
+--------- | 
+ primaryHouseholdId |
+
 ## Create many contacts
+
 
 > Example Request
 
@@ -661,81 +666,81 @@ Host: api.beta.polisapp.com
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
-	"data": [
-		{
-			"data": {
-				"fields": {},
-				"profile": {
-					"emails": [
-						{
-							"email": "007@hotmail.com",
-							"active": true,
-							"primary": true
-						},
-						{
-							"email": "licensetokill@hotmail.com",
-							"active": true,
-							"primary": false
-						}
-					],
-					"gender": "m",
-					"phones": [
-						{
-							"phone": "777.777.7007 x72507",
-							"active": true,
-							"primary": true,
-							"phoneType": "mobile"
-						},
-						{
-							"phone": "1-960-777-7777",
-							"active": true,
-							"primary": false,
-							"phoneType": "mobile"
-						}
-					]
-				},
-				"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
-			},
-			"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6"
-		},
-		{
-			"data": {
-				"fields": {},
-				"profile": {
-					"age": 63,
-					"name": {
-						"anglican": {
-							"given": "Aegon",
-							"surname": "Targaeryan"
-						}
-					},
-					"emails": [
-						{
-							"email": "callmejon@ravenmail.com",
-							"active": true,
-							"primary": true
-						},
-						{
-							"email": "lordcommander@nightswatch.com",
-							"active": true,
-							"primary": false
-						}
-					],
-					"gender": "n",
-					"phones": [
-						{
-							"phone": "(111) 111-1111",
-							"active": true,
-							"primary": true,
-							"phoneType": "home"
-						}
-					]
-				},
-				"primaryHouseholdId": "f0cbc9d5-28e0-4123-bcb5-80ece858153c"
-			},
-			"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6"
-		}
-	]
+    "data": [
+        {
+            "data": {
+                "fields": {},
+                "profile": {
+                    "emails": [
+                        {
+                            "email": "007@hotmail.com",
+                            "active": true,
+                            "primary": true
+                        },
+                        {
+                            "email": "licensetokill@hotmail.com",
+                            "active": true,
+                            "primary": false
+                        }
+                    ],
+                    "gender": "m",
+                    "phones": [
+                        {
+                            "phone": "777.777.7007 x72507",
+                            "active": true,
+                            "primary": true,
+                            "phoneType": "mobile"
+                        },
+                        {
+                            "phone": "1-960-777-7777",
+                            "active": true,
+                            "primary": false,
+                            "phoneType": "mobile"
+                        }
+                    ]
+                },
+                "primaryHouseholdId": "1c5a7b68-ffc1-4393-a039-475081e23a92"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28"
+        },
+        {
+            "data": {
+                "fields": {},
+                "profile": {
+                    "age": 63,
+                    "name": {
+                        "anglican": {
+                            "given": "Aegon",
+                            "surname": "Targaeryan"
+                        }
+                    },
+                    "emails": [
+                        {
+                            "email": "callmejon@ravenmail.com",
+                            "active": true,
+                            "primary": true
+                        },
+                        {
+                            "email": "lordcommander@nightswatch.com",
+                            "active": true,
+                            "primary": false
+                        }
+                    ],
+                    "gender": "n",
+                    "phones": [
+                        {
+                            "phone": "(111) 111-1111",
+                            "active": true,
+                            "primary": true,
+                            "phoneType": "home"
+                        }
+                    ]
+                },
+                "primaryHouseholdId": "1c5a7b68-ffc1-4393-a039-475081e23a92"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28"
+        }
+    ]
 }
 ```
 
@@ -743,80 +748,129 @@ Authorization: Bearer {access_token}
 
 ```json
 {
-	"id": "b7a9a3e2-e419-4c0a-9d03-4c8f280b2967",
-	"data": {
-		"fields": {
-			"2438cc93-4395-4ded-99f0-0a4ac88e2577": 1,
-			"510922c1-0a7e-40e1-b329-168b88c6cf3b": "laboriosam",
-			"60a528b7-1b36-483a-9bdb-65c00b067e62": [
-				"Snake"
-			],
-			"77227e62-d098-46b3-985b-a83e19a4850d": "House",
-			"7e23f830-23a1-42dc-a33b-5617402cd880": "nemo",
-			"83439622-cf55-4f0d-a7da-046862b73761": "true",
-			"940f694b-d8d6-4b40-9f3d-efe9b6b110b5": "at",
-			"b0f2bc7e-3089-401d-afb7-5e6659d0f1e6": "Deceased",
-			"eb444550-4f38-43a2-a5c0-6634c3d9a003": [
-				"Dog"
-			],
-			"fea9b266-3def-4d4e-89fd-824bfed902a3": "true"
-		},
-		"status": "pending",
-		"profile": {
-			"age": 66,
-			"name": {
-				"anglican": {
-					"given": "James",
-					"surname": "Bond"
-				}
-			},
-			"emails": [
-				{
-					"email": "007@hotmail.com",
-					"active": true,
-					"primary": true
-				},
-				{
-					"email": "licensetokill@hotmail.com",
-					"active": true,
-					"primary": false
-				}
-			],
-			"gender": "m",
-			"phones": [
-				{
-					"phone": "777.777.7007 x72507",
-					"active": true,
-					"primary": true,
-					"phoneType": "mobile"
-				},
-				{
-					"phone": "1-960-777-7777",
-					"active": true,
-					"primary": false,
-					"phoneType": "mobile"
-				}
-			]
-		},
-		"primaryHouseholdId": "d2aa6679-62e2-40ec-aeb7-616ad3a3f77d"
-	},
-	"meta": {
-		"etag": "",
-		"created": "2019-04-03T18:55:30.718Z",
-		"modified": "2019-04-03T18:55:30.718Z",
-		"resource": "contacts",
-		"createdBy": "cff4a05f-2612-471d-821d-8782627d42aa",
-		"isDeleted": false,
-		"modifiedBy": "cff4a05f-2612-471d-821d-8782627d42aa"
-	},
-	"customerId": "286d1af1-c2c5-4069-a19d-3987fdacc0d6",
-	"securityGroupId": "3b825553-4f43-4893-a960-b642ba676fa0"
+    "data": [
+        {
+            "id": "64ced9cb-cb1f-4ad4-9c37-55d00e7e84ef",
+            "data": {
+                "fields": {},
+                "profile": {
+                    "name": {
+                        "anglican": {
+                            "given": "",
+                            "surname": ""
+                        }
+                    },
+                    "emails": [
+                        {
+                            "email": "007@hotmail.com",
+                            "active": true,
+                            "primary": true
+                        },
+                        {
+                            "email": "licensetokill@hotmail.com",
+                            "active": true,
+                            "primary": false
+                        }
+                    ],
+                    "gender": "m",
+                    "phones": [
+                        {
+                            "phone": "777.777.7007 x72507",
+                            "active": true,
+                            "primary": true,
+                            "phoneType": "mobile"
+                        },
+                        {
+                            "phone": "1-960-777-7777",
+                            "active": true,
+                            "primary": false,
+                            "phoneType": "mobile"
+                        }
+                    ]
+                },
+                "primaryHouseholdId": "1c5a7b68-ffc1-4393-a039-475081e23a92"
+            },
+            "meta": {
+                "etag": "352-v3wHQSTdNu5yx95B0mrqdf0tkJw",
+                "created": "2020-05-29T15:25:59.640Z",
+                "modified": "2020-05-29T15:25:59.640Z",
+                "resource": "contacts",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        },
+        {
+            "id": "ba5f3363-842c-45a1-a52f-caa21fef9697",
+            "data": {
+                "fields": {},
+                "profile": {
+                    "age": 63,
+                    "name": {
+                        "anglican": {
+                            "given": "Aegon",
+                            "surname": "Targaeryan"
+                        }
+                    },
+                    "emails": [
+                        {
+                            "email": "callmejon@ravenmail.com",
+                            "active": true,
+                            "primary": true
+                        },
+                        {
+                            "email": "lordcommander@nightswatch.com",
+                            "active": true,
+                            "primary": false
+                        }
+                    ],
+                    "gender": "n",
+                    "phones": [
+                        {
+                            "phone": "(111) 111-1111",
+                            "active": true,
+                            "primary": true,
+                            "phoneType": "home"
+                        }
+                    ]
+                },
+                "primaryHouseholdId": "1c5a7b68-ffc1-4393-a039-475081e23a92"
+            },
+            "meta": {
+                "etag": "321-quhqfn73dWaIynUvEto6IO5BrKU",
+                "created": "2020-05-29T15:30:34.745Z",
+                "modified": "2020-05-29T15:30:34.745Z",
+                "resource": "contacts",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        }
+    ],
+    "meta": {},
+    "errors": [
+        {
+            "name": "ExistsError",
+            "message": "Contact already exists",
+            "data": {
+                "position": 0
+            }
+        }
+    ]
 }
 ```
 
 ### HTTP Request
 
 `POST https://api.beta.polisapp.com/v2/contacts/bulk`
+
+<b>Note:</b> This endpoint has an upper limit of 1000 contacts and a lower limit of 1 contact per request.
+Like the endpoint for creating a single contact , this endpoint too will return the existing contact if there is conflict.
+
 
 
 ## Update many contacts
