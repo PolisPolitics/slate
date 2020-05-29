@@ -638,8 +638,7 @@ customerId | false | The id of the customer to which this resource belongs
 
 <b>Note:</b> This endpoint returns the contact that already exists if there is a confict with an existing one. 
               The unique constraints are on the attributes <b> title, given, middlename, surname, suffix, primaryHouseholdId. </b> If there is a contact already with the exact same values
-              for all the 6 attributes then it returns the existing contact instead of creating a new one
-              .These attributes can be found as follows:
+              for all the 6 attributes then it returns the existing contact instead of creating a new one.These attributes can be found as follows:
  
  
 ### data/profile/name/anglican
