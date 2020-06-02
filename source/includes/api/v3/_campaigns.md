@@ -712,7 +712,11 @@ Allowed values:
 ### data/statusId
 
 The statusId property must point to the id property of a status object.
-This status' `contactState` property must have the same value of the contact's `state` property, otherwise it's id will not be a valid statusId for the contact object.
+This status' `contactState` property must have the same value of the contact's `state` property, otherwise its id will not be a valid statusId for the contact object. A validation error will be thrown.
+
+The statusId defined here determines the pin shown on the map for the contact-household within the
+context of the campaign. If the contact-household has not yet been contacted or does not have a statusId
+set, the contact-household assumes the status (and pin) of the list on which the contact-household sits.
 
 
 ### data/availability
