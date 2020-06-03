@@ -931,3 +931,113 @@ campaignId | true | The identifier of a campaign.
 contactId | true | The identifier of a contact.
 householdId | true | The identifier of a household.
 
+## Update or Create new Contact Household Campaing records in bulk
+
+> Example Request
+
+```http
+PUT /v1/campaigns/contact-households/bulk HTTP/1.1
+Host: api.beta.polisapp.com
+Authorization: Bearer {access_token}
+{
+    "data": [
+        {
+            "data": {
+                "campaignId": "ee2431c5-2bc0-4dd2-8f8c-43aac9f261a3",
+                "statusId": "61b16b93-f0a5-4f90-948f-0c6c3fd4d6d3"
+            },
+            "params": {
+                "contactId": "af29cb76-71de-4e78-ac46-f1b375d613a9",
+                "householdId": "b76ac7c2-9b90-4e88-a5b5-0325af131921"
+            }
+        },
+        {
+            "data": {
+                "campaignId": "ee2431c5-2bc0-4dd2-8f8c-43aac9f261a3",
+                "statusId": "61b16b93-f0a5-4f90-948f-0c6c3fd4d6d3"
+            },
+            "params": {
+                "contactId": "ec0faeb0-9844-45cc-89b8-ce91a26c79f1",
+                "householdId": "ca8462fd-c080-470d-803d-60b372467532"
+            }
+        }
+    ]
+}
+```
+
+> Example Response
+
+```json
+{
+    "data": [
+        {
+            "id": "733cae80-fae1-4499-a76a-9cc75c7f362b",
+            "data": {
+                "state": "contacted-available-successful",
+                "statusId": "61b16b93-f0a5-4f90-948f-0c6c3fd4d6d3",
+                "contacted": true,
+                "campaignId": "ee2431c5-2bc0-4dd2-8f8c-43aac9f261a3",
+                "successful": false,
+                "contactHouseholdId": "0698f7a0-a96a-48fd-86ef-bbaad6c25e6d"
+            },
+            "meta": {
+                "etag": "292-a4ZiBq8ZFVLnI6HPu5JAokvYc08",
+                "created": "2020-06-03T14:51:34.587Z",
+                "modified": "2020-06-03T14:51:34.587Z",
+                "resource": "contact-household-campaigns",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        },
+        {
+            "id": "31e601fa-3d3e-4cd5-8218-11a2f7d058ee",
+            "data": {
+                "state": "contacted-available-successful",
+                "statusId": "61b16b93-f0a5-4f90-948f-0c6c3fd4d6d3",
+                "contacted": true,
+                "campaignId": "ee2431c5-2bc0-4dd2-8f8c-43aac9f261a3",
+                "successful": false,
+                "contactHouseholdId": "fe49d26b-f6fb-40e7-9345-84b303e97ea7"
+            },
+            "meta": {
+                "etag": "292-1igFZ+7EYuW1IsNszE6MLcqT2ks",
+                "created": "2020-06-03T14:51:34.587Z",
+                "modified": "2020-06-03T14:51:34.587Z",
+                "resource": "contact-household-campaigns",
+                "createdBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c",
+                "isDeleted": false,
+                "modifiedBy": "931596ea-8ac6-44c5-8aa7-e11456fca02c"
+            },
+            "customerId": "21667034-d83a-4644-b5df-dde5bd8f3a28",
+            "securityGroupId": "5b24c6ae-9759-4773-933f-f411787b120e"
+        }
+    ],
+    "meta": {}
+}
+```
+
+This endpoint is similar to the PUT request above , but takes allows associating statusId with multiple contact households.
+It creates the document if it does not exist and updates an already existing document. 
+
+**NOTE** This endpoint expects that every contactId and householdId in the input is already associated and there 
+is contact-household document . 
+
+### HTTP Request
+
+`POST https://api.beta.polisapp.com/v1/campaigns/campaigns/contact-households/bulk`
+
+### Required attributes
+
+Each item in the input array must have the following values
+
+Parameter | Path | Description
+--------- | -------- | -----------
+campaignId | /data/campaignId | The identifier of the campaign and all items must have the same campaignId
+contactId | /params/contactId | The identifier of a contact. the contact must already be associated with household
+householdId | /params/householdId | The identifier of a household. the household must already be associated with the contact
+statusId | /data/statusId | The identifier of the status which the contact household must have in the campaign
+
+
