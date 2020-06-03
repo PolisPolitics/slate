@@ -1023,7 +1023,7 @@ This endpoint is similar to the PUT request above , but allows associating statu
 It creates the document if it does not exist and updates an already existing document. 
 
 **NOTE** This endpoint expects that every contactId and householdId in the input is already associated and there 
-is contact-household document . 
+is a contact-household document . 
 
 ### HTTP Request
 
