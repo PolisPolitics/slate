@@ -1019,7 +1019,7 @@ Authorization: Bearer {access_token}
 }
 ```
 
-This endpoint is similar to the PUT request above , but takes allows associating statusId with multiple contact households.
+This endpoint is similar to the PUT request above , but allows associating statusIds with multiple contact households respectively.
 It creates the document if it does not exist and updates an already existing document. 
 
 **NOTE** This endpoint expects that every contactId and householdId in the input is already associated and there 
