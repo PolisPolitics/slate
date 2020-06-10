@@ -311,6 +311,7 @@ Swap precedences of two segments.
 ```http
 POST /v1/segments/swap-precedences HTTP/1.1
 Host: api.beta.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
 {
   "data": {

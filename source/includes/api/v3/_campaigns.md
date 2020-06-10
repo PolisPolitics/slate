@@ -230,6 +230,7 @@ Check Surveys and Segments documentations.
 ```http
 GET /v1/campaigns/f2636525-36d7-439c-924d-a2aaf3848716 HTTP/1.1
 Host: api.beta.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
 
@@ -469,6 +470,7 @@ id | true | Unique identifier of the campaign.
 ```http
 GET /v1/campaigns?filter=%2Fdata%2ForganizationId%20eq%20%22eb4dfe83-f1fd-46dd-a69d-b7cf7b566319%22%20and%20%2Fdata%2Fstatus%20eq%20%22complete%22&limit=10&skip=0&sort=%5B%22data%2Fname%22%2C%22ASC%22%5D HTTP/1.1
 Host: api.beta.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
 
@@ -745,6 +747,7 @@ walklistId | false | Route identifier this contact is reserved to.
 ```http
 GET /v1/campaigns/c92162c6-f604-4caf-a964-d668d8bf67c8/contacts/cc20ab46-6233-491d-82ac-94c7ba6a8997/households/e50be735-cfe3-49db-8fca-e03f630d4a7e/status HTTP/1.1
 Host: api.beta.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
 ``` 
 
@@ -806,6 +809,7 @@ You can only patch only  <b>/data/statusId</b> key. The contacted and state will
 ```http
 PATCH /v1/campaigns/c92162c6-f604-4caf-a964-d668d8bf67c8/contacts/cc20ab46-6233-491d-82ac-94c7ba6a8997/households/e50be735-cfe3-49db-8fca-e03f630d4a7e/status HTTP/1.1
 Host: api.beta.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
 etag {etag value}
 {
@@ -874,6 +878,7 @@ The body of the request as shown in the example will take { "data" : { attribute
 ```http
 PUT /v1/campaigns/c92162c6-f604-4caf-a964-d668d8bf67c8/contacts/cc20ab46-6233-491d-82ac-94c7ba6a8997/households/e50be735-cfe3-49db-8fca-e03f630d4a7e/status HTTP/1.1
 Host: api.beta.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
 {
     "data": {
@@ -936,8 +941,9 @@ householdId | true | The identifier of a household.
 > Example Request
 
 ```http
-PUT /v1/campaigns/contact-households/bulk HTTP/1.1
+POST /v1/campaigns/contact-households/bulk HTTP/1.1
 Host: api.beta.polisapp.com
+Content-Type: application/json
 Authorization: Bearer {access_token}
 {
     "data": [
@@ -1027,7 +1033,7 @@ is a contact-household document .
 
 ### HTTP Request
 
-`POST https://api.beta.polisapp.com/v1/campaigns/campaigns/contact-households/bulk`
+`POST https://api.beta.polisapp.com/v1/campaigns/contact-households/bulk`
 
 ### Required attributes
 
