@@ -936,7 +936,7 @@ campaignId | true | The identifier of a campaign.
 contactId | true | The identifier of a contact.
 householdId | true | The identifier of a household.
 
-## Update or Create new Contact Household Campaing records in bulk
+## Update or Create new Contact Household Campaign records in bulk
 
 > Example Request
 
