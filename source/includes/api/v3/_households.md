@@ -32,7 +32,7 @@ Attribute | Required? | Description
 address | true | Full address.
 streetName | true | Name of the street.
 city | true | Name of the city.
-country | false | Name of the country.
+country | false | Country code in ISO 3166-1 alpha-3 format.
 county | false | Name of the county.
 neighborhood | false | Name of the neighborhood.
 state | false | Name of the state.

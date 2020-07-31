@@ -16,7 +16,7 @@
         "title": "Mr"
       },
       "address": {
-        "country": "United States of America",
+        "country": "USA",
         "position": {
           "type": "Point",
           "coordinates": [
@@ -130,7 +130,7 @@ suffix | false | Name suffix.
 
 Attribute | Required? | Description
 --------- | --------- | -----------
-country | false | Country.
+country | false | Country code in ISO 3166-1 alpha-3 format..
 position | false | Coordinates in [GeoJSON](https://tools.ietf.org/html/rfc7946) format (only `Point` is supported).
 formatted | false | Full address.
 streetAddress | false | Street address decomposed.
@@ -218,7 +218,7 @@ Authorization: Bearer {access_token}
         "title": "Mr"
       },
       "address": {
-        "country": "United States of America",
+        "country": "USA",
         "position": {
           "type": "Point",
           "coordinates": [
@@ -282,7 +282,7 @@ Authorization: Bearer {access_token}
         "title": "Mr"
       },
       "address": {
-        "country": "United States of America",
+        "country": "USA",
         "position": {
           "type": "Point",
           "coordinates": [
@@ -371,7 +371,7 @@ Authorization: Bearer {access_token}
             "title": "Mr"
           },
           "address": {
-            "country": "United States of America",
+            "country": "USA",
             "position": {
               "type": "Point",
               "coordinates": [
@@ -439,7 +439,7 @@ Authorization: Bearer {access_token}
             "title": "Mr"
           },
           "address": {
-            "country": "United States of America",
+            "country": "USA",
             "position": {
               "type": "Point",
               "coordinates": [
@@ -540,7 +540,7 @@ Authorization: Bearer {access_token}
                 "last": "Mertz"
             },
             "address": {
-                "country": "US",
+                "country": "USA",
                 "position": {
                     "type": "Point",
                     "coordinates": [
@@ -626,7 +626,7 @@ ETag: {etag_value}
                 "last": "Mertz"
             },
             "address": {
-                "country": "US",
+                "country": "USA",
                 "position": {
                     "type": "Point",
                     "coordinates": [
@@ -718,7 +718,7 @@ Authorization: Bearer {access_token}
                         "last": "Doe"
                     },
                     "address": {
-                        "country": "United States",
+                        "country": "USA",
                         "position": {
                             "type": "Point",
                             "coordinates": [
